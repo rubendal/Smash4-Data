@@ -26,7 +26,6 @@ class NavigationHeader extends Component {
             this.CharacterLink = "#/Character";
             this.StageLink = "#/Stage";
         }
-        console.log(this.CharacterLink);
         return true;
     }
 
