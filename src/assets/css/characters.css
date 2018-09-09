@@ -1,0 +1,91 @@
+﻿.script-data {
+    padding-bottom: 10px;
+}
+
+/*.script-animation-data {
+    padding-bottom: 10px;
+}*/
+
+.script-hitboxes-data{
+
+}
+
+.script-select{
+    text-align: center;
+}
+
+.script-select select{
+    font-size: 2rem;
+}
+
+#character-main {
+    padding: 0px 15px;
+}
+
+#character-name{
+    text-align: center;
+}
+
+#character-image {
+    width: 250px;
+    height: auto;
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+#related{
+    float:left;
+}
+
+#options{
+    clear: left;
+    float: left;
+    margin-top: 10px;
+    padding-bottom: 25px;
+}
+
+#character-data{
+    clear:both;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+thead{
+    border-bottom: 1px solid black;
+}
+
+td{
+    border:none;
+}
+
+.hitbox-table{
+    width:100%;
+}
+
+.dot-underline{
+    border-bottom: 1px dotted black;
+}
+
+.script {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.7rem;
+    width: 100%;
+    padding: 15px;
+    border: 2px dashed black;
+    /*background: rgb(226, 226, 226);*/
+}
+
+.script-tab {
+    padding-left: 1em;
+}
+
+.script-hidden{
+    display:none;
+}
+
+@media screen and (max-width: 720px) {
+    .script {
+        font-size: 1.4rem;
+    }
+}
