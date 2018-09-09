@@ -5,37 +5,37 @@ class Home extends Component {
       return (
         <div id="main" className="home">
           <span >
-              <a href={process.env.PUBLIC_URL + "/Character"}>
+              <a href="#/Character">
                 <img src={process.env.PUBLIC_URL + "/img/characters.png"} alt="Characters"/>
               </a>
           </span>
 
           <span>
-            <a href={process.env.PUBLIC_URL + "/Stage"}>
+            <a href="#/Stage">
               <img src={process.env.PUBLIC_URL + "/img/stages.png"} alt="Stages"/>
             </a>
           </span>
 
           <span>
-            <a href={process.env.PUBLIC_URL + "/Patch"}>
+            <a href="#/Patch">
               <img src={process.env.PUBLIC_URL + "/img/patches.png"} alt="Patches"/>
             </a>
           </span>
 
           <span>
-            <a href={process.env.PUBLIC_URL + "/Glossary"}>
+            <a href="#/Glossary">
               <img src={process.env.PUBLIC_URL + "/img/glossary.png"} alt="Glossary"/>
             </a>
           </span>
 
           <span>
-            <a href={process.env.PUBLIC_URL + "/Resources"}>
+            <a href="#/Resources">
               <img src={process.env.PUBLIC_URL + "/img/resources.png"} alt="Resources"/>
             </a>
           </span>
 
           <span>
-            <a href={process.env.PUBLIC_URL + "/About"}>
+            <a href="#/About">
               <img src={process.env.PUBLIC_URL + "/img/about.png"} alt="About"/>
             </a>
           </span>

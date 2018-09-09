@@ -13,6 +13,11 @@ class CharacterList extends Component {
 
     var ref = this;
 
+    this.path = "#/Character/";
+    if(props.match.params.patch !== undefined){
+      this.path = `#/Patch/${this.state.patch}/Character/`;
+    }
+
     axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/characters.json').then(function(res){
       var json = res.data;
 
@@ -43,7 +48,7 @@ class CharacterList extends Component {
           this.state.list.map((character) =>{
             return (
             <span className="character-span" key={character.Name}>
-              <a href={"./Character/" + character.Name}>
+              <a href={this.path + character.Name}>
                     <img className={`character-list series-${character.Series} ${character.Name.toLowerCase().replace(/ /g,"-").replace(/\./g,"").replace("&","and")}`}
                     src={process.env.PUBLIC_URL + "/img/characters/" + character.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png"} alt={character.Name} />
                 </a>

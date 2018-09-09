@@ -17,7 +17,7 @@ class PatchList extends Component{
           this.state.versions.map((version) =>{
             return (
             <span className="version-span" key={version}>
-              <a href={"./Patch/" + version + "/Character"}>
+              <a href={"#/Patch/" + version + "/Character"}>
                     <img className="version-img" src={process.env.PUBLIC_URL + "/img/patches/" + version + ".png"} alt={version}/>
                     <span className="version-label">{version}</span>
                     {

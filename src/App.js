@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 
 import Header from './Header'
 import NavigationHeader from './NavigationHeader'
@@ -16,34 +16,34 @@ import PatchList from './components/PatchList';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <HashRouter>
         <div>
           <Header/>
 
           <Switch>
-            <Route path={process.env.PUBLIC_URL + "/patch/:patch"} component={NavigationHeader}/>
+            <Route path="/patch/:patch" component={NavigationHeader}/>
             <Route component={NavigationHeader}/>
           </Switch>
 
           <Switch>            
-            <Route exact path={process.env.PUBLIC_URL + "/index.html"} component={Home}/>
-            <Route exact path={process.env.PUBLIC_URL + "/glossary"} component={Glossary}/>
-            <Route exact path={process.env.PUBLIC_URL + "/resources"} component={Resources}/>
-            <Route exact path={process.env.PUBLIC_URL + "/about"} component={About}/>
+            <Route exact path="/index.html" component={Home}/>
+            <Route exact path="/glossary" component={Glossary}/>
+            <Route exact path="/resources" component={Resources}/>
+            <Route exact path="/about" component={About}/>
 
-            <Route exact path={process.env.PUBLIC_URL + "/character"} component={CharacterList}/>
-            <Route exact path={process.env.PUBLIC_URL + "/character/:name"} component={CharacterView}/>
-            <Route exact path={process.env.PUBLIC_URL + "/stage"} component={StageList}/>
-            <Route exact path={process.env.PUBLIC_URL + "/stage/:name"} component={StageView}/>
+            <Route exact path="/character" component={CharacterList}/>
+            <Route exact path="/character/:name" component={CharacterView}/>
+            <Route exact path="/stage" component={StageList}/>
+            <Route exact path="/stage/:name" component={StageView}/>
 
-            <Route exact path={process.env.PUBLIC_URL + "/patch"} component={PatchList}/>
-            <Route exact path={process.env.PUBLIC_URL + "/patch/:patch/character"} component={CharacterList}/>
-            <Route exact path={process.env.PUBLIC_URL + "/patch/:patch/character/:name"} component={CharacterView}/>
+            <Route exact path="/patch" component={PatchList}/>
+            <Route exact path="/patch/:patch/character" component={CharacterList}/>
+            <Route exact path="/patch/:patch/character/:name" component={CharacterView}/>
             
-            <Route exact path={process.env.PUBLIC_URL + "/"} component={Home}/>
+            <Route exact path="/" component={Home}/>
           </Switch>
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }
