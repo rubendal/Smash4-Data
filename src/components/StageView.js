@@ -100,7 +100,7 @@ class StageView extends Component{
         }else{
             if(this.state.error !== undefined){
               return (
-                <div id="stage-main"><ImageMessage message={this.state.error} image="/img/error.png" alt="Error" class="invalid-img"></ImageMessage></div>
+                <div id="stage-main"><ImageMessage message={this.state.error} image={process.env.PUBLIC_URL + "/img/error.png"} alt="Error" class="invalid-img"></ImageMessage></div>
                 );
             }else{
               return (

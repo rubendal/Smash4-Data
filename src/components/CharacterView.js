@@ -253,7 +253,7 @@ class CharacterView extends Component {
     }else{
       if(this.state.error !== undefined){
         return (
-          <div id="character-main"><ImageMessage message={this.state.error} image="/img/error.png" alt="Error" class="invalid-char-image"></ImageMessage></div>
+          <div id="character-main"><ImageMessage message={this.state.error} image={process.env.PUBLIC_URL +"/img/error.png"} alt="Error" class="invalid-char-image"></ImageMessage></div>
           );
       }else{
         return (

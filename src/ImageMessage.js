@@ -4,14 +4,14 @@ class ImageMessage extends Component {
   constructor(props){
     super(props);
 
-    this.image = props.image === undefined ? "/img/darkpit-wait2.gif" : props.image;
+    this.image = props.image === undefined ? process.env.PUBLIC_URL + "/img/darkpit-wait2.gif" : props.image;
     this.alt = props.alt === undefined ? "Loading" : props.alt;
     this.message = props.message !== undefined ? props.message : "Loading...";
     this.class = props.class === undefined ? "loading-image" : "";
   }
 
   shouldComponentUpdate(props, state){
-    this.image = props.image === undefined ? "/img/darkpit-wait2.gif" : props.image;
+    this.image = props.image === undefined ? process.env.PUBLIC_URL + "/img/darkpit-wait2.gif" : props.image;
     this.alt = props.alt === undefined ? "Loading" : props.alt;
     this.message = props.message !== undefined ? props.message : "Loading...";
     this.class = props.class === undefined ? "loading-image" : props.class;
