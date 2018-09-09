@@ -8,8 +8,8 @@ class NavigationHeader extends Component {
             version : null
         };
 
-        this.CharacterLink = "/#Character";
-        this.StageLink = "/#Stage";
+        this.CharacterLink = "#/Character";
+        this.StageLink = "#/Stage";
 
         if(props.match !== undefined && props.match.params.patch !== undefined){
             this.state.version = props.match.params.patch
@@ -23,8 +23,8 @@ class NavigationHeader extends Component {
             this.CharacterLink = "#/Patch/" + state.version + "/Character";
             //this.StageLink = "/#Patch/" + state.version + "/Stage";
         }else{
-            this.CharacterLink = "/#Character";
-            this.StageLink = "/#Stage";
+            this.CharacterLink = "#/Character";
+            this.StageLink = "#/Stage";
         }
         console.log(this.CharacterLink);
         return true;
