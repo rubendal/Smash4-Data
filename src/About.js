@@ -13,12 +13,12 @@ class About extends Component {
         This site is an <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">improved version of the Script Viewer on the Sm4sh Calculator</a> which 
         allows viewing Animcmd scripts on a browser to view them anywhere, this site attempts to give more data available about 
         the characters like animations length, intangibility/FAF params and tables with all hitbox parameters on each patch as well as other game data like 
-        stages
+        stage's lvd file data (collisions, camera bounds, blast zones, character and item spawns and character respawns)
         <br/>
         <br/>
-        This web app was also designed for Smash Ultimate, when tools for reading game data are released for this game it would only require 
-        modifying the script which processes the files that are used in this app to display the data, doing this for Smash 4 allows testing the site 
-        and getting feedback
+        This app was designed for Smash Ultimate but doing it for Smash 4 as well for testing and getting feedback. The objective of making it is 
+        to allow viewing the game's data as soon as the tools needed to read the game files are available and the data can be interpreted by researchers 
+        (example: knowing which values are hitbox data) and making it public using a script which parses it and stores it into files this app uses to generate the views that display the data
         <br/>
         <br/>
         <h3>Special Thanks</h3>
