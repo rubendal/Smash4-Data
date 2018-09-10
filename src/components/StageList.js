@@ -61,7 +61,7 @@ class StageList extends Component {
           this.state.omegaList.map((stage) =>{
             return (
             <span className="stage-span" key={stage.name}>
-              <a href={"./Stage/Omega " + stage.name}>
+              <a href={"#/Stage/Omega " + stage.name}>
                     <img className={`stage-list`} src={process.env.PUBLIC_URL + "/img/stages_icon/" + stage.name
                     .toLowerCase().replace(/\./g,"")
                     + ".png"} alt={stage.name} />
