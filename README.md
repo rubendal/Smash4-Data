@@ -8,8 +8,9 @@ to allow viewing the game's data as soon as the tools needed to read the game fi
 
 ### Known issues
 
-* Cloud's final hit of Cross Slash hitbox is missing on the true condition
-* Peach's Fsmash hitboxes
+* Cloud's final hit of Cross Slash hitbox is missing on the true condition (1.1.0 - 1.1.5, fixed on 1.1.6)
+* Grabboxes AirGround value is 0 and hits aerial/grounded is always false (1.1.0 - 1.1.5, fixed on 1.1.6)
+* Peach's Fsmash hitboxes (1.1.0 - 1.1.6, 1.1.6 has less issues but still in progress)
 
 ## Issues and Feedback
 
