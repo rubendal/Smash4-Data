@@ -40,9 +40,9 @@ class HurtboxStateView extends Component{
                     </thead>
                     <tbody>
                         {
-                            this.state.list.map(state => {
+                            this.state.list.map((state, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <td>
                                             {state.Frame + 1}
                                         </td>

@@ -40,13 +40,13 @@ class CharacterView extends Component {
 
               if (c === 0)
               {
-                  var c2 = x.HitboxId - y.HitboxId;
-                  if(c2 === 0)
-                  {
-                      return x.HitboxActive.End - y.HitboxActive.End;
-                  }
+                var c2 = x.HitboxActive.End - y.HitboxActive.End;
+                if(c2 === 0)
+                {
+                    return x.HitboxId - y.HitboxId;
+                }
 
-                  return x.HitboxId - y.HitboxId;
+                return c2;
               }
 
               return c;
@@ -57,16 +57,16 @@ class CharacterView extends Component {
         script.Hitboxes.sort((x,y) =>{
           var c = x.HitboxActive.Start - y.HitboxActive.Start;
 
-              if (c === 0)
-              {
-                  var c2 = x.HitboxId - y.HitboxId;
-                  if(c2 === 0)
-                  {
-                      return x.HitboxActive.End - y.HitboxActive.End;
-                  }
+          if (c === 0)
+          {
+            var c2 = x.HitboxActive.End - y.HitboxActive.End;
+            if(c2 === 0)
+            {
+                return x.HitboxId - y.HitboxId;
+            }
 
-                  return x.HitboxId - y.HitboxId;
-              }
+            return c2;
+          }
 
               return c;
         });
