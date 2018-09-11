@@ -374,7 +374,7 @@ class Visualizer extends Component {
 	
 			this.Draw = function () {
 
-				this.DrawGrid();
+				//this.DrawGrid();
 	
 				var stage = this.stage;
 				var context = this.context;

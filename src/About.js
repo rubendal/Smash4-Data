@@ -8,8 +8,7 @@ class About extends Component {
 
         Hi! I'm Ruben and I welcome you to the Smash 4 Data Viewer. 
         I'm a Smash researcher and creator of the Smash Calculator 
-        for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>, 
-        and this site.
+        for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>.
         This site is based on the <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">Sm4sh Calculator script viewer</a> which 
         allows viewing Animcmd scripts on a browser to view them anywhere, this site attempts to give more data available about 
         the characters like animations length, intangibility/FAF and tables with all hitbox parameters as well as other game data like 
