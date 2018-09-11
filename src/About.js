@@ -10,9 +10,9 @@ class About extends Component {
         I'm a Smash researcher and creator of the Smash Calculator 
         for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>, 
         and this site.
-        This site is an <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">improved version of the Script Viewer on the Sm4sh Calculator</a> which 
+        This site is based on the <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">Sm4sh Calculator script viewer</a> which 
         allows viewing Animcmd scripts on a browser to view them anywhere, this site attempts to give more data available about 
-        the characters like animations length, intangibility/FAF and tables with all hitbox parameters on each patch as well as other game data like 
+        the characters like animations length, intangibility/FAF and tables with all hitbox parameters as well as other game data like 
         stage's lvd file data (collisions, camera bounds, blast zones, character and item spawns and character respawns)
         <br/>
         <br/>
@@ -35,8 +35,8 @@ class About extends Component {
             Struz (<a href="https://twitter.com/StruzSmash">@StruzSmash</a>)
         </h4>
 
-        Smash researcher, <a href="https://struz.github.io/smash-move-viewer">Smash Move Viewer</a> owner and <a href="https://github.com/jam1garner/Smash-Forge">Smash Forge</a> dev focused on hitbox visualization. Hitbox data parsing was done using 
-        his work on Animcmd script processing on Smash Forge as a base for storing hitbox data with accurate hitbox active frames
+        Smash researcher, <a href="https://struz.github.io/smash-move-viewer">Smash Move Viewer</a> owner and <a href="https://github.com/jam1garner/Smash-Forge">Smash Forge</a> dev focused on hitbox visualization. Script for hitbox data parsing 
+        used for this app was based on his work on Smash Forge Animcmd script processing
 
         <br/><br/>
         <h4>
