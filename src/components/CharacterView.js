@@ -4,6 +4,7 @@ import axios from 'axios';
 import ImageMessage from '../ImageMessage';
 import Patches from '../assets/patches.json';
 import ScriptView from './ScriptView'
+import {ToHex} from '../util/util';
 
 class CharacterView extends Component {
   constructor(props){
@@ -235,7 +236,8 @@ class CharacterView extends Component {
                   if(!this.state.displayHitboxesOnly || (this.state.displayHitboxesOnly && script.Hitboxes.length > 0)){
                     return (
                       <option value={index} key={`script-${script.Id}`}>
-                        {script.Article === "body" ? script.AnimationName : `weapon/${script.Article}/${script.AnimationName}`}
+                        {script.Article === "body" ? (script.AnimationName === ToHex(script.Hash) ? script.AnimationName : `${script.AnimationName} - ${ToHex(script.Hash)}`) 
+                        : `weapon/${script.Article}/${script.AnimationName}`}
                       </option>
                     );
                   }
