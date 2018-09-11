@@ -9,7 +9,7 @@ class Header extends Component {
             <div id="header-cont">
                 <img id="header-icon" className="header-image invert" src={Icon} alt="Icon" />
                 <div id="header-text">
-                    <a className="hide-link" href="#/"><h3>Smash 4 Data</h3></a>
+                    <a className="hide-link" href="#/"><h3>Smash 4 Data Viewer</h3></a>
                     <br />
                     <span className="description"></span>
                     <br />

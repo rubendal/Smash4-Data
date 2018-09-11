@@ -6,13 +6,13 @@ class About extends Component {
       <div id="main" className="about">
         <h3>About</h3>
 
-        Hi! I'm Ruben and I welcome you to the Smash Data Viewer. 
+        Hi! I'm Ruben and I welcome you to the Smash 4 Data Viewer. 
         I'm a Smash researcher and creator of the Smash Calculator 
         for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>, 
         and this site.
         This site is an <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">improved version of the Script Viewer on the Sm4sh Calculator</a> which 
         allows viewing Animcmd scripts on a browser to view them anywhere, this site attempts to give more data available about 
-        the characters like animations length, intangibility/FAF params and tables with all hitbox parameters on each patch as well as other game data like 
+        the characters like animations length, intangibility/FAF and tables with all hitbox parameters on each patch as well as other game data like 
         stage's lvd file data (collisions, camera bounds, blast zones, character and item spawns and character respawns)
         <br/>
         <br/>
