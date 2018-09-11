@@ -184,3 +184,20 @@ export function ParseScriptCondition(condition, value){
         return "?";
     }
 }
+
+export function ParseHurtboxState(state){
+    switch(state){
+        case 0:
+            return "Normal";
+        case 1:
+            return "Invincible";
+        case 2:
+            return "Intangible";
+        case 10:
+            return "Super Armor enabled";
+        case 11:
+            return "Super Armor disabled"
+        default:
+            return "";
+    }
+}

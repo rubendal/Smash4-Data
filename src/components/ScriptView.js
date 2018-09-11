@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {ToHex, IsScriptEmpty, BuildScript} from '../util/util';
 import Parser from 'html-react-parser';
 import HitboxesView from './HitboxesView';
+import HurtboxModeView from './HurtboxStateView';
 
 class ScriptView extends Component {
   constructor(props){
@@ -90,13 +91,13 @@ class ScriptView extends Component {
             )
             }
             {
-                this.state.script.Animation !== null && this.state.script.FAF !== this.state.script.Animation.Params.FAF && (
+                this.state.script.FAF !== this.state.script.Params.FAF && (
                 <tr>
                     <td>
                         FAF (without FSM)
                     </td>
                     <td>
-                        {this.state.script.Animation.Params.FAF}
+                        {this.state.script.Params.FAF}
                     </td>
                 </tr>
             )
@@ -114,27 +115,27 @@ class ScriptView extends Component {
                 )
             }
             {
-                this.state.script.Animation !== null && this.state.script.Animation.Params !== null && this.state.script.Animation.Params.IntangibilityStart !== 0 && (
+                this.state.script.Params !== null && this.state.script.Params.IntangibilityStart !== 0 && (
 
                     <tr>
                         <td>
                         Intangibility Start Frame
                         </td>
                         <td>
-                            {this.state.script.Animation.Params.IntangibilityStart}
+                            {this.state.script.Params.IntangibilityStart}
                         </td>
                     </tr>
                 )
             }
             {
-                this.state.script.Animation !== null && this.state.script.Animation.Params !== null && this.state.script.Animation.Params.IntangibilityEnd !== 0 && (
+                this.state.script.Params !== null && this.state.script.Params.IntangibilityEnd !== 0 && (
 
                     <tr>
                         <td>
                         Intangibility End Frame
                         </td>
                         <td>
-                            {this.state.script.Animation.Params.IntangibilityEnd}
+                            {this.state.script.Params.IntangibilityEnd}
                         </td>
                     </tr>
                 )
@@ -142,6 +143,12 @@ class ScriptView extends Component {
         </tbody>
         </table>
         </div>
+
+        {
+            this.state.script.HurtboxesStates !== undefined && this.state.script.HurtboxesStates.length > 0 && (
+                <HurtboxModeView list={this.state.script.HurtboxesStates}></HurtboxModeView>
+            )
+        }
 
         {
             this.state.script.Hitboxes.length > 0 && (
