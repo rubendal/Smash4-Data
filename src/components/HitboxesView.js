@@ -18,6 +18,8 @@ class HitboxesView extends Component {
 
     this.state = {
       scriptId : props.scriptId,
+      scriptName : props.scriptName,
+      WeightDependentThrows : props.weightDependentThrows,
       Hitboxes : props.hitboxes.filter(h => h.$type === "Hitbox"),
       SpecialHitboxes : props.hitboxes.filter(h => h.$type === "SpecialHitbox"),
       ExtendedHitboxes : props.hitboxes.filter(h => h.$type === "ExtendedHitbox"),
@@ -35,6 +37,7 @@ class HitboxesView extends Component {
     if (props.scriptId !== state.scriptId) {
       return {
         scriptId : props.scriptId,
+        scriptName : props.scriptName,
         Hitboxes : props.hitboxes.filter(h => h.$type === "Hitbox"),
         SpecialHitboxes : props.hitboxes.filter(h => h.$type === "SpecialHitbox"),
         ExtendedHitboxes : props.hitboxes.filter(h => h.$type === "ExtendedHitbox"),
@@ -97,7 +100,7 @@ class HitboxesView extends Component {
         }
         {
           this.state.Throws.length > 0 && (
-            <ThrowView hitboxes={this.state.Throws}></ThrowView>
+            <ThrowView hitboxes={this.state.Throws} scriptName={this.state.scriptName} WeightDependentThrows={this.state.WeightDependentThrows}></ThrowView>
           )
         }
         {

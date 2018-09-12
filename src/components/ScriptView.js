@@ -9,7 +9,8 @@ class ScriptView extends Component {
     super(props);
 
     this.state = {
-        script : props.script
+        script : props.script,
+        WeightDependentThrows : props.WeightDependentThrows
     };
   }
 
@@ -152,7 +153,7 @@ class ScriptView extends Component {
 
         {
             this.state.script.Hitboxes.length > 0 && (
-                <HitboxesView scriptId={this.state.script.Id} hitboxes={this.state.script.Hitboxes}></HitboxesView>
+                <HitboxesView scriptId={this.state.script.Id} scriptName={this.state.script.AnimationName} hitboxes={this.state.script.Hitboxes} weightDependentThrows={this.state.WeightDependentThrows}></HitboxesView>
             )
         }
 

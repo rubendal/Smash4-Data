@@ -79,7 +79,8 @@ class CharacterView extends Component {
           script : scripts[0],
           scriptIndex : 0,
           allScripts: scripts.concat(weapons),
-          displayHitboxesOnly : prevState.displayHitboxesOnly
+          displayHitboxesOnly : prevState.displayHitboxesOnly,
+          throws : json.WeightDependentThrows
         })
       );
     })
@@ -133,16 +134,16 @@ class CharacterView extends Component {
         script.Hitboxes.sort((x,y) =>{
           var c = x.HitboxActive.Start - y.HitboxActive.Start;
 
-              if (c === 0)
+            if (c === 0)
+            {
+              var c2 = x.HitboxActive.End - y.HitboxActive.End;
+              if(c2 === 0)
               {
-                  var c2 = x.HitboxId - y.HitboxId;
-                  if(c2 === 0)
-                  {
-                      return x.HitboxActive.End - y.HitboxActive.End;
-                  }
-
                   return x.HitboxId - y.HitboxId;
               }
+
+              return c2;
+            }
 
               return c;
         });
@@ -152,16 +153,16 @@ class CharacterView extends Component {
         script.Hitboxes.sort((x,y) =>{
           var c = x.HitboxActive.Start - y.HitboxActive.Start;
 
-              if (c === 0)
+            if (c === 0)
+            {
+              var c2 = x.HitboxActive.End - y.HitboxActive.End;
+              if(c2 === 0)
               {
-                  var c2 = x.HitboxId - y.HitboxId;
-                  if(c2 === 0)
-                  {
-                      return x.HitboxActive.End - y.HitboxActive.End;
-                  }
-
                   return x.HitboxId - y.HitboxId;
               }
+
+              return c2;
+            }
 
               return c;
         });
@@ -173,7 +174,8 @@ class CharacterView extends Component {
           scriptIndex : 0,
           data : prevState.data,
           allScripts : scripts.concat(weapons),
-          displayHitboxesOnly : !prevState.displayHitboxesOnly
+          displayHitboxesOnly : !prevState.displayHitboxesOnly,
+          throws : prevState.throws
         })
       );
     }
@@ -189,7 +191,8 @@ class CharacterView extends Component {
           scriptIndex : val,
           data: prevState.data,
           allScripts : prevState.allScripts,
-          displayHitboxesOnly : prevState.displayHitboxesOnly
+          displayHitboxesOnly : prevState.displayHitboxesOnly,
+          throws : prevState.throws
         })
       );
     }
@@ -247,7 +250,7 @@ class CharacterView extends Component {
             </select>
             </div>
 
-          <ScriptView script={this.state.script}/>
+          <ScriptView script={this.state.script} WeightDependentThrows={this.state.throws}/>
         </div>
 
     </div>
