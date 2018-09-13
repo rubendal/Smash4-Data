@@ -71,9 +71,9 @@ class StageView extends Component{
                 <div id="stage-main">
                     <h2 id="stage-name">{this.state.stage.stage.includes("Omega ") ? "Omega " + this.state.stage.name : this.state.stage.name}</h2>
                     <div className="stage-img-container">
-                        <img className={`stage-view`} src={process.env.PUBLIC_URL + "/img/stages/" + this.state.stage.name
+                        <img className={`stage-view`} src={require("../assets/img/stages/" + this.state.stage.name
                         .toLowerCase().replace(/\./g,"")
-                        + ".png"} alt={this.state.stage.name} />
+                        + ".png")} alt={this.state.stage.name} />
                     </div>
                     {
                       this.state.data.length > 1 && (
@@ -100,7 +100,7 @@ class StageView extends Component{
         }else{
             if(this.state.error !== undefined){
               return (
-                <div id="stage-main"><ImageMessage message={this.state.error} image={process.env.PUBLIC_URL + "/img/error.png"} alt="Error" class="invalid-img"></ImageMessage></div>
+                <div id="stage-main"><ImageMessage message={this.state.error} image={"error.png"} alt="Error" class="invalid-img"></ImageMessage></div>
                 );
             }else{
               return (

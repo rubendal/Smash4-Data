@@ -3,8 +3,7 @@ import '../assets/css/characters.css';
 import axios from 'axios';
 import ImageMessage from '../ImageMessage';
 import Patches from '../assets/patches.json';
-import ScriptView from './ScriptView'
-import {ToHex} from '../util/util';
+import ScriptList from './ScriptList';
 
 class CharacterView extends Component {
   constructor(props){
@@ -12,7 +11,6 @@ class CharacterView extends Component {
 
     this.state = {
       patch : props.match.params.patch === undefined ? Patches.latest : props.match.params.patch,
-      displayHitboxesOnly : true
     };
 
     var ref = this;
@@ -22,65 +20,11 @@ class CharacterView extends Component {
 
       var data = json;
 
-      var scripts = data.Scripts.filter(script => script.Article === "body" && script.Hash !== 0 && script.Hitboxes.length > 0);
-      var weapons = data.Scripts.filter(script => script.Article !== "body" && script.Hash !== 0 && script.Hitboxes.length > 0);
-
-      scripts.sort((x,y) =>{
-        return x.SubactionIndex - y.SubactionIndex;
-      });
-
-      weapons.sort((x,y) =>{
-        return x.SubactionIndex - y.SubactionIndex;
-      });
-
-      //Sort Hitboxes by Hitbox Active frames and Id
-
-      scripts.forEach(script => {
-        script.Hitboxes.sort((x,y) =>{
-          var c = x.HitboxActive.Start - y.HitboxActive.Start;
-
-              if (c === 0)
-              {
-                var c2 = x.HitboxActive.End - y.HitboxActive.End;
-                if(c2 === 0)
-                {
-                    return x.HitboxId - y.HitboxId;
-                }
-
-                return c2;
-              }
-
-              return c;
-        });
-      });
-
-      weapons.forEach(script => {
-        script.Hitboxes.sort((x,y) =>{
-          var c = x.HitboxActive.Start - y.HitboxActive.Start;
-
-          if (c === 0)
-          {
-            var c2 = x.HitboxActive.End - y.HitboxActive.End;
-            if(c2 === 0)
-            {
-                return x.HitboxId - y.HitboxId;
-            }
-
-            return c2;
-          }
-
-              return c;
-        });
-      });
       
       ref.setState(prevState => (
         {
           data : data,
-          script : scripts[0],
-          scriptIndex : 0,
-          allScripts: scripts.concat(weapons),
-          displayHitboxesOnly : prevState.displayHitboxesOnly,
-          throws : json.WeightDependentThrows
+          patch : prevState.patch
         })
       );
     })
@@ -105,107 +49,16 @@ class CharacterView extends Component {
     
   }
   
-  handleDisplayChange(){
-    if(this.state.data !== undefined){
-      var scripts = [];
-      var weapons = [];
-
-      if(!this.state.displayHitboxesOnly)
-      {
-        scripts = this.state.data.Scripts.filter(script => script.Article === "body" && script.Hash !== 0 && script.Hitboxes.length > 0);
-        weapons = this.state.data.Scripts.filter(script => script.Article !== "body" && script.Hash !== 0 && script.Hitboxes.length > 0);
-      }else
-      {
-        scripts = this.state.data.Scripts.filter(script => script.Article === "body" && script.Hash !== 0);
-        weapons = this.state.data.Scripts.filter(script => script.Article !== "body" && script.Hash !== 0);
-      }
-
-      scripts.sort((x,y) =>{
-        return x.SubactionIndex - y.SubactionIndex;
-      });
-
-      weapons.sort((x,y) =>{
-        return x.SubactionIndex - y.SubactionIndex;
-      });
-
-      //Sort Hitboxes by Hitbox Active frames and Id
-
-      scripts.forEach(script => {
-        script.Hitboxes.sort((x,y) =>{
-          var c = x.HitboxActive.Start - y.HitboxActive.Start;
-
-            if (c === 0)
-            {
-              var c2 = x.HitboxActive.End - y.HitboxActive.End;
-              if(c2 === 0)
-              {
-                  return x.HitboxId - y.HitboxId;
-              }
-
-              return c2;
-            }
-
-              return c;
-        });
-      });
-
-      weapons.forEach(script => {
-        script.Hitboxes.sort((x,y) =>{
-          var c = x.HitboxActive.Start - y.HitboxActive.Start;
-
-            if (c === 0)
-            {
-              var c2 = x.HitboxActive.End - y.HitboxActive.End;
-              if(c2 === 0)
-              {
-                  return x.HitboxId - y.HitboxId;
-              }
-
-              return c2;
-            }
-
-              return c;
-        });
-      });
-      
-      this.setState(prevState => (
-        {
-          script: scripts[0],
-          scriptIndex : 0,
-          data : prevState.data,
-          allScripts : scripts.concat(weapons),
-          displayHitboxesOnly : !prevState.displayHitboxesOnly,
-          throws : prevState.throws
-        })
-      );
-    }
-  }
-
-  ChangeScript(event){
-    if(event && event.target && event.target.value){
-      event.persist();
-      var val = event.target.value;
-      this.setState(prevState => (
-        {
-          script: prevState.allScripts[val],
-          scriptIndex : val,
-          data: prevState.data,
-          allScripts : prevState.allScripts,
-          displayHitboxesOnly : prevState.displayHitboxesOnly,
-          throws : prevState.throws
-        })
-      );
-    }
-  }
+  
 
   render() {
-    if(this.state.data !== undefined && this.state.allScripts !== undefined){
+    if(this.state.data !== undefined){
     return (
       <div id="character-main">
 
         <h2 id="character-name">{this.state.data.Name}</h2>
 
-        <img id="character-image" src={process.env.PUBLIC_URL + "/img/renders/" + this.state.data.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png"} alt={this.state.data.Name} />
+        <img id="character-image" src={require("../assets/img/renders/" + this.state.data.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png")} alt={this.state.data.Name} />
 
         <div id="related">
             <h4>Related sites</h4>
@@ -223,42 +76,14 @@ class CharacterView extends Component {
                 </table>
             </div>
 
-            <div id="options">
-            <h4>Options</h4>
-              <input type="checkbox" onChange={() => this.handleDisplayChange()} checked={this.state.displayHitboxesOnly}/> Only display scripts with hitboxes
-            </div>
-
-            
-
-        <div id="character-data">
-        <div className="script-select">
-          <h3>Script</h3>
-            <select value={this.state.scriptIndex} onChange={(e) => this.ChangeScript(e)}>
-              {
-                this.state.allScripts.map((script,index) => {
-                  if(!this.state.displayHitboxesOnly || (this.state.displayHitboxesOnly && script.Hitboxes.length > 0)){
-                    return (
-                      <option value={index} key={`script-${script.Id}`}>
-                        {script.Article === "body" ? (script.AnimationName === ToHex(script.Hash) ? script.AnimationName : `${script.AnimationName} - ${ToHex(script.Hash)}`) 
-                        : `weapon/${script.Article}/${script.AnimationName}`}
-                      </option>
-                    );
-                  }
-                  return null;
-                })
-              }
-            </select>
-            </div>
-
-          <ScriptView script={this.state.script} WeightDependentThrows={this.state.throws}/>
-        </div>
+            <ScriptList patch={this.state.patch} data={this.state.data}/>
 
     </div>
     );
     }else{
       if(this.state.error !== undefined){
         return (
-          <div id="character-main"><ImageMessage message={this.state.error} image={process.env.PUBLIC_URL +"/img/error.png"} alt="Error" class="invalid-char-image"></ImageMessage></div>
+          <div id="character-main"><ImageMessage message={this.state.error} image={"error.png"} alt="Error" class="invalid-char-image"></ImageMessage></div>
           );
       }else{
         return (

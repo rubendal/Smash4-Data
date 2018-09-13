@@ -68,18 +68,6 @@ class ScriptView extends Component {
                 )
             }
             {
-                this.state.script.AnimationLength !== 0 && (
-                <tr>
-                    <td>
-                        Animation Length
-                    </td>
-                    <td>
-                        {this.state.script.AnimationLength} frames
-                    </td>
-                </tr>
-                )
-            }
-            {
                 this.state.script.Animation !== null && this.state.script.AnimationLength !== this.state.script.Animation.Length && (
                 <tr>
                     <td>
@@ -102,6 +90,18 @@ class ScriptView extends Component {
                     </td>
                 </tr>
             )
+            }
+            {
+                this.state.script.AnimationLength !== 0 && (
+                <tr>
+                    <td>
+                        Animation Length
+                    </td>
+                    <td>
+                        {this.state.script.AnimationLength} frames
+                    </td>
+                </tr>
+                )
             }
             {
                 this.state.script.FAF !== 0 && (

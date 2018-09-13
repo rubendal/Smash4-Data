@@ -50,7 +50,7 @@ class CharacterList extends Component {
             <span className="character-span" key={character.Name}>
               <a href={this.path + character.Name}>
                     <img className={`character-list series-${character.Series} ${character.Name.toLowerCase().replace(/ /g,"-").replace(/\./g,"").replace("&","and")}`}
-                    src={process.env.PUBLIC_URL + "/img/characters/" + character.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png"} alt={character.Name} />
+                    src={require("../assets/img/characters/" + character.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png")} alt={character.Name} />
                 </a>
             </span>
             )

@@ -48,9 +48,9 @@ class StageList extends Component {
             return (
             <span className="stage-span" key={stage.name}>
               <a href={"#/Stage/" + stage.name}>
-                    <img className={`stage-list`} src={process.env.PUBLIC_URL + "/img/stages_icon/" + stage.name
+                    <img className={`stage-list`} src={require("../assets/img/stages_icon/" + stage.name
                     .toLowerCase().replace(/\./g,"")
-                    + ".png"} alt={stage.name} />
+                    + ".png")} alt={stage.name} />
                 </a>
             </span>
             )
@@ -62,9 +62,9 @@ class StageList extends Component {
             return (
             <span className="stage-span" key={stage.name}>
               <a href={"#/Stage/Omega " + stage.name}>
-                    <img className={`stage-list`} src={process.env.PUBLIC_URL + "/img/stages_icon/" + stage.name
+                    <img className={`stage-list`} src={require("../assets/img/stages_icon/" + stage.name
                     .toLowerCase().replace(/\./g,"")
-                    + ".png"} alt={stage.name} />
+                    + ".png")} alt={stage.name} />
                 </a>
             </span>
             )

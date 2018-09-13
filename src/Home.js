@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Characters from './assets/img/characters.png';
+import Stages from './assets/img/stages.png';
+import Patches from './assets/img/patches.png';
+import Glossary from './assets/img/glossary.png';
+import Resources from './assets/img/resources.png';
+import About from './assets/img/about.png';
 
 class Home extends Component {
     render() {
@@ -6,37 +12,37 @@ class Home extends Component {
         <div id="main" className="home">
           <span >
               <a href="#/Character">
-                <img src={process.env.PUBLIC_URL + "/img/characters.png"} alt="Characters"/>
+                <img src={Characters} alt="Characters"/>
               </a>
           </span>
 
           <span>
             <a href="#/Stage">
-              <img src={process.env.PUBLIC_URL + "/img/stages.png"} alt="Stages"/>
+              <img src={Stages} alt="Stages"/>
             </a>
           </span>
 
           <span>
             <a href="#/Patch">
-              <img src={process.env.PUBLIC_URL + "/img/patches.png"} alt="Patches"/>
+              <img src={Patches} alt="Patches"/>
             </a>
           </span>
 
           <span>
             <a href="#/Glossary">
-              <img src={process.env.PUBLIC_URL + "/img/glossary.png"} alt="Glossary"/>
+              <img src={Glossary} alt="Glossary"/>
             </a>
           </span>
 
           <span>
             <a href="#/Resources">
-              <img src={process.env.PUBLIC_URL + "/img/resources.png"} alt="Resources"/>
+              <img src={Resources} alt="Resources"/>
             </a>
           </span>
 
           <span>
             <a href="#/About">
-              <img src={process.env.PUBLIC_URL + "/img/about.png"} alt="About"/>
+              <img src={About} alt="About"/>
             </a>
           </span>
         </div>

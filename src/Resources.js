@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import KH from './assets/img/resources/kh.png';
+import MoveViewer from './assets/img/resources/move_viewer.png';
+import Calculator from './assets/img/resources/calculator.png';
+import Params from './assets/img/resources/params.png';
+import CharParams from './assets/img/resources/fighter_params.png';
 
 class Resources extends Component{
     render(){
@@ -9,7 +14,7 @@ class Resources extends Component{
                         <tr>
                             <td className="resource-td">
                             <a href="http://kuroganehammer.com/Smash4">
-                                <img src={process.env.PUBLIC_URL + "/img/resources/kh.png"} alt="Kurogane Hammer" className="resource-img"/>
+                                <img src={KH} alt="Kurogane Hammer" className="resource-img"/>
                             </a>
                             </td>
                             <td className="resource-td">
@@ -22,7 +27,7 @@ class Resources extends Component{
                         <tr>
                             <td className="resource-td">
                             <a href="https://struz.github.io/smash-move-viewer">
-                                <img src={process.env.PUBLIC_URL + "/img/resources/move_viewer.png"} alt="Smash Move Viewer" className="resource-img"/>
+                                <img src={MoveViewer} alt="Smash Move Viewer" className="resource-img"/>
                             </a>
                             </td>
                             <td className="resource-td">
@@ -35,7 +40,7 @@ class Resources extends Component{
                         <tr>
                             <td className="resource-td">
                             <a href="https://rubendal.github.io/Sm4sh-Calculator/">
-                                <img src={process.env.PUBLIC_URL + "/img/resources/calculator.png"} alt="Sm4sh Calculator" className="resource-img"/>
+                                <img src={Calculator} alt="Sm4sh Calculator" className="resource-img"/>
                             </a>
                             </td>
                             <td className="resource-td">
@@ -48,7 +53,7 @@ class Resources extends Component{
                         <tr>
                             <td className="resource-td">
                             <a href="https://docs.google.com/spreadsheets/d/1FgOsGYfTD4nQo4jFGJ22nz5baU1xihT5lreNinY5nNQ/edit?pref=2&pli=1#gid=305485435">
-                                <img src={process.env.PUBLIC_URL + "/img/resources/params.png"} alt="Params spreadsheet" className="resource-img"/>
+                                <img src={Params} alt="Params spreadsheet" className="resource-img"/>
                             </a>
                             </td>
                             <td className="resource-td">
@@ -61,7 +66,7 @@ class Resources extends Component{
                         <tr>
                             <td className="resource-td">
                             <a href="https://docs.google.com/spreadsheets/d/1Hx44PGtG5jcko1t_2VCE2QG_D8xzIv0LDMhCeZHGXjA/edit#gid=1104900741">
-                                <img src={process.env.PUBLIC_URL + "/img/resources/fighter_params.png"} alt="Fighter params spreadsheet" className="resource-img"/>
+                                <img src={CharParams} alt="Fighter params spreadsheet" className="resource-img"/>
                             </a>
                             </td>
                             <td className="resource-td">
