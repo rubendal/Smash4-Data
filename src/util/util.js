@@ -193,10 +193,12 @@ export function ParseHurtboxState(state){
             return "Invincible";
         case 2:
             return "Intangible";
+        case 3:
+            return "Invincible/Intangible";
         case 10:
             return "Super Armor enabled";
         case 11:
-            return "Super Armor disabled"
+            return "Super Armor disabled";
         default:
             return "";
     }
