@@ -4,6 +4,7 @@ import axios from 'axios';
 import ImageMessage from '../ImageMessage';
 import Patches from '../assets/patches.json';
 import ScriptList from './ScriptList';
+import ParamList from './ParamList';
 
 class CharacterView extends Component {
   constructor(props){
@@ -11,6 +12,7 @@ class CharacterView extends Component {
 
     this.state = {
       patch : props.match.params.patch === undefined ? Patches.latest : props.match.params.patch,
+      display : "scripts"
     };
 
     var ref = this;
@@ -24,7 +26,8 @@ class CharacterView extends Component {
       ref.setState(prevState => (
         {
           data : data,
-          patch : prevState.patch
+          patch : prevState.patch,
+          display : prevState.display
         })
       );
     })
@@ -48,6 +51,16 @@ class CharacterView extends Component {
 
     
   }
+
+  changeView(view){
+    this.setState(prevState => (
+      {
+        data : prevState.data,
+        patch : prevState.patch,
+        display : view
+      })
+    );
+  }
   
   
 
@@ -59,6 +72,20 @@ class CharacterView extends Component {
         <h2 id="character-name">{this.state.data.Name}</h2>
 
         <img id="character-image" src={require("../assets/img/renders/" + this.state.data.Name.toLowerCase().replace(/\./g,"").replace(/& /g, "") + ".png")} alt={this.state.data.Name} />
+
+
+        <div className="view-selection">
+          <span>
+          <a onClick={() => this.changeView("scripts")}>
+            Scripts
+            </a>
+          </span>
+          <span>
+          <a  onClick={() => this.changeView("fighterparams")}>
+            Fighter Param
+            </a>
+          </span>
+        </div>
 
         <div id="related">
             <h4>Related sites</h4>
@@ -75,19 +102,31 @@ class CharacterView extends Component {
                   </tbody>
                 </table>
             </div>
-
-            <ScriptList patch={this.state.patch} data={this.state.data}/>
+            {
+              this.state.display === "scripts" && (
+                <ScriptList patch={this.state.patch} data={this.state.data}/>
+              )
+            }
+            {
+              this.state.display === "fighterparams" && (
+                <ParamList patch={this.state.patch} data={this.state.data}/>
+              )
+            }
 
     </div>
     );
     }else{
       if(this.state.error !== undefined){
         return (
-          <div id="character-main"><ImageMessage message={this.state.error} image={"error.png"} alt="Error" class="invalid-char-image"></ImageMessage></div>
+          <div id="character-main">
+            <ImageMessage message={this.state.error} image={"error.png"} alt="Error" class="invalid-char-image"></ImageMessage>
+          </div>
           );
       }else{
         return (
-          <div id="character-main"><ImageMessage></ImageMessage></div>
+          <div id="character-main">
+            <ImageMessage></ImageMessage>
+          </div>
           );
       }
       

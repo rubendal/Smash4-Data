@@ -15,7 +15,7 @@ class About extends Component {
         stage's lvd file data (collisions, camera bounds, blast zones, character and item spawns and character respawns)
         <br/>
         <br/>
-        This app was designed for Smash Ultimate but doing it for Smash 4 as well for testing and getting feedback. The objective of making it is 
+        This app was designed for Smash Ultimate but doing it for Smash 4 as well for testing. The objective of making it is 
         to allow viewing the game's data as soon as the tools needed to read the game files are available and the data can be interpreted by researchers 
         (example: knowing which values are hitbox data) and making it public using a script which parses it and stores it into files this app uses to generate the views that display the data
         <br/>
