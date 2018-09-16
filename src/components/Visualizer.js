@@ -102,7 +102,7 @@ class Visualizer extends Component {
 			this.dragging = false;
 			this.prevPosition = { x: 0, y: 0 };
 
-			this.size = window.innerWidth - 30;
+			this.size = window.innerWidth * 0.9;
 			this.canvas.width = this.size;
 			this.canvas.height = this.size * 9 /16;
 			this.canvasSize = { width: this.canvas.width, height: this.canvas.height };	
@@ -124,7 +124,7 @@ class Visualizer extends Component {
 			var visualizer = this;
 
 			this.SetSize = function (size) {
-				this.size = size - 30;
+				this.size = size * 0.9;
 				this.canvas.width = this.size;
 				this.canvas.height = this.size * 9 / 16;
 				this.canvasSize = { width: this.canvas.width, height: this.canvas.height };
