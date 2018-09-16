@@ -36,3 +36,20 @@
     margin:auto;
     left:50%;
 }
+
+@media screen and (max-width: 720px) {
+    .stage-view{
+        width: 100%;
+        height:auto;
+    }
+
+    .visualizer-container{
+        width:100%;
+    }
+
+    #stage-data table{
+        width:100%;
+        margin:unset;
+        left:unset;
+    }
+}

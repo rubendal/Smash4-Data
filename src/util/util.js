@@ -26,10 +26,11 @@ export function IsScriptEmpty(script){
 }
 
 function FormatScript(script){
-    return script
-                .replace(/\r\n/g, "<br/>")
-                .replace(/{<br\/>/g, "{<div class='script-tab'>")
-                .replace(/}<br\/>/g, "</div>}<br/>");
+    return "<span>" + 
+            script
+                .replace(/\r\n/g, "</span><br/><span>")
+                .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
+                .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>");
 }
 
 export function BuildScript(script){

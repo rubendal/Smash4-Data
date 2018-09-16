@@ -92,6 +92,11 @@ td{
     /*background: rgb(226, 226, 226);*/
 }
 
+.script span{
+    display:inline-block;
+    padding-bottom: 4px;
+}
+
 .script-tab {
     padding-left: 1em;
 }
@@ -100,8 +105,20 @@ td{
     display:none;
 }
 
+.param-list td{
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 720px) {
     .script {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+    }
+
+    .script span{
+        padding-bottom: 6px;
+    }
+
+    .script-select select{
+        width:100%;
     }
 }

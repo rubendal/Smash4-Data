@@ -46,7 +46,7 @@ class ParamList extends Component{
     render(){
         return (
             <div>
-            <div id="character-data">
+            <div id="character-data" className="param-list">
             <table>
                 <thead>
                     <tr>
