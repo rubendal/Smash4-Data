@@ -4,27 +4,45 @@ class ImageMessage extends Component {
   constructor(props){
     super(props);
 
-    this.image = props.image === undefined ? "darkpit-wait2.gif" : props.image;
-    this.alt = props.alt === undefined ? "Loading" : props.alt;
-    this.message = props.message !== undefined ? props.message : "Loading...";
-    this.class = props.class === undefined ? "loading-image" : "";
+    this.state = {
+      image : props.image === undefined ? "darkpit-wait2.gif" : props.image,
+      alt : props.alt === undefined ? "Loading" : props.alt,
+      message : props.message !== undefined ? props.message : "Loading...",
+      class : props.class === undefined ? "loading-image" : props.class
+    }
   }
 
-  shouldComponentUpdate(props, state){
+  static getDerivedStateFromProps(props, state) {
+    if (props.image !== state.image ||
+      props.alt !== state.alt ||
+      props.message !== state.message ||
+      props.class !== state.class) {
+      return {
+        image : props.image === undefined ? "darkpit-wait2.gif" : props.image,
+        alt : props.alt === undefined ? "Loading" : props.alt,
+        message : props.message !== undefined ? props.message : "Loading...",
+        class : props.class === undefined ? "loading-image" : props.class
+      };
+    }
+
+    return null;
+  }
+
+  /*shouldComponentUpdate(props, state){
     this.image = props.image === undefined ? "darkpit-wait2.gif" : props.image;
     this.alt = props.alt === undefined ? "Loading" : props.alt;
     this.message = props.message !== undefined ? props.message : "Loading...";
     this.class = props.class === undefined ? "loading-image" : props.class;
     
     return true;
-  }
+  }*/
 
   render() {
     return (
       <div id="message-container">
-        <img className={"message-image " + this.class} src={require(`./assets/img/${this.image}`)} alt={this.alt} />
+        <img className={"message-image " + this.state.class} src={require(`./assets/img/${this.state.image}`)} alt={this.state.alt} />
         <br/>
-        <p className="message-label">{this.message}</p>
+        <p className="message-label">{this.state.message}</p>
       </div>
     );
   }

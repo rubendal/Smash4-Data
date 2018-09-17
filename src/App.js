@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 
-import Header from './Header'
-import NavigationHeader from './NavigationHeader'
-import Home from './Home'
-import About from './About'
-import Glossary from './Glossary'
-import Resources from './Resources'
+import Header from './Header';
+import NavigationHeader from './NavigationHeader';
+import Home from './Home';
+import About from './About';
+import Glossary from './Glossary';
+import Resources from './Resources';
 import CharacterList from './components/CharacterList';
 import CharacterView from './components/CharacterView';
 import StageList from './components/StageList';
-import StageView from './components/StageView'
+import StageView from './components/StageView';
 import PatchList from './components/PatchList';
+
+import ScriptSearch from './components/ScriptSearch';
 
 class App extends Component {
   render() {
@@ -39,6 +41,8 @@ class App extends Component {
             <Route exact path="/patch" component={PatchList}/>
             <Route exact path="/patch/:patch/character" component={CharacterList}/>
             <Route exact path="/patch/:patch/character/:name" component={CharacterView}/>
+
+            <Route exact path="/tool/scriptsearch" component={ScriptSearch}/>
             
             <Route exact path="/" component={Home}/>
           </Switch>
