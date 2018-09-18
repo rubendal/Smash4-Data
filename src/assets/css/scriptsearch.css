@@ -54,3 +54,48 @@ td div{
 .character-result-table{
     text-align: center;
 }
+
+table tr:not(:first-child) td{
+    padding-top: 30px;
+}
+
+.split{
+    float: left;
+    width: 70%;
+}
+
+.search-help{
+    width: 30%;
+    right: 30%;
+    height: 100%;
+    float: right;
+    border-left: 1px solid #000000;
+    padding-left: 10px;
+    padding-right: 1.5%;
+    display: none;
+    padding-bottom: 10px;
+}
+
+.show{
+    display: block;
+}
+
+.bold{
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.example{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+ul li:not(:first-child){
+    padding-top: 10px;
+}
+
+.focus{
+    border-radius: 10px;
+    padding: 3px 6px;
+    background: #f1f1f1;
+}

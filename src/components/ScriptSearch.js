@@ -71,11 +71,12 @@ class ScriptSearch extends Component{
         this.state = {
             patch : props.match.params.patch === undefined ? Patches.latest : props.match.params.patch,
             search : "",
-            scriptFile : "all",
+            scriptFile : "game",
             data : null,
             results : null,
             searchError : null,
-            loading : false
+            loading : false,
+            showHelp : false
         };
 
         var ref = this;
@@ -89,7 +90,8 @@ class ScriptSearch extends Component{
                 data : res.data,
                 results : prevState.results,
                 searchError : null,
-                loading : prevState.loading
+                loading : prevState.loading,
+                showHelp : prevState.showHelp
             }));
         })
         .catch(function(error){
@@ -100,7 +102,7 @@ class ScriptSearch extends Component{
     }
 
     updateInput(event){
-        if(event && event.target && event.target.value){
+        if(event && event.target && event.target.value !== null){
             event.persist();
             this.setState(prevState => ({
                 patch : prevState.patch,
@@ -109,13 +111,14 @@ class ScriptSearch extends Component{
                 data : prevState.data,
                 results : prevState.results,
                 searchError : prevState.searchError,
-                loading : prevState.loading
+                loading : prevState.loading,
+                showHelp : prevState.showHelp
             }));
         }
     }
 
     updateSelect(event){
-        if(event && event.target && event.target.value){
+        if(event && event.target && event.target.value !== null){
             event.persist();
             this.setState(prevState => ({
                 patch : prevState.patch,
@@ -124,131 +127,169 @@ class ScriptSearch extends Component{
                 data : prevState.data,
                 results : prevState.results,
                 searchError : prevState.searchError,
-                loading : prevState.loading
+                loading : prevState.loading,
+                showHelp : prevState.showHelp
             }));
         }
     }
 
     search(){
-        try{
-            var regex = new RegExp(this.state.search, "g");
 
-            var results = [];
+        this.setState(prevState => ({
+            patch : prevState.patch,
+            search : prevState.search,
+            scriptFile : prevState.scriptFile,
+            data : prevState.data,
+            results : null,
+            searchError : prevState.searchError,
+            loading : true,
+            showHelp : prevState.showHelp
+        }));
 
-            this.setState(prevState => ({
-                patch : prevState.patch,
-                search : prevState.search,
-                scriptFile : prevState.scriptFile,
-                data : prevState.data,
-                results : prevState.results,
-                searchError : prevState.searchError,
-                loading : true
-            }));
+        var ref = this;
 
-            for(var c = 0; c < this.state.data.length; c++){
-                //Character
-                var characterResults = {
-                    character : this.state.data[c].Character,
-                    matches: [],
-                    no : 0
-                };
-                for(var i = 0;i < this.state.data[c].Scripts.length; i++){
-                    var temp;
-                    var animname = "";
-                    if(this.state.scriptFile === "game" || this.state.scriptFile === "all"){
-                        temp = CheckScript(regex, this.state.data[c].Scripts[i].Game);
-                        if(temp.hasMatches){
-                            animname = this.state.data[c].Scripts[i].AnimationName;
-                            if(this.state.data[c].Scripts[i].Article !== "body")
-                                animname = this.state.data[c].Scripts[i].Article + "/" + animname;
-                            characterResults.matches.push({
-                                script : animname,
-                                matches : temp.data
-                            });
-                            characterResults.no += temp.data.length;
-                        }
-                    }
-                    if(this.state.scriptFile === "expression" || this.state.scriptFile === "all"){
-                        temp = CheckScript(regex, this.state.data[c].Scripts[i].Expression);
-                        if(temp.hasMatches){
-                            animname = this.state.data[c].Scripts[i].AnimationName;
-                            if(this.state.data[c].Scripts[i].Article !== "body")
-                                animname = this.state.data[c].Scripts[i].Article + "/" + animname;
-                            characterResults.matches.push({
-                                script : animname,
-                                matches : temp.data
-                            });
-                            characterResults.no += temp.data.length;
-                        }
-                    }
-
-                    if(this.state.scriptFile === "effect" || this.state.scriptFile === "all"){
-                        temp = CheckScript(regex, this.state.data[c].Scripts[i].Effect);
-                        if(temp.hasMatches){
-                            animname = this.state.data[c].Scripts[i].AnimationName;
-                            if(this.state.data[c].Scripts[i].Article !== "body")
-                                animname = this.state.data[c].Scripts[i].Article + "/" + animname;
-                            characterResults.matches.push({
-                                script : animname,
-                                matches : temp.data
-                            });
-                            characterResults.no += temp.data.length;
-                        }
-                    }
-
-                    if(this.state.scriptFile === "sound" || this.state.scriptFile === "all"){
-                        temp = CheckScript(regex, this.state.data[c].Scripts[i].Sound);
-                        if(temp.hasMatches){
-                            animname = this.state.data[c].Scripts[i].AnimationName;
-                            if(this.state.data[c].Scripts[i].Article !== "body")
-                                animname = this.state.data[c].Scripts[i].Article + "/" + animname;
-                            characterResults.matches.push({
-                                script : animname,
-                                matches : temp.data
-                            });
-                            characterResults.no += temp.data.length;
-                        }
-                    }
-
+        new Promise(function(resolve, reject){
+            try{
+                
+                if(ref.state.search === ""){
+                    reject("Empty search regex");
+                    return;
                 }
-                if(characterResults.matches.length > 0){
-                    results.push(characterResults);
+
+                var regex = new RegExp(ref.state.search, "g");
+    
+                var results = [];
+    
+                for(var c = 0; c < ref.state.data.length; c++){
+                    //Character
+                    var characterResults = {
+                        character : ref.state.data[c].Character,
+                        matches: [],
+                        no : 0
+                    };
+                    for(var i = 0;i < ref.state.data[c].Scripts.length; i++){
+                        var temp;
+                        var animname = "";
+                        if(ref.state.scriptFile === "game" || ref.state.scriptFile === "all"){
+                            temp = CheckScript(regex, ref.state.data[c].Scripts[i].Game);
+                            if(temp.hasMatches){
+                                animname = ref.state.data[c].Scripts[i].AnimationName;
+                                if(ref.state.data[c].Scripts[i].Article !== "body")
+                                    animname = ref.state.data[c].Scripts[i].Article + "/" + animname;
+                                characterResults.matches.push({
+                                    script : animname,
+                                    file : "Game",
+                                    matches : temp.data
+                                });
+                                characterResults.no += temp.data.length;
+                            }
+                        }
+                        if(ref.state.scriptFile === "expression" || ref.state.scriptFile === "all"){
+                            temp = CheckScript(regex, ref.state.data[c].Scripts[i].Expression);
+                            if(temp.hasMatches){
+                                animname = ref.state.data[c].Scripts[i].AnimationName;
+                                if(ref.state.data[c].Scripts[i].Article !== "body")
+                                    animname = ref.state.data[c].Scripts[i].Article + "/" + animname;
+                                characterResults.matches.push({
+                                    script : animname,
+                                    file : "Expression",
+                                    matches : temp.data
+                                });
+                                characterResults.no += temp.data.length;
+                            }
+                        }
+    
+                        if(ref.state.scriptFile === "effect" || ref.state.scriptFile === "all"){
+                            temp = CheckScript(regex, ref.state.data[c].Scripts[i].Effect);
+                            if(temp.hasMatches){
+                                animname = ref.state.data[c].Scripts[i].AnimationName;
+                                if(ref.state.data[c].Scripts[i].Article !== "body")
+                                    animname = ref.state.data[c].Scripts[i].Article + "/" + animname;
+                                characterResults.matches.push({
+                                    script : animname,
+                                    file : "Effect",
+                                    matches : temp.data
+                                });
+                                characterResults.no += temp.data.length;
+                            }
+                        }
+    
+                        if(ref.state.scriptFile === "sound" || ref.state.scriptFile === "all"){
+                            temp = CheckScript(regex, ref.state.data[c].Scripts[i].Sound);
+                            if(temp.hasMatches){
+                                animname = ref.state.data[c].Scripts[i].AnimationName;
+                                if(ref.state.data[c].Scripts[i].Article !== "body")
+                                    animname = ref.state.data[c].Scripts[i].Article + "/" + animname;
+                                characterResults.matches.push({
+                                    script : animname,
+                                    file : "Sound",
+                                    matches : temp.data
+                                });
+                                characterResults.no += temp.data.length;
+                            }
+                        }
+    
+                    }
+                    if(characterResults.matches.length > 0){
+                        results.push(characterResults);
+                    }
                 }
+    
+                resolve(results);
             }
-
-            this.setState(prevState => ({
+            catch(e){
+                reject("Invalid regex");
+            }
+        })
+        .then(function(res){
+            ref.setState(prevState => ({
                 patch : prevState.patch,
                 search : prevState.search,
                 scriptFile : prevState.scriptFile,
                 data : prevState.data,
-                results : results,
+                results : res,
                 searchError : null,
-                loading : false
+                loading : false,
+                showHelp : prevState.showHelp
             }));
-        }
-        catch(e){
-            this.setState(prevState => ({
+        },
+        function(error){
+            ref.setState(prevState => ({
                 patch : prevState.patch,
                 search : prevState.search,
                 scriptFile : prevState.scriptFile,
                 data : prevState.data,
                 results : null,
-                searchError : "Invalid regex",
-                loading : false
+                searchError : error,
+                loading : false,
+                showHelp : prevState.showHelp
             }));
-        }
+        });
+    }
+
+    toggleHelp(){
+        this.setState(prevState => ({
+            patch : prevState.patch,
+            search : prevState.search,
+            scriptFile : prevState.scriptFile,
+            data : prevState.data,
+            results : prevState.results,
+            searchError : prevState.searchError,
+            loading : prevState.loading,
+            showHelp : !prevState.showHelp
+        }));
     }
 
     render(){
         if(this.state.data !== null){
             return (
-                <div id="character-main">
-                    <div className="script-search">
+                <div id="search-main">
+                    <div className={"script-search " + (this.state.showHelp ? "split" : "")}>
                         <span>
                             <input type="text" name="regex" className="search" value={this.state.search} onChange={(e) => this.updateInput(e)} placeholder="Regex"/>
                             <select value={this.state.scriptFile} onChange={(e) => this.updateSelect(e)}>
-                                <option defaultValue value="all">All</option>
-                                <option value="game">Game</option>
+                                <option value="all">All</option>
+                                <option defaultValue value="game">Game</option>
                                 <option value="expression">Expression</option>
                                 <option value="effect">Effect</option>
                                 <option value="sound">Sound</option>
@@ -263,22 +304,22 @@ class ScriptSearch extends Component{
                             </OverlayTrigger>
                             <OverlayTrigger placement="bottom" overlay={
                                 <Tooltip id={"DescriptionTooltip"}>
-                                    Show help
+                                    {this.state.showHelp ? "Hide" : "Show"} help
                                 </Tooltip>}>
-                                <button name="help">
+                                <button name="help" onClick={() => this.toggleHelp()}>
                                     ?
                                 </button>
                             </OverlayTrigger>
                             </span>
                     {
-                        !this.state.loading && this.state.results !== null && (
+                        !this.state.loading && this.state.results !== null && this.state.results !== [] && (
                             <div>
                                 <h4>Results</h4>
                                 
                                 {
                                     this.state.results.map((data, index) => {
                                         return (
-                                            <ScriptSearchResult key={index} data={data}/>
+                                            <ScriptSearchResult key={index} scriptFile={this.state.scriptFile} data={data}/>
                                         )
                                     })
                                 }
@@ -301,7 +342,47 @@ class ScriptSearch extends Component{
                     }
                     </div>
 
-
+                    <div className={"search-help " + (this.state.showHelp ? "show" : "")}>
+                        <div>
+                            <h3>Help</h3>
+                            This is a brief explanation on how to use the script search tool
+                            <h4>What's a regex?</h4>
+                            Regular expression, it's a search pattern that will be used on a text (in this case animcmd scripts) allowing more options on 
+                            searching stuff
+                            <br/>
+                            You can still look for literal stuff like "Hitbox" and "SDI=0" but be careful of special characters like parenthesis (for those 
+                            add a <span className="bold focus">\</span> before them)
+                            <br/>
+                            <h5>Examples</h5>
+                            <ul>
+                                <li>
+                                    <span className="focus example">Hitlag=[1-3],</span>
+                                    <br/>
+                                    Displays hitboxes and throws with Hitlag multipliers equal to 1 and 3 (ignores everything with decimals with the comma), 
+                                    <span className="focus">[1-3]</span> means that space will be taken by a value from digit set 1 to 3 so 1/2/3 are the possible values
+                                </li>
+                                <li>
+                                    <span className="focus example">Hitlag=[1-2]\.[0-9]+,</span>
+                                    <br/>
+                                    Displays hitboxes and throws with Hitlag multipliers equal values between 1 and 2, notice the 
+                                    <span className="bold focus">\</span> set before the dot, a dot in regex means any character but by escaping it 
+                                    the tool will look for dot specifically, <span className="focus">[0-9]+</span> means one or more digits from 0-9 (all digits)
+                                </li>
+                                <li>
+                                    <span className="focus example">Damage=([1-9](\.?)[0-9]*|0\.[0-9]+),.*Trip=(1|0\.[0-9]+)</span>
+                                    <br/>
+                                    Displays hitboxes that have damage not equal 0 and trip multiplier not equal 0, <span className="focus">(\.?)</span> 
+                                    means there could be a dot or not (but only one), <span className="focus">[0-9]*</span> means there could be zero or multiple 
+                                    instances of digits from 0 to 9, <span className="focus">.*</span> is used to skip all text between the Damage and Trip,
+                                    finally both <span className="focus">([1-9](\.?)[0-9]*|0\.[0-9]+)</span> and <span className="focus">(1|0\.[0-9]+)</span> 
+                                    are used to search for both patterns separated by the <span className="bold focus">|</span> character
+                                </li>
+                            </ul>
+                            <br/>
+                            If you are interested on writting more complex regular expressions you 
+                            should <a href="https://www.regular-expressions.info/quickstart.html">read this</a>
+                        </div>
+                    </div>
                 </div>
             )
         }

@@ -42,7 +42,8 @@ class App extends Component {
             <Route exact path="/patch/:patch/character" component={CharacterList}/>
             <Route exact path="/patch/:patch/character/:name" component={CharacterView}/>
 
-            <Route exact path="/tool/scriptsearch" component={ScriptSearch}/>
+            <Route exact path="/scriptsearch" component={ScriptSearch}/>
+            <Route exact path="/patch/:patch/scriptsearch" component={ScriptSearch}/>
             
             <Route exact path="/" component={Home}/>
           </Switch>

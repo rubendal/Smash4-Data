@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Characters from './assets/img/characters.png';
 import Stages from './assets/img/stages.png';
 import Patches from './assets/img/patches.png';
+import ScriptSearch from './assets/img/scriptsearch.png';
 import Glossary from './assets/img/glossary.png';
 import Resources from './assets/img/resources.png';
 import About from './assets/img/about.png';
@@ -25,6 +26,12 @@ class Home extends Component {
           <span>
             <a href="#/Patch">
               <img src={Patches} alt="Patches"/>
+            </a>
+          </span>
+
+          <span>
+            <a href="#/ScriptSearch">
+              <img src={ScriptSearch} alt="ScriptSearch"/>
             </a>
           </span>
 

@@ -10,11 +10,13 @@ class NavigationHeader extends Component {
 
         this.CharacterLink = "#/Character";
         this.StageLink = "#/Stage";
+        this.ScriptSearchLink = "#/ScriptSearch";
 
         if(props.match !== undefined && props.match.params.patch !== undefined){
-            this.state.version = props.match.params.patch
-            this.state.CharacterLink = "#/Patch/" + props.match.params.patch + "/Character";
+            this.version = props.match.params.patch
+            this.CharacterLink = "#/Patch/" + props.match.params.patch + "/Character";
             //this.StageLink = "/#Patch/" + props.match.params.patch + "/Stage";
+            this.ScriptSearchLink = "#/Patch/" + props.match.params.patch + "/ScriptSearch";
         }
     }
 
@@ -22,9 +24,11 @@ class NavigationHeader extends Component {
         if(state.version !== null){
             this.CharacterLink = "#/Patch/" + state.version + "/Character";
             //this.StageLink = "/#Patch/" + state.version + "/Stage";
+            this.ScriptSearchLink = "#/Patch/" + props.match.params.patch + "/ScriptSearch";
         }else{
             this.CharacterLink = "#/Character";
             this.StageLink = "#/Stage";
+            this.ScriptSearchLink = "#/ScriptSearch";
         }
         return true;
     }
@@ -58,6 +62,9 @@ class NavigationHeader extends Component {
             </span>
             <span className="navigation-link">
                 <a href="#/Patch" className="hide-link">Patches</a>
+            </span>
+            <span className="navigation-link">
+                <a href={this.ScriptSearchLink} className="hide-link">{this.state.version !== null ? "Script Search (v" + this.state.version + ")" : "Script Search"}</a>
             </span>
             <span className="navigation-link">
                 <a href="#/Glossary" className="hide-link">Glossary</a>

@@ -5,6 +5,7 @@ class ScriptSearchResult extends Component{
         super(props);
 
         this.state = {
+            scriptFile : props.scriptFile,
             character : props.data.character,
             matches : props.data.matches,
             no : props.data.no
@@ -14,6 +15,7 @@ class ScriptSearchResult extends Component{
     static getDerivedStateFromProps(props, state) {
         if (props.data !== state) {
           return {
+            scriptFile : props.scriptFile,
             character : props.data.character,
             matches : props.data.matches,
             no : props.data.no
@@ -33,6 +35,13 @@ class ScriptSearchResult extends Component{
                             <td>
                                 Script Name
                             </td>
+                            {
+                                this.state.scriptFile === "all" && (
+                                    <td>
+                                        Script File
+                                    </td>
+                                )
+                            }
                             <td>
                                 Matches
                             </td>
@@ -48,6 +57,13 @@ class ScriptSearchResult extends Component{
                                         <td>
                                             {script.script}
                                         </td>
+                                        {
+                                            this.state.scriptFile === "all" && (
+                                                <td>
+                                                    {script.file}
+                                                </td>
+                                            )
+                                        }
                                         <td>
                                             {
                                                 script.matches.map((line, index) => {
