@@ -75,6 +75,10 @@ td{
     border:none;
 }
 
+.hitbox-table tr:not(:first-child) td{
+    padding-top: 30px;
+}
+
 .hitbox-table{
     width:100%;
 }

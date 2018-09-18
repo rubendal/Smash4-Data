@@ -29,7 +29,7 @@ class ScriptSearchResult extends Component{
         return (
             <div className="character-result-table">
                 <h3>{this.state.character}</h3>
-                <table>
+                <table className="search-results">
                     <thead>
                         <tr>
                             <td>

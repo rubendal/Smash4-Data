@@ -40,7 +40,7 @@ button[name=help]{
     height: auto;
 }
 
-table{
+.search-results{
     width:85%;
     margin: auto;
     left: 50%;
@@ -55,7 +55,7 @@ td div{
     text-align: center;
 }
 
-table tr:not(:first-child) td{
+.search-results tr:not(:first-child) td{
     padding-top: 30px;
 }
 
