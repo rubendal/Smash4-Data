@@ -287,62 +287,38 @@ class ScriptSearch extends Component{
                     <div className={"script-search " + (this.state.showHelp ? "split" : "")}>
                         <span>
                             <input type="text" name="regex" className="search" value={this.state.search} onChange={(e) => this.updateInput(e)} placeholder="Regex"/>
-                            <select value={this.state.scriptFile} onChange={(e) => this.updateSelect(e)}>
-                                <option value="all">All</option>
-                                <option defaultValue value="game">Game</option>
-                                <option value="expression">Expression</option>
-                                <option value="effect">Effect</option>
-                                <option value="sound">Sound</option>
-                            </select>
-                            <OverlayTrigger placement="bottom" overlay={
-                                <Tooltip id={"DescriptionTooltip"}>
-                                    Search
-                                </Tooltip>}>
-                                <button name="search" onClick={() => this.search()}>
-                                    <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">&#128269;</span>
-                                </button>
-                            </OverlayTrigger>
-                            <OverlayTrigger placement="bottom" overlay={
-                                <Tooltip id={"DescriptionTooltip"}>
-                                    {this.state.showHelp ? "Hide" : "Show"} help
-                                </Tooltip>}>
-                                <button name="help" onClick={() => this.toggleHelp()}>
-                                    ?
-                                </button>
-                            </OverlayTrigger>
-                            </span>
-                    {
-                        !this.state.loading && this.state.results !== null && this.state.results !== [] && (
-                            <div>
-                                <h4>Results</h4>
-                                
-                                {
-                                    this.state.results.map((data, index) => {
-                                        return (
-                                            <ScriptSearchResult key={index} scriptFile={this.state.scriptFile} data={data}/>
-                                        )
-                                    })
-                                }
+                            
+                            <div className="search-file-container">
+                                <select className="search-file" value={this.state.scriptFile} onChange={(e) => this.updateSelect(e)}>
+                                    <option value="all">All</option>
+                                    <option defaultValue value="game">Game</option>
+                                    <option value="expression">Expression</option>
+                                    <option value="effect">Effect</option>
+                                    <option value="sound">Sound</option>
+                                </select>
                             </div>
-                        )
-                    }
-                    {
-                        !this.state.loading && this.state.searchError !== null && (
-                            <div>
-                                <ImageMessage message={this.state.searchError} image={"error.png"} alt="Error" class="invalid-regex-img"></ImageMessage>
-                            </div>
-                        )
-                    }
-                    {
-                        this.state.loading && (
-                            <div>
-                                <ImageMessage message={"Processing"} image={"darkpit-wait2.gif"} alt="Processing"></ImageMessage>
-                            </div>
-                        )
-                    }
-                    </div>
 
-                    <div className={"search-help " + (this.state.showHelp ? "show" : "")}>
+                            <div className="search-buttons-container">
+                                    <OverlayTrigger placement="bottom" overlay={
+                                        <Tooltip id={"DescriptionTooltip"}>
+                                            Search
+                                        </Tooltip>}>
+                                        <button className="search-button" name="search" onClick={() => this.search()}>
+                                            <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">&#128269;</span>
+                                        </button>
+                                    </OverlayTrigger>
+                                    <OverlayTrigger placement="bottom" overlay={
+                                        <Tooltip id={"DescriptionTooltip"}>
+                                            {this.state.showHelp ? "Hide" : "Show"} help
+                                        </Tooltip>}>
+                                        <button className="search-button" name="help" onClick={() => this.toggleHelp()}>
+                                            ?
+                                        </button>
+                                    </OverlayTrigger>
+                                </div>
+                            </span>
+                            
+                            <div className={"search-help " + (this.state.showHelp ? "show" : "")}>
                         <div>
                             <h3>Help</h3>
                             This is a brief explanation on how to use the script search tool
@@ -383,6 +359,38 @@ class ScriptSearch extends Component{
                             should <a href="https://www.regular-expressions.info/quickstart.html">read this</a>
                         </div>
                     </div>
+                    {
+                        !this.state.loading && this.state.results !== null && this.state.results !== [] && (
+                            <div className={(this.state.showHelp ? "split" : "")}>
+                                <h4>Results</h4>
+                                
+                                {
+                                    this.state.results.map((data, index) => {
+                                        return (
+                                            <ScriptSearchResult key={index} scriptFile={this.state.scriptFile} data={data}/>
+                                        )
+                                    })
+                                }
+                            </div>
+                        )
+                    }
+                    {
+                        !this.state.loading && this.state.searchError !== null && (
+                            <div>
+                                <ImageMessage message={this.state.searchError} image={"error.png"} alt="Error" class="invalid-regex-img"></ImageMessage>
+                            </div>
+                        )
+                    }
+                    {
+                        this.state.loading && (
+                            <div>
+                                <ImageMessage message={"Processing"} image={"darkpit-wait2.gif"} alt="Processing"></ImageMessage>
+                            </div>
+                        )
+                    }
+                    </div>
+
+                    
                 </div>
             )
         }

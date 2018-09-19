@@ -4,17 +4,15 @@
     text-align: center;
 }
 
-.script-search span{
-    display: inline-block;
-    width: 100%;
-    padding-bottom: 10px;
-}
-
 .script-search button{
     padding: 3px 5px;
     position: relative;
     top: -2px;
     left: 10px;
+}
+
+.search-file-container, .search-buttons-container{
+    display: inline-block;
 }
 
 button span{
@@ -65,8 +63,9 @@ td div{
 }
 
 .search-help{
+    position: absolute;
     width: 30%;
-    right: 30%;
+    right: -40%;
     height: 100%;
     float: right;
     border-left: 1px solid #000000;
@@ -74,6 +73,8 @@ td div{
     padding-right: 1.5%;
     display: none;
     padding-bottom: 10px;
+    text-align: left;
+    top:-24px;
 }
 
 .show{
@@ -98,4 +99,81 @@ ul li:not(:first-child){
     border-radius: 10px;
     padding: 3px 6px;
     background: #f1f1f1;
+}
+
+.split .character-result-table{
+    width: 155%;
+    padding-left: 10px;
+}
+
+.split .character-result-table .search-results{
+    width:100%;
+    margin: unset;
+    left: unset;
+}
+
+@media screen and (max-width: 850px) {
+    .search-help{
+        width:45%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-help ul{
+        padding-left: 15px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .search-file-container, .search-buttons-container{
+        display: block;
+        padding-top: 10px;
+    }
+
+    .search, .search-file{
+        width: 100% !important;
+    }
+
+    .search-file{
+        left: unset !important;
+    }
+
+    .script-search{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .search-button{
+        width:30%;
+        height: 35px;
+        font-size: 2rem;
+        left: unset !important;
+    }
+
+    .split{
+        width:100%;
+        float: unset;
+    }
+
+    .search-help{
+        position: relative;
+        width:100%;
+        float: unset;
+        right: unset;
+        border-left: unset;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 10px;
+        top: unset;
+    }
+
+    .search-help ul{
+        padding-left: 40px;
+    }
+
+    .search-results{
+        width:100%;
+        margin: unset;
+        left: unset;
+    }
 }
