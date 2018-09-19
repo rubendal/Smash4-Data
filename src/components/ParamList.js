@@ -14,6 +14,10 @@ class ParamList extends Component{
             tags : null
         };
 
+        this.state.params.sort((x,y)=>{
+            return x.Name - y.Name;
+        });
+
         var ref = this;
 
         axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/params.json')
@@ -32,6 +36,9 @@ class ParamList extends Component{
 
     static getDerivedStateFromProps(props, state) {
         if (props.data !== state.data) {
+            props.data.FighterParams.sort((x,y)=>{
+                return x.Name - y.Name;
+            });
           return {
             patch : props.patch,
             data : props.data,
