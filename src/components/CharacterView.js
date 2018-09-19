@@ -5,6 +5,7 @@ import ImageMessage from '../ImageMessage';
 import Patches from '../assets/patches.json';
 import ScriptList from './ScriptList';
 import ParamList from './ParamList';
+import MscView from './MscView';
 
 class CharacterView extends Component {
   constructor(props){
@@ -17,19 +18,18 @@ class CharacterView extends Component {
 
     var ref = this;
 
-    axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + props.match.params.name.replace(/\.+$/, "") + '/data.json').then(function(res){
-      var json = res.data;
-
-      var data = json;
-
-      
-      ref.setState(prevState => (
-        {
-          data : data,
-          patch : prevState.patch,
-          display : prevState.display
-        })
-      );
+    axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + props.match.params.name.replace(/\.+$/, "") + '/data.json')
+    .then(function(res){
+        var data = res.data;
+        
+        ref.setState(prevState => (
+          {
+            data : data,
+            patch : prevState.patch,
+            display : prevState.display,
+            msc : prevState.msc
+          })
+        );
     })
     .catch(function(error){
       if(error.response){
@@ -49,6 +49,21 @@ class CharacterView extends Component {
       );
     });
 
+    //Get msc files
+    axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + props.match.params.name.replace(/\.+$/, "") + '/cmsc.json')
+    .then(function(response){
+        ref.setState(prevState => (
+          {
+            data : prevState.data,
+            patch : prevState.patch,
+            display : prevState.display,
+            msc : response.data
+          })
+        );
+      })
+      .catch(function(e){
+        
+      })
     
   }
 
@@ -81,10 +96,19 @@ class CharacterView extends Component {
             </a>
           </span>
           <span>
-          <a  onClick={() => this.changeView("fighterparams")}>
+          <a onClick={() => this.changeView("fighterparams")}>
             Fighter Param
             </a>
           </span>
+          {
+            this.state.msc !== undefined && (
+              <span>
+              <a onClick={() => this.changeView("msc")}>
+                MSC
+                </a>
+              </span>
+            )
+          }
         </div>
 
         <div id="related">
@@ -110,6 +134,11 @@ class CharacterView extends Component {
             {
               this.state.display === "fighterparams" && (
                 <ParamList patch={this.state.patch} data={this.state.data}/>
+              )
+            }
+            {
+              this.state.display === "msc" && (
+                <MscView patch={this.state.patch} data={this.state.msc}/>
               )
             }
 

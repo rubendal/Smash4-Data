@@ -89,10 +89,13 @@ td{
 
 .script {
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     width: 100%;
-    padding: 15px;
-    border: 2px dashed black;
+    padding: 0.5em;
+    background: rgb(240, 240, 240);
+    color: rgb(68, 68, 68);
+    border: 1px solid #ccc;
+    border-radius: 4px;
     /*background: rgb(226, 226, 226);*/
 }
 
@@ -113,9 +116,22 @@ td{
     vertical-align: middle;
 }
 
+.script-cmd{
+    font-weight: bold;
+}
+
+.script-param-value{
+    color: rgb(136, 0, 0);
+}
+
+.msc-script{
+    position:relative;
+    top: 15px;
+}
+
 @media screen and (max-width: 720px) {
     .script {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .script span{
