@@ -9,15 +9,18 @@ class About extends Component {
         Hi! I'm Ruben and I welcome you to the Smash 4 Data Viewer. 
         I'm a Smash researcher and creator of the Smash Calculator 
         for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>.
-        This site is based on the <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">Sm4sh Calculator script viewer</a> which 
-        allows viewing Animcmd scripts on a browser to view them anywhere, this site attempts to give more data available about 
-        the characters like animations length, intangibility/FAF and tables with all hitbox parameters as well as other game data like 
-        stage's lvd file data (collisions, camera bounds, blast zones, character and item spawns and character respawns)
         <br/>
         <br/>
-        This app was designed for Smash Ultimate but doing it for Smash 4 as well for testing. The objective of making it is 
-        to allow viewing the game's data as soon as the tools needed to read the game files are available and the data can be interpreted by researchers 
-        (example: knowing which values are hitbox data) and making it public using a script which parses it and stores it into files this app uses to generate the views that display the data
+        This app is meant to be an update to the tools on the 
+        <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">
+        Sm4sh Calculator related to game data (Script and param viewers)</a> and also to have some code done for the Smash Ultimate version of these tools, 
+        the objective is to allow viewing Ultimate's game data as soon as the tools needed to read game files are available and the data can be interpreted 
+        by researchers (like identifying hitbox data) and making it public using a script which parses and stores it into files this app uses to generate 
+        views to display the data
+        <br/>
+        <br/>
+        It also attempts to solve some issues the Sm4sh Calculator tools have like having to look params for FAF and intangibility frames using subaction index, 
+        better design and making it more easy to use on mobile devices
         <br/>
         <br/>
         <h3>Special Thanks</h3>

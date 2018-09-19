@@ -24,7 +24,7 @@ class HurtboxStateView extends Component{
         return (
             <div>
                 <h4>Hurtboxes States</h4>
-                <table>
+                <table className="hurtbox-state-table">
                     <thead>
                         <tr>
                             <td>

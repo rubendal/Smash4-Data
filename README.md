@@ -3,18 +3,13 @@ View Smash 4 character scripts/hitbox/animation length and stage data, data can 
 
 ### About this app
 
-This app was designed for Smash Ultimate but doing it for Smash 4 as well for testing. The objective of making it is 
-to allow viewing the game's data as soon as the tools needed to read the game files are available and the data can be interpreted by researchers 
-(example: knowing which values are hitbox data) and making it public using a script which parses it and stores it into files this app uses to generate the views that display the data
+This app is meant to be an update to the tools on the Sm4sh Calculator related to game data (Script and param viewers) and also to have some code done for the Smash Ultimate version of this tools, the objective is to allow viewing Ultimate's game data as soon as the tools needed to read game files are available and the data can be interpreted by researchers (like identifying hitbox data) and making it public using a script which parses and stores it into files this app uses to generate views to display the data
 
-This app is also based on the Sm4sh Calculator script viewer which only allowed viewing character scripts, other data had to be searched manually 
-(like FAF using the param viewer)
+It also attempts to solve some issues the Sm4sh Calculator tools have like having to look params for FAF and intangibility frames using subaction index, better design and making it more easy to use on mobile devices
 
-### Planned stuff
+### To Do
 
-* Script search
 * Add fighter_param_vl files (Sm4sh Calculator param viewer)
-* MSC files (mscdec)
 * Version diffs
 
 ## Issues and Feedback

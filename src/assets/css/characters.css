@@ -20,6 +20,7 @@
     left:-50%;
     padding-left:10px;
     padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .view-selection span a{
@@ -76,7 +77,7 @@ td{
 }
 
 .hitbox-table tr:not(:first-child) td{
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .hitbox-table{
@@ -112,6 +113,10 @@ td{
     display:none;
 }
 
+.hurtbox-state-table tr:not(:first-child) td{
+    padding-top: 10px;
+}
+
 .param-list td{
     vertical-align: middle;
 }
@@ -140,5 +145,32 @@ td{
 
     .script-select select{
         width:100%;
+    }
+
+    .view-selection{
+        position: relative;
+        left:unset;
+        text-align: center;
+    }
+
+    .view-selection span{
+        left:unset;
+        padding-left:10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    #character-image {
+        float: unset;
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #character-image {
+        
+        width: 70%;
     }
 }
