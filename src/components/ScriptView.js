@@ -3,6 +3,7 @@ import {ToHex, IsScriptEmpty, BuildScript} from '../util/util';
 import Parser from 'html-react-parser';
 import HitboxesView from './HitboxesView';
 import HurtboxModeView from './HurtboxStateView';
+import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 class ScriptView extends Component {
   constructor(props){
@@ -137,6 +138,28 @@ class ScriptView extends Component {
                         </td>
                         <td>
                             {this.state.script.Params.IntangibilityEnd}
+                        </td>
+                    </tr>
+                )
+            }
+            {
+                this.state.script.Params !== null && (
+
+                    <tr>
+                        <td>
+                        Animates during hitlag
+                        </td>
+                        <td>
+                            {this.state.script.Params.DisableHitlagAnimation ? "No" : (
+                                <OverlayTrigger placement="top" overlay={
+                                    <Tooltip id={"DisableAnimationTooltip"}>
+                                        Character continues animation with a slowdown applied (Frame speed = 0.25 * (1/hitlag frames))
+                                        <br/>
+                                        This also allows aerial to be able to frame sync
+                                    </Tooltip>}>
+                                        <span className="dot-underline">Yes</span>
+                                </OverlayTrigger>
+                            )}
                         </td>
                     </tr>
                 )
