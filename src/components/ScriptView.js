@@ -155,7 +155,7 @@ class ScriptView extends Component {
                                     <Tooltip id={"DisableAnimationTooltip"}>
                                         Character continues animation with a slowdown applied (Frame speed = 0.25 * (1/hitlag frames))
                                         <br/>
-                                        This also allows aerial to be able to frame sync
+                                        This also allows aerials to be able to frame sync
                                     </Tooltip>}>
                                         <span className="dot-underline">Yes</span>
                                 </OverlayTrigger>
