@@ -11,8 +11,7 @@ class About extends Component {
         for <a href="https://rubendal.github.io/Sm4sh-Calculator/" target="_blank" rel="noopener noreferrer">Smash 4</a> and <a href="https://rubendal.github.io/SSBU-Calculator/" target="_blank" rel="noopener noreferrer">Smash Ultimate</a>.
         <br/>
         <br/>
-        This app is meant to be an update to the tools on the 
-        <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">
+        This app is meant to be an update to the tools on the <a href="https://rubendal.github.io/SSBU-Calculator/scripts.html" target="_blank" rel="noopener noreferrer">
         Sm4sh Calculator related to game data (Script and param viewers)</a> and also to have some code done for the Smash Ultimate version of these tools, 
         the objective is to allow viewing Ultimate's game data as soon as the tools needed to read game files are available and the data can be interpreted 
         by researchers (like identifying hitbox data) and making it public using a script which parses and stores it into files this app uses to generate 

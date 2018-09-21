@@ -536,18 +536,18 @@ class Visualizer extends Component {
 								context.beginPath();
 								for(var k=0;k<stage.items[i].sections[j].points.length;k++){
 									if(k===0)
-										this.MoveTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
+										this.MoveTo(stage.items[i].sections[j].points[k][0], stage.items[i].sections[j].points[k][1]+2);
 									else
-										this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
+										this.LineTo(stage.items[i].sections[j].points[k][0], stage.items[i].sections[j].points[k][1]+2);
 										
-									this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]+2);
+									this.LineTo(stage.items[i].sections[j].points[k][0], stage.items[i].sections[j].points[k][1]+2);
 									
 									
 								}
 
 								for(k=stage.items[i].sections[j].points.length-1;k>=0;k--){
-									this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]-2);
-									this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]-2);
+									this.LineTo(stage.items[i].sections[j].points[k][0], stage.items[i].sections[j].points[k][1]-2);
+									this.LineTo(stage.items[i].sections[j].points[k][0], stage.items[i].sections[j].points[k][1]-2);
 									
 									
 								}
