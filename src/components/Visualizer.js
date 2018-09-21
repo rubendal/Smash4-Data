@@ -20,7 +20,7 @@ const settings = {
 		diLine: "#000000",
 		interpolatedLine: "#808080",
 		background: "#FCFCFF",
-		spawn: '#000000',
+		spawn: '#0000FF',
 		respawn: '#000000',
 		item: '#AA0077'
 	}
@@ -473,73 +473,94 @@ class Visualizer extends Component {
 					this.LineTo(stage.blast_zones[0], stage.blast_zones[3]);
 					context.closePath();
 					context.stroke();
-				}
-	
-				context.lineWidth = 0.75;
 
-				//Spawns
-				if(stage.spawns !== undefined){
-					for(i=0;i<stage.spawns.length;i++){
-						context.strokeStyle = settings.visualizer_colors.spawn;
 
-						context.beginPath();
-						this.MoveTo(stage.spawns[i][0], stage.spawns[i][1]);
-						this.LineTo(stage.spawns[i][0] - 4, stage.spawns[i][1] + 6);
-						this.LineTo(stage.spawns[i][0] + 4, stage.spawns[i][1] + 6);
-						context.closePath();
-						context.stroke();
-					}
-				}
+					context.lineWidth = 0.75;
+					context.globalAlpha = 0.5;
 
-				//Respawns
-				if(stage.respawns !== undefined){
-					for(i=0;i<stage.respawns.length;i++){
-						context.strokeStyle = settings.visualizer_colors.respawn;
-
-						context.beginPath();
-						this.MoveTo(stage.respawns[i][0], stage.respawns[i][1]);
-						this.LineTo(stage.respawns[i][0] - 4, stage.respawns[i][1] - 6);
-						this.LineTo(stage.respawns[i][0] + 4, stage.respawns[i][1] - 6);
-						context.closePath();
-						context.stroke();
-					}
-				}
-
-				//Item spawns
-				if(stage.items !== undefined){
-					for(i=0;i<stage.items.length;i++){
-						context.strokeStyle = settings.visualizer_colors.item;
-
-						for(j=0;j<stage.items[i].sections.length;j++){
+					//Spawns
+					if(stage.spawns !== undefined){
+						for(i=0;i<stage.spawns.length;i++){
+							context.strokeStyle = settings.visualizer_colors.spawn;
+							context.fillStyle = settings.visualizer_colors.spawn;
 
 							context.beginPath();
-							for(var k=0;k<stage.items[i].sections[j].points.length;k++){
-								if(k===0)
-									this.MoveTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
-								else
-									this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
-									
-								this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]+2);
-								
-								
-							}
-
-							for(k=stage.items[i].sections[j].points.length-1;k>=0;k--){
-								this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]-2);
-								this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]-2);
-								
-								
-							}
-
-							
+							this.MoveTo(stage.spawns[i][0] - 2, stage.spawns[i][1]);
+							this.LineTo(stage.spawns[i][0] - 2, stage.spawns[i][1] + 6);
+							this.LineTo(stage.spawns[i][0] + 2, stage.spawns[i][1] + 6);
+							this.LineTo(stage.spawns[i][0] + 2, stage.spawns[i][1]);
 							context.closePath();
+							context.fill();
+						}
+					}
+
+					//Respawns
+					if(stage.respawns !== undefined){
+						for(i=0;i<stage.respawns.length;i++){
+							context.strokeStyle = settings.visualizer_colors.respawn;
+
+							context.globalAlpha = 1;
+							//Respawn platform
+							context.beginPath();
+							this.MoveTo(stage.respawns[i][0] - 4, stage.respawns[i][1] + 2);
+							this.LineTo(stage.respawns[i][0] - 4, stage.respawns[i][1]);
+							this.LineTo(stage.respawns[i][0] + 4, stage.respawns[i][1]);
+							this.LineTo(stage.respawns[i][0] + 4, stage.respawns[i][1] + 2);
+							//context.closePath();
 							context.stroke();
 
+							//Respawn
+							context.strokeStyle = settings.visualizer_colors.spawn;
+							context.fillStyle = settings.visualizer_colors.spawn;
+							context.globalAlpha = 0.5;
+
+							context.beginPath();
+							this.MoveTo(stage.respawns[i][0] - 2, stage.respawns[i][1]);
+							this.LineTo(stage.respawns[i][0] - 2, stage.respawns[i][1] + 6);
+							this.LineTo(stage.respawns[i][0] + 2, stage.respawns[i][1] + 6);
+							this.LineTo(stage.respawns[i][0] + 2, stage.respawns[i][1]);
+							context.closePath();
+							context.fill();
+						}
+					}
+
+					context.globalAlpha = 1;
+
+					//Item spawns
+					if(stage.items !== undefined){
+						for(i=0;i<stage.items.length;i++){
+							context.strokeStyle = settings.visualizer_colors.item;
+
+							for(j=0;j<stage.items[i].sections.length;j++){
+
+								context.beginPath();
+								for(var k=0;k<stage.items[i].sections[j].points.length;k++){
+									if(k===0)
+										this.MoveTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
+									else
+										this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]+2);
+										
+									this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]+2);
+									
+									
+								}
+
+								for(k=stage.items[i].sections[j].points.length-1;k>=0;k--){
+									this.LineTo(stage.items[i].sections[j].points[k][0]+2, stage.items[i].sections[j].points[k][1]-2);
+									this.LineTo(stage.items[i].sections[j].points[k][0]-2, stage.items[i].sections[j].points[k][1]-2);
+									
+									
+								}
+
+								
+								context.closePath();
+								context.stroke();
+
+							}
 						}
 					}
 				}
-
-
+				
 				context.lineWidth = 1;
 			}
 
