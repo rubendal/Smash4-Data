@@ -143,7 +143,7 @@ class ScriptView extends Component {
                 )
             }
             {
-                this.state.script.Params !== null && (
+                this.state.script.Params !== null && this.state.script.Article === "body" && (
 
                     <tr>
                         <td>
