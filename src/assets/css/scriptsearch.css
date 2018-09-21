@@ -68,13 +68,16 @@ td div{
     right: -40%;
     height: 100%;
     float: right;
-    border-left: 1px solid #000000;
-    padding-left: 10px;
-    padding-right: 1.5%;
     display: none;
     padding-bottom: 10px;
     text-align: left;
     top:-24px;
+}
+
+.help{
+    border-left: 1px solid #000000;
+    padding-left: 10px;
+    padding-right: 1.5%;
 }
 
 .show{

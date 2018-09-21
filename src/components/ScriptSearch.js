@@ -319,7 +319,7 @@ class ScriptSearch extends Component{
                             </span>
                             
                             <div className={"search-help " + (this.state.showHelp ? "show" : "")}>
-                        <div>
+                        <div className="help">
                             <h3>Help</h3>
                             This is a brief explanation on how to use the script search tool
                             <h4>What's a regex?</h4>

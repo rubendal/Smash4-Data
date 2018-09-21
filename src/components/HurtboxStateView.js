@@ -5,6 +5,10 @@ class HurtboxStateView extends Component{
     constructor(props){
         super(props);
 
+        props.list.sort((x,y) => {
+            return x.Frame - y.Frame;
+        })
+
         this.state = {
             list : props.list
         };
@@ -12,6 +16,9 @@ class HurtboxStateView extends Component{
 
     static getDerivedStateFromProps(props, state) {
         if (props.list !== state.list) {
+            props.list.sort((x,y) => {
+                return x.Frame - y.Frame;
+            })
           return {
               list : props.list
           };
