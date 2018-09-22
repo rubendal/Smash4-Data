@@ -125,7 +125,7 @@ class MscView extends Component{
                     {
                         this.state.content !== null && !this.state.asText && (
                             <div className="msc-container">
-                                {Parser(FormatMscScript(this.state.content))}}
+                                {Parser(FormatMscScript(this.state.content))}
                             </div>
                         )
                     }
