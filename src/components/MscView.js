@@ -15,20 +15,25 @@ class MscView extends Component{
             fileIndex : 0,
             file : props.data[0],
             content : null,
-            asText : false
+            asText : true
         }
     }
 
     ChangeScript(event){
         if(event && event.target && event.target.value){
-          event.persist();
-          var val = event.target.value;
-          this.setState(prevState => {
+            event.persist();
+            var val = event.target.value;
+            this.setState(prevState => {
                 prevState.fileIndex = val;
                 prevState.file = prevState.data[val];
                 return prevState;
-            }
+                }
             );
+            if(this.state.asText){
+                this.loadScriptAsText();
+            }else{
+                this.loadScript();
+            }
         }
       }
 
@@ -43,7 +48,7 @@ class MscView extends Component{
             fileIndex : 0,
             file : props.data[0],
             content : null,
-            asText : false
+            asText : true
           };
         }
     
