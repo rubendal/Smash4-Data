@@ -83,16 +83,11 @@ class ScriptSearch extends Component{
 
         axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/search.json')
         .then(function(res){
-            ref.setState(prevState => ({
-                patch : prevState.patch,
-                search : prevState.search,
-                scriptFile : prevState.scriptFile,
-                data : res.data,
-                results : prevState.results,
-                searchError : null,
-                loading : prevState.loading,
-                showHelp : prevState.showHelp
-            }));
+            ref.setState(prevState => {
+                prevState.data = res.data;
+                prevState.searchError = null;
+                return prevState;
+            });
         })
         .catch(function(error){
             ref.setState(prevState => ({
@@ -104,47 +99,32 @@ class ScriptSearch extends Component{
     updateInput(event){
         if(event && event.target && event.target.value !== null){
             event.persist();
-            this.setState(prevState => ({
-                patch : prevState.patch,
-                search : event.target.value,
-                scriptFile : prevState.scriptFile,
-                data : prevState.data,
-                results : prevState.results,
-                searchError : prevState.searchError,
-                loading : prevState.loading,
-                showHelp : prevState.showHelp
-            }));
+            this.setState(prevState => {
+                prevState.search = event.target.value;
+                prevState.results = null;
+                return prevState;
+            });
         }
     }
 
     updateSelect(event){
         if(event && event.target && event.target.value !== null){
             event.persist();
-            this.setState(prevState => ({
-                patch : prevState.patch,
-                search : prevState.search,
-                scriptFile : event.target.value,
-                data : prevState.data,
-                results : prevState.results,
-                searchError : prevState.searchError,
-                loading : prevState.loading,
-                showHelp : prevState.showHelp
-            }));
+            this.setState(prevState => {
+                prevState.scriptFile = event.target.value;
+                prevState.results = null;
+                return prevState;
+            });
         }
     }
 
     search(){
 
-        this.setState(prevState => ({
-            patch : prevState.patch,
-            search : prevState.search,
-            scriptFile : prevState.scriptFile,
-            data : prevState.data,
-            results : null,
-            searchError : prevState.searchError,
-            loading : true,
-            showHelp : prevState.showHelp
-        }));
+        this.setState(prevState => {
+            prevState.results = null;
+            prevState.loading = true;
+            return prevState;
+        });
 
         var ref = this;
 
@@ -163,6 +143,7 @@ class ScriptSearch extends Component{
                 for(var c = 0; c < ref.state.data.length; c++){
                     //Character
                     var characterResults = {
+                        regex : new RegExp(`(${ref.state.search})`, "g"),
                         character : ref.state.data[c].Character,
                         matches: [],
                         no : 0
@@ -179,7 +160,9 @@ class ScriptSearch extends Component{
                                 characterResults.matches.push({
                                     script : animname,
                                     file : "Game",
-                                    matches : temp.data
+                                    matches : temp.data,
+                                    subaction : ref.state.data[c].Scripts[i].SubactionIndex,
+                                    article : ref.state.data[c].Scripts[i].Article
                                 });
                                 characterResults.no += temp.data.length;
                             }
@@ -193,7 +176,9 @@ class ScriptSearch extends Component{
                                 characterResults.matches.push({
                                     script : animname,
                                     file : "Expression",
-                                    matches : temp.data
+                                    matches : temp.data,
+                                    subaction : ref.state.data[c].Scripts[i].SubactionIndex,
+                                    article : ref.state.data[c].Scripts[i].Article
                                 });
                                 characterResults.no += temp.data.length;
                             }
@@ -208,7 +193,9 @@ class ScriptSearch extends Component{
                                 characterResults.matches.push({
                                     script : animname,
                                     file : "Effect",
-                                    matches : temp.data
+                                    matches : temp.data,
+                                    subaction : ref.state.data[c].Scripts[i].SubactionIndex,
+                                    article : ref.state.data[c].Scripts[i].Article
                                 });
                                 characterResults.no += temp.data.length;
                             }
@@ -223,7 +210,9 @@ class ScriptSearch extends Component{
                                 characterResults.matches.push({
                                     script : animname,
                                     file : "Sound",
-                                    matches : temp.data
+                                    matches : temp.data,
+                                    subaction : ref.state.data[c].Scripts[i].SubactionIndex,
+                                    article : ref.state.data[c].Scripts[i].Article
                                 });
                                 characterResults.no += temp.data.length;
                             }
@@ -234,7 +223,7 @@ class ScriptSearch extends Component{
                         results.push(characterResults);
                     }
                 }
-    
+
                 resolve(results);
             }
             catch(e){
@@ -242,42 +231,28 @@ class ScriptSearch extends Component{
             }
         })
         .then(function(res){
-            ref.setState(prevState => ({
-                patch : prevState.patch,
-                search : prevState.search,
-                scriptFile : prevState.scriptFile,
-                data : prevState.data,
-                results : res,
-                searchError : null,
-                loading : false,
-                showHelp : prevState.showHelp
-            }));
+            ref.setState(prevState => {
+                prevState.results = res;
+                prevState.searchError = null;
+                prevState.loading = false;
+                return prevState;
+            });
         },
         function(error){
-            ref.setState(prevState => ({
-                patch : prevState.patch,
-                search : prevState.search,
-                scriptFile : prevState.scriptFile,
-                data : prevState.data,
-                results : null,
-                searchError : error,
-                loading : false,
-                showHelp : prevState.showHelp
-            }));
+            ref.setState(prevState => {
+                prevState.results = null;
+                prevState.searchError = error;
+                prevState.loading = false;
+                return prevState;
+            });
         });
     }
 
     toggleHelp(){
-        this.setState(prevState => ({
-            patch : prevState.patch,
-            search : prevState.search,
-            scriptFile : prevState.scriptFile,
-            data : prevState.data,
-            results : prevState.results,
-            searchError : prevState.searchError,
-            loading : prevState.loading,
-            showHelp : !prevState.showHelp
-        }));
+        this.setState(prevState => {
+            prevState.showHelp = !prevState.showHelp;
+            return prevState;
+        });
     }
 
     render(){

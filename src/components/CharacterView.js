@@ -22,13 +22,11 @@ class CharacterView extends Component {
     .then(function(res){
         var data = res.data;
         
-        ref.setState(prevState => (
+        ref.setState(prevState => 
           {
-            data : data,
-            patch : prevState.patch,
-            display : prevState.display,
-            msc : prevState.msc
-          })
+            prevState.data = data;
+            return prevState;
+          }
         );
     })
     .catch(function(error){
@@ -50,15 +48,13 @@ class CharacterView extends Component {
     });
 
     //Get msc files
-    axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + props.match.params.name.replace(/\.+$/, "") + '/cmsc.json')
+    axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + props.match.params.name.replace(/\.+$/, "") + '/mscFiles.json')
     .then(function(response){
-        ref.setState(prevState => (
+        ref.setState(prevState => 
           {
-            data : prevState.data,
-            patch : prevState.patch,
-            display : prevState.display,
-            msc : response.data
-          })
+            prevState.msc = response.data;
+            return prevState;
+          }
         );
       })
       .catch(function(e){
@@ -68,12 +64,11 @@ class CharacterView extends Component {
   }
 
   changeView(view){
-    this.setState(prevState => (
+    this.setState(prevState => 
       {
-        data : prevState.data,
-        patch : prevState.patch,
-        display : view
-      })
+        prevState.display = view;
+        return prevState;
+      }
     );
   }
   
@@ -138,7 +133,7 @@ class CharacterView extends Component {
             }
             {
               this.state.display === "msc" && (
-                <MscView patch={this.state.patch} data={this.state.msc}/>
+                <MscView patch={this.state.patch} data={this.state.msc} character={this.state.data.Name}/>
               )
             }
 

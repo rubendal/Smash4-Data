@@ -28,15 +28,6 @@ class ImageMessage extends Component {
     return null;
   }
 
-  /*shouldComponentUpdate(props, state){
-    this.image = props.image === undefined ? "darkpit-wait2.gif" : props.image;
-    this.alt = props.alt === undefined ? "Loading" : props.alt;
-    this.message = props.message !== undefined ? props.message : "Loading...";
-    this.class = props.class === undefined ? "loading-image" : props.class;
-    
-    return true;
-  }*/
-
   render() {
     return (
       <div id="message-container">

@@ -132,6 +132,37 @@ td{
 .msc-script{
     position:relative;
     top: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 0.5em;
+    background: rgb(240, 240, 240);
+    color: rgb(68, 68, 68);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.msc-script-function{
+    font-weight: bold;
+}
+
+.msc-reserved{
+    font-weight: bold;
+    color: rgb(136, 0, 0);
+}
+
+.msc-string, .msc-number {
+    color: rgb(136, 0, 0);
+}
+
+button[name=loadScript]{
+    position: relative;
+    left: 10px;
+}
+
+button[name=downloadScript]{
+    position: relative;
+    left: 20px;
 }
 
 @media screen and (max-width: 720px) {
@@ -163,8 +194,13 @@ td{
     #character-image {
         float: unset;
         display: block;
-    margin-left: auto;
-    margin-right: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .msc-buttons{
+        display: inline-block;
+        margin-top: 10px;
     }
 }
 

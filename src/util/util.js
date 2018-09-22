@@ -32,7 +32,7 @@ function FormatScript(script){
                 .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
                 .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>")
                 .replace(/(=)(-?[0-9A-F]+x?\.?[0-9A-F]*)(,|\))/g, "$1<span class='script-param-value'>$2</span>$3")
-                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='script-cmd'>$1</span>$2")
+                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='script-cmd'>$1</span>$2");
 }
 
 export function BuildScript(script){
@@ -53,6 +53,40 @@ export function BuildScript(script){
 
     return s;
 }
+
+export function FormatSearchScript(script, regex){
+    return "<span>" + 
+            script
+                .replace(/\r\n/g, "</span><br/><span>")
+                .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
+                .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>")
+                .replace(/(=)(-?[0-9A-F]+x?\.?[0-9A-F]*)(,|\))/g, "$1<span class='script-param-value'>$2</span>$3")
+                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='script-cmd'>$1</span>$2")
+                .replace(regex, "<span class='regex-match'>$1</span>");
+}
+
+export function FormatMscScript(script){
+    return "<span>" + 
+            script
+                .replace(/("([^"]*)")/g, "<span class='msc-string'>$1</span>")
+                .replace(/(=)(-?[0-9A-F]+x?\.?[0-9A-F]*)(,|\))/g, "$1<span class='script-param-value'>$2</span>$3")
+                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='msc-script-function'>$1</span>$2")
+                .replace(/(int |float |void |if |else |else\r\n)/g, "<span class='msc-reserved'>$1</span>")
+                .replace(/(0x[0-9a-f]+)/g, "<span class='msc-number'>$1</span>")
+                .replace(/\r\n/g, "</span><br/><span>")
+                .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
+                .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>")
+                
+}
+
+/*export function SimpleFormatMscScript(script){
+    return "<span>" + 
+            script
+                .replace(/\r\n/g, "</span><br/><span>")
+                .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
+                .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>")
+                
+}*/
 
 export function PrintHitboxActive(active){
     var start = active.Start + 1;

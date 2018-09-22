@@ -23,12 +23,13 @@ class StageView extends Component{
       
             
             
-            ref.setState(prevState => (
+            ref.setState(prevState => 
               {
-                stage : data[0],
-                data : data,
-                stageIndex: 0
-              })
+                prevState.stage = data[0];
+                prevState.data = data;
+                prevState.stageIndex = 0;
+                return prevState;
+              }
             );
           })
           .catch(function(error){
@@ -55,12 +56,12 @@ class StageView extends Component{
       if(event && event.target && event.target.value){
         event.persist();
         var val = event.target.value;
-        this.setState(prevState => (
+        this.setState(prevState => 
           {
-            stageIndex : val,
-            stage: prevState.data[val],
-            data: prevState.data
-          })
+            prevState.stageIndex = val;
+            prevState.stage = prevState.data[val];
+            return prevState;
+          }
         );
       }
     }

@@ -115,6 +115,29 @@ ul li:not(:first-child){
     left: unset;
 }
 
+.regex-match{
+    background: #fdfd6f;
+}
+
+button[name=nextPage]{
+    margin-left: 20px;
+}
+
+.page{
+    position: relative;
+    display: inline-block;
+    left: 19px;
+}
+
+.page-button{
+    width: 150px;
+    height: 30px;
+}
+
+.page-buttons{
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 850px) {
     .search-help{
         width:45%;
@@ -146,7 +169,7 @@ ul li:not(:first-child){
         padding-right: 5px;
     }
 
-    .search-button{
+    .search-button, .page-button{
         width:30%;
         height: 35px;
         font-size: 2rem;
@@ -178,5 +201,10 @@ ul li:not(:first-child){
         width:100%;
         margin: unset;
         left: unset;
+    }
+
+    .page{
+        left: 10px;
+        top: -4px;
     }
 }

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import axios from 'axios';
+import Parser from 'html-react-parser';
+import {FormatMscScript} from '../util/util';
 
 class MscView extends Component{
     constructor(props){
         super(props);
-
+        
         this.state = {
             patch : props.patch,
+            character : props.character,
             data : props.data,
             fileIndex : 0,
-            file : props.data[0].file,
-            content : props.data[0].content
+            file : props.data[0],
+            content : null
         }
     }
 
@@ -19,30 +22,47 @@ class MscView extends Component{
         if(event && event.target && event.target.value){
           event.persist();
           var val = event.target.value;
-          this.setState(prevState => (
-            {
-                patch : prevState.patch,
-                data : prevState.data,
-                fileIndex : val,
-                file : prevState.data[val].file,
-                content : prevState.data[val].content
-            })
-          );
+          this.setState(prevState => {
+                prevState.fileIndex = val;
+                prevState.file = prevState.data[val];
+                return prevState;
+            }
+            );
         }
       }
 
       static getDerivedStateFromProps(props, state) {
-        if (props.data !== state.data) {
+        if (props.data !== state.data ||
+            props.patch !== state.patch ||
+            props.character !== state.character) {
           return {
             patch : props.patch,
+            character : props.character,
             data : props.data,
             fileIndex : 0,
-            file : props.data[0].file,
-            content : props.data[0].content
+            file : props.data[0]
           };
         }
     
         return null;
+      }
+
+      loadScript(){
+          this.setState(prevState => {
+              prevState.content = null;
+              return prevState;
+          });
+
+          var ref = this;
+
+          axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + this.state.character.replace(/\.+$/, "") + '/' +
+           this.state.file.replace("/","_") + '.txt')
+           .then(function(res){
+                ref.setState(prevState => {
+                    prevState.content = res.data;
+                    return prevState;
+                });
+           });
       }
 
     render(){
@@ -55,25 +75,26 @@ class MscView extends Component{
                             this.state.data.map((script,index) => {
                                 return (
                                     <option value={index} key={`script-${index}`}>
-                                        {script.file}
+                                        {script}
                                     </option>
                                 );
                             })
                         }
                     </select>
-
+                    <span className="msc-buttons">
+                        <button name="loadScript" onClick={() => this.loadScript()}>Load script</button>
+                        <a href={process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + this.state.character.replace(/\.+$/, "") + '/' +
+                            this.state.file.replace("/","_") + '.txt'} target="_blank" rel="noopener noreferrer">
+                            <button name="downloadScript">Download script</button>
+                        </a>
+                    </span>
                     
                 </div>
 
                 <div className="msc-script">
-                    <SyntaxHighlighter language="c++" customStyle={
-                        {
-                            "fontFamily": "Ubuntu Mono, monospace",
-                            "fontSize": "1.6rem"
-                        }
-                    }>
-                        {this.state.content}
-                    </SyntaxHighlighter>
+                
+                    {this.state.content !== null && 
+                        Parser(FormatMscScript(this.state.content))}
                 </div>
             </div>
         )

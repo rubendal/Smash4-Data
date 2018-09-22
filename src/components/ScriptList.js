@@ -137,16 +137,14 @@ class ScriptList extends Component{
             });
           });
           
-          this.setState(prevState => (
+          this.setState(prevState => 
             {
-              script: scripts[0],
-              scriptIndex : 0,
-              data : prevState.data,
-              allScripts : scripts.concat(weapons),
-              displayHitboxesOnly : !prevState.displayHitboxesOnly,
-              throws : prevState.throws,
-              patch : prevState.patch
-            })
+              prevState.script = scripts[0];
+              prevState.scriptIndex = 0;
+              prevState.allScripts = scripts.concat(weapons);
+              prevState.displayHitboxesOnly = !prevState.displayHitboxesOnly;
+              return prevState;
+            }
           );
         }
       }
@@ -155,16 +153,12 @@ class ScriptList extends Component{
         if(event && event.target && event.target.value){
           event.persist();
           var val = event.target.value;
-          this.setState(prevState => (
+          this.setState(prevState => 
             {
-              script: prevState.allScripts[val],
-              scriptIndex : val,
-              data: prevState.data,
-              allScripts : prevState.allScripts,
-              displayHitboxesOnly : prevState.displayHitboxesOnly,
-              throws : prevState.throws,
-              patch : prevState.patch
-            })
+              prevState.script = prevState.allScripts[val];
+              prevState.scriptIndex = val;
+              return prevState;
+            }
           );
         }
       }

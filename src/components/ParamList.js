@@ -22,13 +22,11 @@ class ParamList extends Component{
 
         axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/params.json')
         .then(function(res){
-            ref.setState(prevState => (
+            ref.setState(prevState => 
                 {
-                  patch : prevState.patch,
-                  data : prevState.data,
-                  params : prevState.params,
-                  tags : res.data
-                })
+                    prevState.tags = res.data;
+                    return prevState;
+                }
               );
 
         });
