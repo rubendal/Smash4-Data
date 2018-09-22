@@ -14,7 +14,8 @@ class MscView extends Component{
             data : props.data,
             fileIndex : 0,
             file : props.data[0],
-            content : null
+            content : null,
+            asText : false
         }
     }
 
@@ -40,7 +41,9 @@ class MscView extends Component{
             character : props.character,
             data : props.data,
             fileIndex : 0,
-            file : props.data[0]
+            file : props.data[0],
+            content : null,
+            asText : false
           };
         }
     
@@ -60,10 +63,30 @@ class MscView extends Component{
            .then(function(res){
                 ref.setState(prevState => {
                     prevState.content = res.data;
+                    prevState.asText = false;
                     return prevState;
                 });
            });
       }
+
+      loadScriptAsText(){
+        this.setState(prevState => {
+            prevState.content = null;
+            return prevState;
+        });
+
+        var ref = this;
+
+        axios.get(process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + this.state.character.replace(/\.+$/, "") + '/' +
+         this.state.file.replace("/","_") + '.txt')
+         .then(function(res){
+              ref.setState(prevState => {
+                  prevState.content = res.data;
+                  prevState.asText = true;
+                  return prevState;
+              });
+         });
+    }
 
     render(){
         return (
@@ -81,20 +104,34 @@ class MscView extends Component{
                             })
                         }
                     </select>
-                    <span className="msc-buttons">
-                        <button name="loadScript" onClick={() => this.loadScript()}>Load script</button>
-                        <a href={process.env.PUBLIC_URL + '/data/patch/' + this.state.patch + '/character/' + this.state.character.replace(/\.+$/, "") + '/' +
-                            this.state.file.replace("/","_") + '.txt'} target="_blank" rel="noopener noreferrer">
-                            <button name="downloadScript">Download script</button>
-                        </a>
-                    </span>
+                    <div className="msc-buttons">
+                        <button name="loadScript" onClick={() => this.loadScript()}>
+                            Load script
+                        </button>
+                        <button name="loadScriptAsText" onClick={() => this.loadScriptAsText()}>
+                            Load as text
+                        </button>
+                    </div>
                     
                 </div>
 
                 <div className="msc-script">
                 
-                    {this.state.content !== null && 
-                        Parser(FormatMscScript(this.state.content))}
+                    {
+                        this.state.content !== null && !this.state.asText && (
+                            <div className="msc-container">
+                                {Parser(FormatMscScript(this.state.content))}}
+                            </div>
+                        )
+                    }
+
+                    {
+                        this.state.content !== null && this.state.asText && (
+                            <textarea id="scriptbox" value={this.state.content} readOnly>
+                                
+                            </textarea>
+                        )
+                    }
                 </div>
             </div>
         )

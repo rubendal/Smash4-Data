@@ -160,13 +160,33 @@ button[name=loadScript]{
     left: 10px;
 }
 
-button[name=downloadScript]{
+button[name=loadScriptAsText]{
     position: relative;
     left: 20px;
 }
 
+/*.msc-container{
+    width: 100%;
+    height: 60rem;
+    overflow-y: scroll;
+}*/
+
+#scriptbox{
+    font-size: 1.6rem;
+    margin-top: 5px;
+    width: 100%;
+    height: 60rem;
+    font-family: 'Ubuntu Mono', monospace;
+    background: transparent;
+    border:unset;
+}
+
+.msc-buttons{
+    display: inline-block;
+}
+
 @media screen and (max-width: 720px) {
-    .script {
+    .script, .msc-script, #scriptbox {
         font-size: 1.3rem;
     }
 
@@ -199,14 +219,27 @@ button[name=downloadScript]{
     }
 
     .msc-buttons{
-        display: inline-block;
+        display: block;
         margin-top: 10px;
+    }
+
+    .msc-buttons button{
+        width: 100%;
+    }
+
+    button[name=loadScript]{
+        position: relative;
+        left: unset;
+    }
+    
+    button[name=loadScriptAsText]{
+        position: relative;
+        left: unset;
     }
 }
 
 @media screen and (max-width: 550px) {
     #character-image {
-        
         width: 70%;
     }
 }
