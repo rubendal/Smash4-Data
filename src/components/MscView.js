@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parser from 'html-react-parser';
 import {FormatMscScript} from '../util/util';
+import MscVersion from '../assets/tools_version.json';
 
 class MscView extends Component{
     constructor(props){
@@ -138,6 +139,12 @@ class MscView extends Component{
                         )
                     }
                 </div>
+                <span className="msc-version">
+                    <a href="https://github.com/jam1garner/mscdec">
+                        mscdec commit {MscVersion.mscdec}
+                    </a>
+                </span>
+                
             </div>
         )
     }

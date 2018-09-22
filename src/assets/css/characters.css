@@ -130,8 +130,7 @@ td{
 }
 
 .msc-script{
-    position:relative;
-    top: 15px;
+    margin-top: 10px;
     font-family: 'Ubuntu Mono', monospace;
     font-size: 1.6rem;
     width: 100%;
@@ -183,6 +182,10 @@ button[name=loadScriptAsText]{
 
 .msc-buttons{
     display: inline-block;
+}
+
+.msc-version, .salt-version{
+    float: right;
 }
 
 @media screen and (max-width: 720px) {

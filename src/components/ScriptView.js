@@ -4,6 +4,7 @@ import Parser from 'html-react-parser';
 import HitboxesView from './HitboxesView';
 import HurtboxModeView from './HurtboxStateView';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
+import SALTVersion from '../assets/tools_version.json';
 
 class ScriptView extends Component {
   constructor(props){
@@ -187,6 +188,11 @@ class ScriptView extends Component {
                 <div id={"script-" + this.state.script.Id} className="script">
                     {Parser(BuildScript(this.state.script))}
                 </div>
+                <span className="salt-version">
+                    <a href="https://github.com/Sammi-Husky/Sm4sh-Tools">
+                        SALT commit {SALTVersion.salt}
+                    </a>
+                </span>
             </div>
             )
         }
