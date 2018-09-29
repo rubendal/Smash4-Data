@@ -16,11 +16,11 @@ class ScriptView extends Component {
     };
   }
 
-  toggleDiv(id){
+  /*toggleDiv(id){
     var element = document.getElementById(id);
         if(element!==null)
             element.classList.toggle("hidden");
-  }
+  }*/
 
   static getDerivedStateFromProps(props, state) {
     if (props.script !== state.script) {
@@ -203,17 +203,3 @@ class ScriptView extends Component {
 }
 
 export default ScriptView;
-
-/*
-<React.Fragment>
-                    <a id={"hitboxes-" + this.state.script.Id} className="toggle-link" onClick={() => this.toggleDiv("hitboxesView-" + this.state.script.Id)}>
-                        <h4>Hitbox data</h4>
-                    </a>
-                    
-                </React.Fragment>
-*/
-
-
-/* <a id={"animcmd-" + this.state.script.Id} className="toggle-link" onClick={() => this.toggleDiv("script-" + this.state.script.Id)}>
-                <h4>Animcmd</h4>
-                </a> */
