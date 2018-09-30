@@ -504,18 +504,18 @@ input[type="checkbox"] {
         height:auto;
     }
 
+    .navigation-header span{
+        display: inline-block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
 }
 
 @media screen and (max-width: 720px) {
     .about{
         width: 100%;
         margin: none;
-    }
-
-    .navigation-header span{
-        display: inline-block;
-        padding-top: 5px;
-        padding-bottom: 5px;
     }
 
     .character-list{
@@ -552,6 +552,12 @@ input[type="checkbox"] {
 
     .home span{
         padding: 0px 0px;
+        padding-bottom: 10px;
+    }
+
+    .navigation-header span{
+        display: inline-block;
+        padding-top: 5px;
         padding-bottom: 10px;
     }
 }
