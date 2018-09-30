@@ -20,11 +20,23 @@ class ScriptList extends Component{
         var weapons = this.state.data.Scripts.filter(script => script.Article !== "body" && script.Hash !== 0 && script.Hitboxes.length > 0);
 
         scripts.sort((x,y) =>{
+          if(x.Article === y.Article)
             return x.SubactionIndex - y.SubactionIndex;
+          if(x.Article === "body")
+            return -1;
+          if(y.Article === "body")
+            return 1;
+          return x.Article.localeCompare(y.Article);
         });
 
         weapons.sort((x,y) =>{
+          if(x.Article === y.Article)
             return x.SubactionIndex - y.SubactionIndex;
+          if(x.Article === "body")
+            return -1;
+          if(y.Article === "body")
+            return 1;
+          return x.Article.localeCompare(y.Article);
         });
 
         //Sort Hitboxes by Hitbox Active frames and Id
