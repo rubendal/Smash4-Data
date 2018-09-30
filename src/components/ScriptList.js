@@ -102,11 +102,23 @@ class ScriptList extends Component{
           }
     
           scripts.sort((x,y) =>{
-            return x.SubactionIndex - y.SubactionIndex;
+            if(x.Article === y.Article)
+              return x.SubactionIndex - y.SubactionIndex;
+            if(x.Article === "body")
+              return -1;
+            if(y.Article === "body")
+              return 1;
+            return x.Article.localeCompare(y.Article);
           });
     
           weapons.sort((x,y) =>{
-            return x.SubactionIndex - y.SubactionIndex;
+            if(x.Article === y.Article)
+              return x.SubactionIndex - y.SubactionIndex;
+            if(x.Article === "body")
+              return -1;
+            if(y.Article === "body")
+              return 1;
+            return x.Article.localeCompare(y.Article);
           });
     
           //Sort Hitboxes by Hitbox Active frames and Id

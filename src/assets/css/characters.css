@@ -59,12 +59,13 @@
     clear: left;
     float: left;
     margin-top: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
 }
 
 #character-data{
     clear:both;
-    margin-top: 10px;
+    position: relative;
+    top: -50px;
     padding-bottom: 20px;
 }
 
@@ -154,16 +155,6 @@ td{
     color: rgb(136, 0, 0);
 }
 
-button[name=loadScript]{
-    position: relative;
-    left: 10px;
-}
-
-button[name=loadScriptAsText]{
-    position: relative;
-    left: 20px;
-}
-
 /*.msc-container{
     width: 100%;
     height: 60rem;
@@ -180,12 +171,30 @@ button[name=loadScriptAsText]{
     border:unset;
 }
 
-.msc-buttons{
+.msc-options{
     display: inline-block;
+    position: relative;
+    left: 10px;
+}
+
+input[name=scriptFormat]{
+    position: relative;
+    top: 4px;
+}
+
+input[name=scriptFormat] + span{
+    position: relative;
+    left: 4px;
 }
 
 .msc-version, .salt-version{
     float: right;
+}
+
+@media screen and (max-width: 950px){
+    #character-data{
+        top: -20px;
+    }
 }
 
 @media screen and (max-width: 720px) {
@@ -221,23 +230,23 @@ button[name=loadScriptAsText]{
         margin-right: auto;
     }
 
-    .msc-buttons{
+    .msc-options{
         display: block;
         margin-top: 10px;
     }
 
-    .msc-buttons button{
-        width: 100%;
+    input[name=scriptFormat]{
+        position: relative;
+        top: unset;
     }
 
-    button[name=loadScript]{
+    input[name=scriptFormat] + span{
         position: relative;
-        left: unset;
+        top: -4px;
     }
-    
-    button[name=loadScriptAsText]{
-        position: relative;
-        left: unset;
+
+    #character-data{
+        top: 10px;
     }
 }
 

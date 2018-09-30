@@ -94,6 +94,23 @@ class MscView extends Component{
          });
     }
 
+    handleChange(){
+        if(!this.state.asText){
+            this.loadScriptAsText();
+        }else{
+            this.loadScript();
+        }
+
+        this.setState(prevState => {
+            prevState.asText = !prevState.asText;
+            return prevState;
+        });
+    }
+
+    componentDidMount(){
+        this.loadScriptAsText();
+    }
+
     render(){
         return (
             <div id="character-data">
@@ -110,13 +127,9 @@ class MscView extends Component{
                             })
                         }
                     </select>
-                    <div className="msc-buttons">
-                        <button name="loadScript" onClick={() => this.loadScript()}>
-                            Load script
-                        </button>
-                        <button name="loadScriptAsText" onClick={() => this.loadScriptAsText()}>
-                            Load as text
-                        </button>
+                    <div className="msc-options">
+                        <input name="scriptFormat" type="checkbox" checked={!this.state.asText} onChange={() => this.handleChange()}/> 
+                        <span>Format script (not recommended for mobile devices)</span>
                     </div>
                     
                 </div>
