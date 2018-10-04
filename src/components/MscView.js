@@ -153,7 +153,7 @@ class MscView extends Component{
                     }
                 </div>
                 <span className="msc-version">
-                    <a href="https://github.com/jam1garner/mscdec">
+                    <a href={MscVersion.mscdec_link}>
                         mscdec commit {MscVersion.mscdec}
                     </a>
                 </span>

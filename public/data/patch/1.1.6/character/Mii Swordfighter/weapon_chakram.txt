@@ -61,7 +61,7 @@ void func_2()
     var0 = sys_18(0x0);
     if (var0 != 0xffffffff)
     {
-        if (!sys_30(0x1) && !sys_49(0x3))
+        if (!(sys_30(0x1) || sys_49(0x3)))
         {
             var1 = sys_2(0x1, 0x4, var0);
             if (var1 != 0x0)
@@ -144,7 +144,7 @@ void func_8()
 {
     int var0;
     printf("sys_line_status_shift_control");
-    if (!((global6 != global4) && (global6 != 0xffffffff)) || !sys_18(0x6))
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
     {
         if (global6 >= global7)
         {
@@ -303,7 +303,7 @@ int func_14(int arg0)
 
 float func_15(float arg0)
 {
-    if (arg0 < ((float)0x0))
+    if (arg0 < (float)0x0)
     {
         return -arg0;
     }
@@ -483,7 +483,7 @@ int func_33(int arg0)
 {
     int var1;
     var1 = sys_12(0x7);
-    if (!(!(!(var1 == arg0) || !(var1 == (arg0 + 0x1))) || !(var1 == (arg0 + 0x2))) || !(var1 == (arg0 + 0x3)))
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
     {
         return 0x1;
     }
@@ -492,7 +492,7 @@ int func_33(int arg0)
 
 int func_34(int arg0, int arg1)
 {
-    if (!(!(!(arg0 == arg1) || !(arg0 == (arg1 + 0x1))) || !(arg0 == (arg1 + 0x2))) || !(arg0 == (arg1 + 0x3)))
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
     {
         return 0x1;
     }
@@ -777,7 +777,7 @@ void func_72()
     sys_16(0xa, 0x10000004);
     var0 = sys_16(0x6, 0x10000004);
     var1 = sys_1A(0x2728);
-    if (!(var0 <= 0x0) || !(var1 == 0x0))
+    if ((var0 <= 0x0) || (var1 == 0x0))
     {
         sys_21(0x9);
     }
@@ -821,7 +821,7 @@ void func_75()
     sys_10(0x10, 0x0, sys_17(0x0, 0x200000b), 0x0);
     sys_10(0xf, 0x0, 0x0, sys_17(0x0, 0x200000d));
     sys_10(0x14, 0x0, var2, 5.0);
-    var3 = ((float)sys_9(0x0, 0x168));
+    var3 = (float)sys_9(0x0, 0x168);
     sys_14(0x4, 0x0, 0x0, var3);
     sys_10(0x11, 0x1, 0x0, 0x0, 32.0);
 }

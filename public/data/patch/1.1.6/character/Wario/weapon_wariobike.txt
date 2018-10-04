@@ -61,7 +61,7 @@ void func_2()
     var0 = sys_18(0x0);
     if (var0 != 0xffffffff)
     {
-        if (!sys_30(0x1) && !sys_49(0x3))
+        if (!(sys_30(0x1) || sys_49(0x3)))
         {
             var1 = sys_2(0x1, 0x4, var0);
             if (var1 != 0x0)
@@ -144,7 +144,7 @@ void func_8()
 {
     int var0;
     printf("sys_line_status_shift_control");
-    if (!((global6 != global4) && (global6 != 0xffffffff)) || !sys_18(0x6))
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
     {
         if (global6 >= global7)
         {
@@ -303,7 +303,7 @@ int func_14(int arg0)
 
 float func_15(float arg0)
 {
-    if (arg0 < ((float)0x0))
+    if (arg0 < (float)0x0)
     {
         return -arg0;
     }
@@ -483,7 +483,7 @@ int func_33(int arg0)
 {
     int var1;
     var1 = sys_12(0x7);
-    if (!(!(!(var1 == arg0) || !(var1 == (arg0 + 0x1))) || !(var1 == (arg0 + 0x2))) || !(var1 == (arg0 + 0x3)))
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
     {
         return 0x1;
     }
@@ -492,7 +492,7 @@ int func_33(int arg0)
 
 int func_34(int arg0, int arg1)
 {
-    if (!(!(!(arg0 == arg1) || !(arg0 == (arg1 + 0x1))) || !(arg0 == (arg1 + 0x2))) || !(arg0 == (arg1 + 0x3)))
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
     {
         return 0x1;
     }
@@ -862,7 +862,7 @@ void func_69()
 
 void func_70()
 {
-    if (!sys_12(0x2712) || !sys_16(0x10, 0x21000011))
+    if (sys_12(0x2712) || sys_16(0x10, 0x21000011))
     {
         func_18(0xb);
         return;
@@ -887,7 +887,7 @@ void func_71()
 {
     if (sys_16(0x10, 0x21000002))
     {
-        if (!sys_16(0x10, 0x21000004) || !sys_16(0x10, 0x21000005))
+        if (sys_16(0x10, 0x21000004) || sys_16(0x10, 0x21000005))
         {
             sys_10(0x0, 0x24);
         }
@@ -943,7 +943,7 @@ void func_75()
     {
         sys_1E(0x2710, 0x1a0083);
     }
-    if (!(global5 == 0x0) || !(global5 == 0x1))
+    if ((global5 == 0x0) || (global5 == 0x1))
     {
         sys_1E(0x2710, 0x1a0064);
     }
@@ -968,7 +968,7 @@ void func_76()
     float var3;
     float var4;
     var0 = 0x0;
-    if (!(!sys_16(0x10, 0x21000004) || !sys_16(0x10, 0x21000005)) || !sys_16(0x10, 0x21000006))
+    if ((sys_16(0x10, 0x21000004) || sys_16(0x10, 0x21000005)) || sys_16(0x10, 0x21000006))
     {
         var0 = 0x1;
     }
@@ -1599,19 +1599,19 @@ void func_120()
     var3 = sys_16(0x6, 0x11000002);
     var4 = sys_17(0x0, 0x2000027);
     var5 = sys_17(0x0, 0x2000028);
-    var6 = ((int)var4);
-    var7 = ((int)var5);
+    var6 = (int)var4;
+    var7 = (int)var5;
     var2 = func_15(sys_11(0x0, 0x1));
     var8 = sys_17(0x0, 0x200002b);
     var9 = sys_16(0x6, 0x11000007);
     printf("$player_command_flag_cat1_(%d)------------", var9);
-    var10 = !(!(var2 < var8) || !(var9 & 0x200000)) || !(sys_F(0x1) < -0.5);
-    if (!((var6 < var3) && var10) || !(var7 < var3))
+    var10 = ((var2 < var8) || (var9 & 0x200000)) || (sys_F(0x1) < -0.5);
+    if (((var6 < var3) && var10) || (var7 < var3))
     {
         
     }
     printf("OK------------------------------------------(%d %d %d)", var6, var3, var7);
-    if ((!((var6 < var3) && var10) || !(var7 < var3)) && !func_34(var0, 0x16))
+    if ((((var6 < var3) && var10) || (var7 < var3)) && !func_34(var0, 0x16))
     {
         func_24(0x16, 0x0, 1.0);
         sys_2A(0x2713, 0x3, 0x89f);

@@ -189,7 +189,7 @@ class ScriptView extends Component {
                     {Parser(BuildScript(this.state.script))}
                 </div>
                 <span className="salt-version">
-                    <a href="https://github.com/Sammi-Husky/Sm4sh-Tools">
+                    <a href={SALTVersion.salt_link}>
                         SALT commit {SALTVersion.salt}
                     </a>
                 </span>

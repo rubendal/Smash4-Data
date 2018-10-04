@@ -61,7 +61,7 @@ void func_2()
     var0 = sys_18(0x0);
     if (var0 != 0xffffffff)
     {
-        if (!sys_30(0x1) && !sys_49(0x3))
+        if (!(sys_30(0x1) || sys_49(0x3)))
         {
             var1 = sys_2(0x1, 0x4, var0);
             if (var1 != 0x0)
@@ -144,7 +144,7 @@ void func_8()
 {
     int var0;
     printf("sys_line_status_shift_control");
-    if (!((global6 != global4) && (global6 != 0xffffffff)) || !sys_18(0x6))
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
     {
         if (global6 >= global7)
         {
@@ -303,7 +303,7 @@ int func_14(int arg0)
 
 float func_15(float arg0)
 {
-    if (arg0 < ((float)0x0))
+    if (arg0 < (float)0x0)
     {
         return -arg0;
     }
@@ -483,7 +483,7 @@ int func_33(int arg0)
 {
     int var1;
     var1 = sys_12(0x7);
-    if (!(!(!(var1 == arg0) || !(var1 == (arg0 + 0x1))) || !(var1 == (arg0 + 0x2))) || !(var1 == (arg0 + 0x3)))
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
     {
         return 0x1;
     }
@@ -492,7 +492,7 @@ int func_33(int arg0)
 
 int func_34(int arg0, int arg1)
 {
-    if (!(!(!(arg0 == arg1) || !(arg0 == (arg1 + 0x1))) || !(arg0 == (arg1 + 0x2))) || !(arg0 == (arg1 + 0x3)))
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
     {
         return 0x1;
     }
@@ -788,7 +788,7 @@ void func_54()
     var15 = 0x0;
     var16 = sys_F(0x0);
     var17 = sys_F(0x1);
-    if (!(func_15(var16) > 0x0) || !(func_15(var17) > 0x0))
+    if ((func_15(var16) > 0x0) || (func_15(var17) > 0x0))
     {
         var18 = sys_17(0x0, 0x2000004);
         var16 = sys_A(0xa, var16, var17);
@@ -808,8 +808,8 @@ void func_54()
         else
         {
             var20 = 0x0;
-            var21 = (sys_A(0x1, var17, var16) * ((float)0xb4)) / 3.1415927410125732;
-            var22 = (sys_A(0x1, var10, var9) * ((float)0xb4)) / 3.1415927410125732;
+            var21 = (sys_A(0x1, var17, var16) * (float)0xb4) / 3.1415927410125732;
+            var22 = (sys_A(0x1, var10, var9) * (float)0xb4) / 3.1415927410125732;
             var20 = func_15(var21 - var22);
         }
         var23 = (var9 * var17) - (var10 * var16);
@@ -841,10 +841,10 @@ void func_54()
     {
         var14 -= 360.0;
     }
-    var9 = var11 * sys_A(0x4, (var14 * 3.1415927410125732) / ((float)0xb4));
-    var10 = var11 * sys_A(0x5, (var14 * 3.1415927410125732) / ((float)0xb4));
-    var24 = var12 * sys_A(0x4, (var14 * 3.1415927410125732) / ((float)0xb4));
-    var25 = var12 * sys_A(0x5, (var14 * 3.1415927410125732) / ((float)0xb4));
+    var9 = var11 * sys_A(0x4, (var14 * 3.1415927410125732) / (float)0xb4);
+    var10 = var11 * sys_A(0x5, (var14 * 3.1415927410125732) / (float)0xb4);
+    var24 = var12 * sys_A(0x4, (var14 * 3.1415927410125732) / (float)0xb4);
+    var25 = var12 * sys_A(0x5, (var14 * 3.1415927410125732) / (float)0xb4);
     sys_10(0x11, 0x0, var9, var10);
     sys_10(0xf, 0x0, var24, var25);
     sys_16(0x0, var14 + 0x0, 0x3);
@@ -860,7 +860,7 @@ void func_55()
     var1 = sys_11(0xb, 0x0);
     var2 = sys_15(0x0);
     var3 = sys_A(0x1, var1, var0 * var2) * var2;
-    sys_14(0x4, 0x0, 0x0, (var3 * ((float)0xb4)) / 3.1415927410125732);
+    sys_14(0x4, 0x0, 0x0, (var3 * (float)0xb4) / 3.1415927410125732);
 }
 
 int func_56()
