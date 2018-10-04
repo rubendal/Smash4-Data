@@ -61,7 +61,7 @@ void func_2()
     var0 = sys_18(0x0);
     if (var0 != 0xffffffff)
     {
-        if (!sys_30(0x1) && !sys_49(0x3))
+        if (!(sys_30(0x1) || sys_49(0x3)))
         {
             var1 = sys_2(0x1, 0x4, var0);
             if (var1 != 0x0)
@@ -144,7 +144,7 @@ void func_8()
 {
     int var0;
     printf("sys_line_status_shift_control");
-    if (!((global6 != global4) && (global6 != 0xffffffff)) || !sys_18(0x6))
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
     {
         if (global6 >= global7)
         {
@@ -303,7 +303,7 @@ int func_14(int arg0)
 
 float func_15(float arg0)
 {
-    if (arg0 < ((float)0x0))
+    if (arg0 < (float)0x0)
     {
         return -arg0;
     }
@@ -483,7 +483,7 @@ int func_33(int arg0)
 {
     int var1;
     var1 = sys_12(0x7);
-    if (!(!(!(var1 == arg0) || !(var1 == (arg0 + 0x1))) || !(var1 == (arg0 + 0x2))) || !(var1 == (arg0 + 0x3)))
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
     {
         return 0x1;
     }
@@ -492,7 +492,7 @@ int func_33(int arg0)
 
 int func_34(int arg0, int arg1)
 {
-    if (!(!(!(arg0 == arg1) || !(arg0 == (arg1 + 0x1))) || !(arg0 == (arg1 + 0x2))) || !(arg0 == (arg1 + 0x3)))
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
     {
         return 0x1;
     }
@@ -627,7 +627,7 @@ void func_45()
         {
             var1 = sys_15(0x0);
             var2 = sys_11(0x1, 0x1);
-            if (!(!((var0 & 0x2) && (var1 == 1.0)) || !((var0 & 0x4) && (var1 == -1.0))) || !sys_16(0x10, 0x2100000a))
+            if ((((var0 & 0x2) && (var1 == 1.0)) || ((var0 & 0x4) && (var1 == -1.0))) || sys_16(0x10, 0x2100000a))
             {
                 return;
             }
@@ -635,7 +635,7 @@ void func_45()
             {
                 if (sys_1A(0xf, var0))
                 {
-                    var3 = ((float)sys_16(0x6, 0x1200000d)) / 100.0;
+                    var3 = (float)sys_16(0x6, 0x1200000d) / 100.0;
                     var4 = sys_A(0x6);
                     if (var4 <= var3)
                     {
@@ -1092,7 +1092,7 @@ void func_87()
 
 void func_88()
 {
-    if (!sys_16(0x10, 0x21000004) || !(sys_16(0x6, 0x11000007) <= 0x0))
+    if (sys_16(0x10, 0x21000004) || (sys_16(0x6, 0x11000007) <= 0x0))
     {
         func_18(0x6, 0x0);
         return;

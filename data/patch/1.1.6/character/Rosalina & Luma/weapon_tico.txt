@@ -61,7 +61,7 @@ void func_2()
     var0 = sys_18(0x0);
     if (var0 != 0xffffffff)
     {
-        if (!sys_30(0x1) && !sys_49(0x3))
+        if (!(sys_30(0x1) || sys_49(0x3)))
         {
             var1 = sys_2(0x1, 0x4, var0);
             if (var1 != 0x0)
@@ -144,7 +144,7 @@ void func_8()
 {
     int var0;
     printf("sys_line_status_shift_control");
-    if (!((global6 != global4) && (global6 != 0xffffffff)) || !sys_18(0x6))
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
     {
         if (global6 >= global7)
         {
@@ -303,7 +303,7 @@ int func_14(int arg0)
 
 float func_15(float arg0)
 {
-    if (arg0 < ((float)0x0))
+    if (arg0 < (float)0x0)
     {
         return -arg0;
     }
@@ -483,7 +483,7 @@ int func_33(int arg0)
 {
     int var1;
     var1 = sys_12(0x7);
-    if (!(!(!(var1 == arg0) || !(var1 == (arg0 + 0x1))) || !(var1 == (arg0 + 0x2))) || !(var1 == (arg0 + 0x3)))
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
     {
         return 0x1;
     }
@@ -492,7 +492,7 @@ int func_33(int arg0)
 
 int func_34(int arg0, int arg1)
 {
-    if (!(!(!(arg0 == arg1) || !(arg0 == (arg1 + 0x1))) || !(arg0 == (arg1 + 0x2))) || !(arg0 == (arg1 + 0x3)))
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
     {
         return 0x1;
     }
@@ -1041,11 +1041,11 @@ void func_70()
         {
             var1 = 0x24;
         }
-        else if (!(var0 == 0x1ad) || !(var0 == 0x1ae))
+        else if ((var0 == 0x1ad) || (var0 == 0x1ae))
         {
             var1 = 0x1e;
         }
-        else if (!(var0 == 0x1af) || !(var0 == 0x1b0))
+        else if ((var0 == 0x1af) || (var0 == 0x1b0))
         {
             var1 = 0x20;
         }
@@ -1118,7 +1118,7 @@ int func_72(int arg0)
         else
         {
             var1 = 0.5;
-            if (!(!(arg0 == 0x0) || !sys_16(0x10, 0x2000000a)) || !(sys_16(0x6, 0x11000003) == sys_16(0x6, 0x1000000f)))
+            if (((arg0 == 0x0) || sys_16(0x10, 0x2000000a)) || (sys_16(0x6, 0x11000003) == sys_16(0x6, 0x1000000f)))
             {
                 var1 = 500.0;
             }
@@ -1137,7 +1137,7 @@ void func_73(int arg0, int arg1)
     {
         arg0 = 0x23;
     }
-    if (!(arg1 == 0x1) || !(arg0 != sys_10(0x18)))
+    if ((arg1 == 0x1) || (arg0 != sys_10(0x18)))
     {
         sys_10(0x0, arg0);
     }
@@ -1319,7 +1319,7 @@ void func_78()
                 {
                     var1 = 0xa;
                 }
-                else if (!(var2 == 0x53) || !(var2 == 0x54))
+                else if ((var2 == 0x53) || (var2 == 0x54))
                 {
                     sys_16(0x7, 0xffffffff, 0x10000010);
                     func_18(0x7, 0x0);
@@ -1359,7 +1359,7 @@ void func_79()
 {
     int var0;
     var0 = sys_16(0x6, 0x11000000);
-    if (!sys_E(0x2710, 0x0) || !sys_E(0x2711, 0x0))
+    if (sys_E(0x2710, 0x0) || sys_E(0x2711, 0x0))
     {
         sys_16(0x9, 0x11000004);
     }
@@ -1474,7 +1474,7 @@ void func_86()
 {
     int var0;
     var0 = sys_16(0x6, 0x11000000);
-    if (!(var0 & 0x1) || !(var0 & 0x2))
+    if ((var0 & 0x1) || (var0 & 0x2))
     {
         sys_16(0x2710, 0x21000004);
     }
@@ -1602,7 +1602,7 @@ void func_97()
         var1 = func_100();
         if (var0)
         {
-            if (!(var1 == 0xf) || !(var1 == 0x10))
+            if ((var1 == 0xf) || (var1 == 0x10))
             {
                 func_47(0xb);
             }
@@ -1615,7 +1615,7 @@ void func_97()
     func_24(var1, 0x0, 1.0);
     if (var0)
     {
-        if (!(!(var1 == 0xe) || !(var1 == 0xf)) || !(var1 == 0x10))
+        if (((var1 == 0xe) || (var1 == 0xf)) || (var1 == 0x10))
         {
             var2 = 0x2;
         }
@@ -1858,13 +1858,13 @@ void func_107()
     int var6;
     var0 = sys_16(0x10, 0x20000004);
     var1 = sys_16(0x6, 0x1000000d);
-    if (!(var1 == 0x2b) || !(var1 == 0x2c))
+    if ((var1 == 0x2b) || (var1 == 0x2c))
     {
         var2 = 0x17;
         var3 = 0x0;
         var4 = 0xb;
     }
-    else if (!(var1 == 0x31) || !(var1 == 0x32))
+    else if ((var1 == 0x31) || (var1 == 0x32))
     {
         var2 = 0x1a;
         var3 = 0x1;
@@ -1883,11 +1883,11 @@ void func_107()
         var5 = !var5;
         sys_1A(0x2713, var5);
     }
-    if (!(var0 == 0x0) || !(var3 == 0x0))
+    if ((var0 == 0x0) || (var3 == 0x0))
     {
         func_47(0x1);
     }
-    if ((var0 == 0x1) && (!(var3 == 0x0) || !(var3 == 0x2)))
+    if ((var0 == 0x1) && ((var3 == 0x0) || (var3 == 0x2)))
     {
         var6 = 0x2;
     }
@@ -1920,7 +1920,7 @@ void func_108()
 
 void func_109()
 {
-    if (!(global6 == 0xd) || !(global6 == 0xe))
+    if ((global6 == 0xd) || (global6 == 0xe))
     {
         sys_16(0x0, sys_13(0x1) + 0x0, 0x1000001);
     }
@@ -2022,7 +2022,7 @@ void func_115()
         var3 = 0x1c;
     }
     var4 = sys_16(0x6, 0x11000004);
-    if (var0 && (!(var4 == 0x0) || !(var4 == 0x2)))
+    if (var0 && ((var4 == 0x0) || (var4 == 0x2)))
     {
         var5 = 0x2;
     }
@@ -2066,7 +2066,7 @@ int func_118()
 
 int func_119()
 {
-    if (!(sys_30(0x0) == 0x1) || !(sys_16(0x6, 0x11000004) > 0x0))
+    if ((sys_30(0x0) == 0x1) || (sys_16(0x6, 0x11000004) > 0x0))
     {
         return 0x1;
     }
@@ -2084,7 +2084,7 @@ void func_120(int arg0, int arg1)
         var3 = sys_25(0x1);
         if (var3 > 0x0)
         {
-            var4 = ((float)sys_12(0x0, arg0));
+            var4 = (float)sys_12(0x0, arg0);
             var2 = var4 / var3;
         }
     }
@@ -2111,7 +2111,7 @@ void func_122()
     float var1;
     float var2;
     int var3;
-    var0 = ((int)sys_25(0x1));
+    var0 = (int)sys_25(0x1);
     var1 = sys_25(0x2);
     var2 = sys_25(0x3);
     var3 = sys_18(0x0);
@@ -2135,7 +2135,7 @@ int func_123()
     int var0;
     float var1;
     float var2;
-    var0 = !sys_30(0x1) || !sys_49(0x2);
+    var0 = sys_30(0x1) || sys_49(0x2);
     if (var0 == 0x0)
     {
         if (func_119() == 0x0)
@@ -2143,8 +2143,8 @@ int func_123()
             if (sys_16(0x10, 0x21000006) == 0x0)
             {
                 var1 = sys_11(0xb, 0x0);
-                var2 = ((float)sys_16(0x6, 0x11000003));
-                if (!(var1 < -1.0) || !(var2 >= ((float)0x3)))
+                var2 = (float)sys_16(0x6, 0x11000003);
+                if ((var1 < -1.0) || (var2 >= (float)0x3))
                 {
                     if (func_121())
                     {
@@ -2167,7 +2167,7 @@ int func_124()
     float var0;
     float var1;
     float var2;
-    if (((!(global18 == 0x2) || !(global4 == 0xf)) && (sys_16(0x6, 0x10000012) <= 0xf)) && (sys_16(0x6, 0x11000006) <= 0x0))
+    if ((((global18 == 0x2) || (global4 == 0xf)) && (sys_16(0x6, 0x10000012) <= 0xf)) && (sys_16(0x6, 0x11000006) <= 0x0))
     {
         var0 = sys_11(0xa, 0x0);
         var1 = sys_11(0xb, 0x0);
@@ -2267,7 +2267,7 @@ void func_127()
     {
         var2 = 0x1;
     }
-    var3 = !sys_30(0x1) || !sys_49(0x2);
+    var3 = sys_30(0x1) || sys_49(0x2);
     var4 = 0x0;
     if ((var3 == 0x0) && (var0 >= sys_17(0x0, 0x2000107)))
     {
@@ -2321,7 +2321,7 @@ void func_127()
     {
         var8 = sys_11(0x0, 0xffffffff);
         var9 = sys_11(0x1, 0xffffffff);
-        var10 = (sys_A(0x1, var9, var8) * ((float)0xb4)) / 3.1415927410125732;
+        var10 = (sys_A(0x1, var9, var8) * (float)0xb4) / 3.1415927410125732;
         if (var7 != 0x0)
         {
             sys_1C(0x18, var7, 0x0, 90.0, var10);
@@ -2339,7 +2339,7 @@ void func_128()
     int var0;
     int var1;
     int var2;
-    if (!(global4 == 0xf) || !(global4 == 0x10))
+    if ((global4 == 0xf) || (global4 == 0x10))
     {
         var0 = 0x3;
         var1 = 0x1;
@@ -2408,7 +2408,7 @@ void func_129()
             }
         }
         sys_16(0x9, 0x11000003);
-        if (!(!(global4 == 0x11) || !(global4 == 0x12)) || !(global4 == 0x13))
+        if (((global4 == 0x11) || (global4 == 0x12)) || (global4 == 0x13))
         {
             func_127();
         }
@@ -2590,7 +2590,7 @@ void func_142()
 
 void func_143()
 {
-    if (!(!(sys_30(0x0) == 0x1) || !(sys_16(0x6, 0x11000004) > 0x0)))
+    if (!((sys_30(0x0) == 0x1) || (sys_16(0x6, 0x11000004) > 0x0)))
     {
         if ((sys_16(0x10, 0x21000002) == 0x1) && (sys_16(0x10, 0x21000003) == 0x0))
         {
@@ -2784,7 +2784,7 @@ int func_166()
 {
     int var0;
     var0 = sys_16(0x6, 0x1000000d);
-    if (!(!(!(!(var0 == 0x1) || !(var0 == 0x99)) || !(var0 == 0x9b)) || !(var0 == 0x13)) || !(var0 == 0x14))
+    if (((((var0 == 0x1) || (var0 == 0x99)) || (var0 == 0x9b)) || (var0 == 0x13)) || (var0 == 0x14))
     {
         return 0x26;
     }
@@ -2808,7 +2808,7 @@ int func_166()
     {
         return 0x30;
     }
-    else if (!(var0 == 0xb) || !(var0 == 0xc))
+    else if ((var0 == 0xb) || (var0 == 0xc))
     {
         return 0x2f;
     }
@@ -2816,15 +2816,15 @@ int func_166()
     {
         return 0x31;
     }
-    else if (!(!(!(var0 == 0x17) || !(var0 == 0x18)) || !(var0 == 0xa2)) || !(var0 == 0xd9))
+    else if ((((var0 == 0x17) || (var0 == 0x18)) || (var0 == 0xa2)) || (var0 == 0xd9))
     {
         return 0x32;
     }
-    else if (!(!(var0 == 0x35) || !(var0 == 0x37)) || !(var0 == 0x39))
+    else if (((var0 == 0x35) || (var0 == 0x37)) || (var0 == 0x39))
     {
         return 0x34;
     }
-    else if (!(var0 == 0x10) || !(var0 == 0x15b))
+    else if ((var0 == 0x10) || (var0 == 0x15b))
     {
         return 0x6;
     }
@@ -2877,7 +2877,7 @@ void func_169()
         return 0x1;
     }
     var0 = sys_12(0x7);
-    if (!(var0 != 0x30) || !sys_12(0x2712))
+    if ((var0 != 0x30) || sys_12(0x2712))
     {
         var2 = sys_16(0x10, 0x20000010);
         if (var2)
@@ -2893,7 +2893,7 @@ void func_169()
         {
             var1 = 0xffffffff;
         }
-        if (((var0 != var1) && (!(!(var1 == 0x31) || !(var1 == 0x32)) || !(var1 == 0x7))) && (sys_16(0x10, 0x20000008) == 0x0))
+        if (((var0 != var1) && (((var1 == 0x31) || (var1 == 0x32)) || (var1 == 0x7))) && (sys_16(0x10, 0x20000008) == 0x0))
         {
             var1 = 0xffffffff;
         }
@@ -2919,10 +2919,10 @@ void func_169()
                 }
             }
             var7 = sys_17(0x0, 0x4);
-            if (!((var3 < 0x0) && (var7 > 0x0)) || !((var3 > 0x0) && (var7 < 0x0)))
+            if (((var3 < 0x0) && (var7 > 0x0)) || ((var3 > 0x0) && (var7 < 0x0)))
             {
                 var8 = sys_17(0x0, 0x2);
-                if ((((var4 * var8) > 0x0) && (var5 < 0x0)) && (!(var8 < -0.20000000298023224) || !(0.20000000298023224 < var8)))
+                if ((((var4 * var8) > 0x0) && (var5 < 0x0)) && ((var8 < -0.20000000298023224) || (0.20000000298023224 < var8)))
                 {
                     var9 = 1.0;
                 }
@@ -2939,7 +2939,7 @@ void func_169()
             }
         }
         var10 = 0x0;
-        if (!(!(var1 != 0xffffffff) || !(sys_17(0x0, 0x2) != 0x0)) || !(sys_17(0x0, 0x3) != 0x0))
+        if (((var1 != 0xffffffff) || (sys_17(0x0, 0x2) != 0x0)) || (sys_17(0x0, 0x3) != 0x0))
         {
             var10 = 0x1;
         }
@@ -2962,9 +2962,9 @@ void func_169()
         if (var10 == 0x1)
         {
             var13 = 0x0;
-            if (!(var1 == 0xffffffff) || !(var1 == 0x2f))
+            if ((var1 == 0xffffffff) || (var1 == 0x2f))
             {
-                if (!(var0 == 0x2f) || !(var0 == 0x2e))
+                if ((var0 == 0x2f) || (var0 == 0x2e))
                 {
                     var9 = 0.10000000149011612;
                 }
@@ -3006,9 +3006,9 @@ void func_169()
             {
                 var13 = 0x1;
             }
-            if (!(var0 != var1) || !(var13 == 0x1))
+            if ((var0 != var1) || (var13 == 0x1))
             {
-                if (!((var0 == 0x26) && (var1 == 0x29)) || !((var0 == 0x29) && (var1 == 0x26)))
+                if (((var0 == 0x26) && (var1 == 0x29)) || ((var0 == 0x29) && (var1 == 0x26)))
                 {
                     func_25(var1);
                 }
@@ -3032,9 +3032,9 @@ void func_169()
                 func_18(0x18, 0x0);
                 return 0x1;
             }
-            if (!sys_16(0x10, 0x21000002) || !sys_18(0x6))
+            if (sys_16(0x10, 0x21000002) || sys_18(0x6))
             {
-                if (!(!(var0 == 0x2b) || !(var0 == 0x2c)) || !(var0 == 0x2d))
+                if (((var0 == 0x2b) || (var0 == 0x2c)) || (var0 == 0x2d))
                 {
                     var0 = 0x25;
                 }
@@ -3312,7 +3312,7 @@ int func_191(int arg0, int arg1, int arg2, int arg3)
             return 0x1;
         }
     }
-    if (!arg2 || !arg3)
+    if (arg2 || arg3)
     {
         return func_193(arg2);
     }
@@ -3364,7 +3364,7 @@ int func_192(int arg0)
         else
         {
             var4 = sys_15(0x0);
-            if (!((var3 > 0x0) && (var4 < 0x0)) || !((var3 < 0x0) && (var4 > 0x0)))
+            if (((var3 > 0x0) && (var4 < 0x0)) || ((var3 < 0x0) && (var4 > 0x0)))
             {
                 return 0x23;
             }
@@ -3429,7 +3429,7 @@ void func_196()
     sys_16(0x7, 0x0, 0x10000013);
     sys_16(0x2711, 0x2000000e);
     var1 = sys_12(0x7);
-    if (!(var1 == 0x43) || !(var1 == 0x44))
+    if ((var1 == 0x43) || (var1 == 0x44))
     {
         var1 = 0x3e;
     }
@@ -3457,7 +3457,7 @@ void func_197()
     int var1;
     int var2;
     float var3;
-    if (!sys_16(0x10, 0x2000000b) || !sys_16(0x10, 0x2000000e))
+    if (sys_16(0x10, 0x2000000b) || sys_16(0x10, 0x2000000e))
     {
         var0 = 0x1;
     }
@@ -3470,7 +3470,7 @@ void func_197()
     {
         var2 = sys_16(0x6, 0x11000003);
         var3 = func_15(sys_17(0x0, 0x1000001) - sys_17(0x0, 0x7));
-        if (!(var2 <= 0x0) || !(var3 > sys_17(0x0, 0x1000001)))
+        if ((var2 <= 0x0) || (var3 > sys_17(0x0, 0x1000001)))
         {
             sys_16(0x2711, 0x21000001);
         }
@@ -3530,7 +3530,7 @@ void func_202()
     float var4;
     float var5;
     float var6;
-    if (!((global19 == 0x0) && (global18 == 0x2)) || !((global19 != 0x0) && (global18 == 0x0)))
+    if (((global19 == 0x0) && (global18 == 0x2)) || ((global19 != 0x0) && (global18 == 0x0)))
     {
         if (global18 == 0x2)
         {
@@ -3571,7 +3571,7 @@ void func_202()
     if ((var4 / var5) > 0.5)
     {
         var6 = sys_11(0xa, 0x3);
-        if (!(var6 < -0.0010000000474974513) || !(0.0010000000474974513 < var6))
+        if ((var6 < -0.0010000000474974513) || (0.0010000000474974513 < var6))
         {
             if (((var3 * var6) < 0x0) && (var4 < func_15(var6)))
             {
@@ -3600,7 +3600,7 @@ int func_204(int arg0, float arg1)
     int var4;
     float var5;
     float var6;
-    if (!(arg0 == 0x3f) || !(arg0 == 0x41))
+    if ((arg0 == 0x3f) || (arg0 == 0x41))
     {
         var2 = 0xffffffff;
         if (arg1 >= sys_17(0x0, 0x4000024))
@@ -3615,8 +3615,8 @@ int func_204(int arg0, float arg1)
             }
         }
         var3 = sys_17(0x0, 0x4000025);
-        var4 = ((int)arg1 / var3);
-        var5 = ((float)var4);
+        var4 = (int)(arg1 / var3);
+        var5 = (float)var4;
         var6 = (var5 * ((arg1 - var3) + (arg1 - (var3 * var5)))) * 0.5;
         if (func_15(sys_17(0x0, 0x4)) <= var6)
         {
@@ -3642,7 +3642,7 @@ void func_205(float arg0, int arg1)
     }
     if (arg1 != var2)
     {
-        if (!((arg1 == 0x3f) && (var2 == 0x41)) || !((arg1 == 0x41) && (var2 == 0x3f)))
+        if (((arg1 == 0x3f) && (var2 == 0x41)) || ((arg1 == 0x41) && (var2 == 0x3f)))
         {
             func_25(var2);
         }
@@ -3717,8 +3717,8 @@ void func_211()
     var0 = sys_16(0x6, 0x11000005);
     if (var0 != 0xffffffff)
     {
-        var1 = ((float)sys_16(0x6, 0x11000004));
-        var2 = ((float)sys_12(0x0, var0));
+        var1 = (float)sys_16(0x6, 0x11000004);
+        var2 = (float)sys_12(0x0, var0);
         var3 = var2 / var1;
         func_24(var0, 0x0, var3);
     }
@@ -3734,7 +3734,7 @@ void func_212()
 {
     float var0;
     var0 = sys_11(0xa, 0x3);
-    if (!(var0 < -0.0010000000474974513) || !(0.0010000000474974513 < var0))
+    if ((var0 < -0.0010000000474974513) || (0.0010000000474974513 < var0))
     {
         sys_16(0x2710, 0x21000001);
     }
@@ -3769,7 +3769,7 @@ void func_216()
     float var0;
     float var1;
     var0 = sys_17(0x0, 0x4);
-    if (!(-5.0 > var0) || !(var0 > 5.0))
+    if ((-5.0 > var0) || (var0 > 5.0))
     {
         if (var0 < 0x0)
         {
@@ -4141,7 +4141,7 @@ void func_256()
     sys_2E(0x272e, var3 + ((var4 - var3) * var0));
     var5 = sys_17(0x0, 0x5000005);
     var6 = sys_17(0x0, 0x5000006);
-    var7 = ((int)var5 + ((var6 - var5) * var0));
+    var7 = (int)(var5 + ((var6 - var5) * var0));
     sys_16(0x7, var7, 0x10000004);
     sys_16(0x7, var7, 0x10000003);
     sys_14(0x0, sys_17(0x0, 0x8));
@@ -4187,7 +4187,7 @@ void func_257()
         {
             var3 = sys_17(0x0, 0x5000010);
             var4 = sys_15(0x0);
-            if (!(!(!(!(!(!(!((var2 & 0x2) && func_260(0x2, var3, var4)) || !((var2 & 0x4) && func_260(0x4, var3, var4))) || !((var2 & 0x8) && func_260(0x8, var3, var4))) || !((var2 & 0x1) && func_260(0x1, var3, var4))) || !((var2 & 0x10) && func_260(0x10, var3, var4))) || !((var2 & 0x20) && func_260(0x20, var3, var4))) || !((var2 & 0x40) && func_260(0x40, var3, var4))) || !((var2 & 0x80) && func_260(0x80, var3, var4)))
+            if (((((((((var2 & 0x2) && func_260(0x2, var3, var4)) || ((var2 & 0x4) && func_260(0x4, var3, var4))) || ((var2 & 0x8) && func_260(0x8, var3, var4))) || ((var2 & 0x1) && func_260(0x1, var3, var4))) || ((var2 & 0x10) && func_260(0x10, var3, var4))) || ((var2 & 0x20) && func_260(0x20, var3, var4))) || ((var2 & 0x40) && func_260(0x40, var3, var4))) || ((var2 & 0x80) && func_260(0x80, var3, var4)))
             {
                 sys_16(0x2710, 0x21000002);
                 var0 = 0x1;
@@ -4231,7 +4231,7 @@ int func_260(int arg0, float arg1, float arg2)
     float var5;
     var3 = sys_1B(0x5, arg0);
     var4 = sys_1B(0x6, arg0);
-    var5 = (((sys_A(0x1, var3, var4) * ((float)0xb4)) / 3.1415927410125732) * arg2) * -1.0;
+    var5 = (((sys_A(0x1, var3, var4) * (float)0xb4) / 3.1415927410125732) * arg2) * -1.0;
     if (var5 <= (arg1 + 0.5))
     {
         return 0x0;
@@ -4458,7 +4458,7 @@ void func_279()
             if (var0 <= sys_16(0x6, 0x11000003))
             {
                 var1 = sys_16(0x6, 0x11000006);
-                if (!(var1 == 0x72) || !(var1 == 0x19))
+                if ((var1 == 0x72) || (var1 == 0x19))
                 {
                     func_18(0x16, 0x0);
                     return 0x1;
@@ -4548,7 +4548,7 @@ void func_287()
         func_45();
         return 0x1;
     }
-    if (sys_16(0x10, 0x20000004) && (!((global19 == 0x0) && (global18 == 0x2)) || !((global19 != 0x0) && (global18 == 0x0))))
+    if (sys_16(0x10, 0x20000004) && (((global19 == 0x0) && (global18 == 0x2)) || ((global19 != 0x0) && (global18 == 0x0))))
     {
         if (global18 == 0x0)
         {

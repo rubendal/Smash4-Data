@@ -1,0 +1,4568 @@
+int global0;
+int global1;
+int global2;
+int global3;
+int global4;
+int global5;
+int global6;
+int global7;
+int global8;
+float global9;
+float global10;
+int global11;
+int global12;
+int global13;
+int global14;
+int global15;
+int global16;
+int global17;
+int global18;
+int global19;
+float global20;
+int global21;
+
+void func_0()
+{
+    global0 = 0x0;
+    global1 = 0x0;
+    global2 = 0x0;
+    global3 = 0x0;
+    global4 = 0xffffffff;
+    global5 = 0xffffffff;
+    global6 = 0xffffffff;
+    global7 = 0x100;
+    global8 = 0x0;
+    global9 = global10 = 0x0;
+    global11 = 0x0;
+    global12 = 0x0;
+    global13 = 0x0;
+    global14 = 0x0;
+    global15 = 0x0;
+    global16 = 0x0;
+    global17 = 0x0;
+    global18 = 0x0;
+    global19 = 0x0;
+    global20 = 0x0;
+    global21 = 0x0;
+}
+
+void func_1()
+{
+    printf("sys_line_system_init");
+    callFunc3(func_2);
+}
+
+void func_2()
+{
+    int var0;
+    int var1;
+    global19 = global18;
+    global18 = sys_18(0x1);
+    var0 = sys_18(0x0);
+    if (var0 != 0xffffffff)
+    {
+        if (!(sys_30(0x1) || sys_49(0x3)))
+        {
+            var1 = sys_2(0x1, 0x4, var0);
+            if (var1 != 0x0)
+            {
+                (*var1)();
+            }
+        }
+        else
+        {
+            var1 = sys_2(0x1, 0x5, var0);
+            if (var1 != 0x0)
+            {
+                (*var1)();
+            }
+        }
+    }
+}
+
+void func_3()
+{
+    printf("sys_line_status_end_init");
+    callFunc3(func_4);
+}
+
+void func_4()
+{
+    printf("sys_line_status_end_control");
+    global6 = sys_18(0x9);
+    if (global6 >= global7)
+    {
+        printf("Warning : @g_status_kind_next_(%d) >= @g_status_kind_max_(%d)", global6, global7);
+        return;
+    }
+    func_20();
+    func_5(global4);
+}
+
+void func_5(int arg0)
+{
+    int var1;
+    if (sys_5(0x5))
+    {
+        sys_1(0x5);
+    }
+    func_6();
+    if (arg0 >= 0x0)
+    {
+        var1 = sys_2(0x1, 0x2, arg0);
+        if (var1 != 0x0)
+        {
+            (*var1)();
+        }
+        var1 = sys_2(0x1, 0x6, arg0);
+        if (var1 != 0x0)
+        {
+            (*var1)();
+        }
+    }
+}
+
+void func_6()
+{
+    if (sys_5(0x1))
+    {
+        sys_1(0x1);
+    }
+    if (sys_5(0x6))
+    {
+        sys_1(0x6);
+    }
+}
+
+void func_7()
+{
+    printf("sys_line_status_shift_init");
+    callFunc3(func_8);
+}
+
+void func_8()
+{
+    int var0;
+    printf("sys_line_status_shift_control");
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
+    {
+        if (global6 >= global7)
+        {
+            printf("Warning : @g_status_kind_next_(%d) >= @g_status_kind_max_(%d)", global6, global7);
+            return;
+        }
+        global8 = 0x1;
+        global5 = global4;
+        global4 = global6;
+        if (func_9(global4))
+        {
+            global4 = sys_18(0x7);
+            func_9(global4);
+        }
+        func_10(global4);
+        var0 = sys_2(0x1, 0x3, global4);
+        if (var0 != 0x0)
+        {
+            global2 = var0;
+        }
+        global9 = global10 = 0x0;
+        global16 = 0x0;
+        if (global12 != 0x0)
+        {
+            (*global12)();
+        }
+    }
+}
+
+int func_9(int arg0)
+{
+    int var1;
+    int var2;
+    printf("sub_pre_status_msc: LINE_STATUS_SHIFT status_now:%d", arg0);
+    if (arg0 < 0x0)
+    {
+        printf("[Error]sub_pre_status_msc undefined status_now");
+        return 0x0;
+    }
+    var1 = 0x0;
+    var2 = sys_2(0x1, 0x0, arg0);
+    if (var2 != 0x0)
+    {
+        var1 = (*var2)();
+    }
+    else
+    {
+        var1 = 0x0;
+    }
+    return var1;
+}
+
+void func_10(int arg0)
+{
+    int var1;
+    printf("sub_set_status_msc: LINE_STATUS_SHIFT status_now:%d", arg0);
+    if (arg0 < 0x0)
+    {
+        printf("[Error]sub_set_status_msc undefined status_now");
+        return;
+    }
+    var1 = sys_2(0x1, 0x1, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x5, var1);
+    }
+    func_11(arg0);
+}
+
+void func_11(int arg0)
+{
+    int var1;
+    if (arg0 < 0x0)
+    {
+        return;
+    }
+    var1 = sys_2(0x1, 0x7, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x1, var1);
+    }
+    var1 = sys_2(0x1, 0x8, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x6, var1);
+    }
+}
+
+void func_12()
+{
+    printf("sys_line_status_system_init");
+    printf("PLATFORM CAFE");
+    callFunc3(func_13);
+}
+
+void func_13()
+{
+    if (sys_30(0x1) == 0x0)
+    {
+        if ((global8 == 0x0) && (global9 < 1000000.0))
+        {
+            if (sys_49(0x2) == 0x1)
+            {
+                global9 += sys_4C(0x0);
+                global3 = 0x1;
+            }
+            else
+            {
+                global9 = global10 + 1.0;
+                global10 = global9;
+                global3 = 0x0;
+            }
+        }
+        else
+        {
+            global3 = sys_49(0x2);
+        }
+    }
+    else
+    {
+        global3 = 0x1;
+    }
+    if (global14 != 0x0)
+    {
+        (*global14)();
+    }
+    global18 = sys_18(0x1);
+    global20 = sys_13(0x1);
+    if (global2 != 0x0)
+    {
+        (*global2)();
+        global2 = 0x0;
+    }
+    if (!global3)
+    {
+        if (global15 != 0x0)
+        {
+            (*global15)();
+        }
+        if (global16 != 0x0)
+        {
+            (*global16)();
+        }
+    }
+    global8 = 0x0;
+}
+
+int func_14(int arg0)
+{
+    if (arg0 < 0x0)
+    {
+        return -arg0;
+    }
+    return arg0;
+}
+
+float func_15(float arg0)
+{
+    if (arg0 < (float)0x0)
+    {
+        return -arg0;
+    }
+    return arg0;
+}
+
+void func_16(float arg0)
+{
+    if (arg0 < 0x0)
+    {
+        return -1.0;
+    }
+    else
+    {
+        return 1.0;
+    }
+}
+
+float func_17(float arg0, float arg1, float arg2)
+{
+    if (arg0 < arg1)
+    {
+        return arg1;
+    }
+    else if (arg0 > arg2)
+    {
+        return arg2;
+    }
+    return arg0;
+}
+
+void func_18(int arg0, int arg1)
+{
+    if (global11)
+    {
+        (*global11)(arg0, arg1);
+    }
+}
+
+void func_19(int arg0, int arg1)
+{
+    sys_18(0x3, arg0, arg1);
+}
+
+void func_20()
+{
+    int var0;
+    int var1;
+    if (global13)
+    {
+        (*global13)(var0, var1);
+    }
+}
+
+int func_21(int arg0, int arg1)
+{
+    sys_21(0x19, arg0, arg1);
+    return 0x1;
+}
+
+void func_22(int arg0)
+{
+    sys_18(0x2, arg0);
+    global19 = global18;
+    global18 = arg0;
+}
+
+void func_23(int arg0, int arg1)
+{
+    sys_18(0x2, arg0, arg1);
+    global19 = global18;
+    global18 = arg0;
+}
+
+void func_24(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x1, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_25(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x3, var1);
+    global20 = sys_13(0x1);
+}
+
+void func_26(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x25, var1);
+}
+
+void func_27(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x26, var1);
+}
+
+void func_28(int arg0, int arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x26, var3, arg1, arg2);
+}
+
+void func_29(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x3, var1, sys_13(0x1));
+}
+
+void func_30(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x2b, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_31(int arg0, float arg1, int arg2, int arg3)
+{
+    int var4;
+    var4 = arg0;
+    if (global21)
+    {
+        var4 = (*global21)(arg0);
+    }
+    sys_12(0x1, var4, arg1, arg2, arg3);
+    global20 = arg1;
+}
+
+int func_32(int arg0)
+{
+    if (sys_9(0x0, arg0) == 0x0)
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_33(int arg0)
+{
+    int var1;
+    var1 = sys_12(0x7);
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_34(int arg0, int arg1)
+{
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+void func_35()
+{
+    sys_14(0x271c);
+    sys_14(0x2);
+}
+
+int func_36()
+{
+    if (global18 == 0x0)
+    {
+        if (sys_1A(0xc))
+        {
+            return 0x1;
+        }
+    }
+    return 0x0;
+}
+
+void func_37(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x38, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_38()
+{
+    
+}
+
+float func_39()
+{
+    float var0;
+    var0 = sys_11(0x2, 0x1);
+    return var0;
+}
+
+int func_40(int arg0)
+{
+    return arg0 + sys_16(0x6, 0x10000005);
+}
+
+void main()
+{
+    printf("ENTRY This Fighter is driven by msc.");
+    func_0();
+    global0 = sys_7(0x0);
+    global1 = sys_7(0x1);
+    func_43();
+    sys_0(0x2, func_3);
+    sys_0(0x3, func_7);
+    sys_0(0x4, func_12);
+    set_main(func_1);
+}
+
+void func_42()
+{
+    global11 = func_19;
+    global21 = func_40;
+}
+
+void func_43()
+{
+    global7 = 0x32;
+    func_44();
+    func_42();
+    global21 = 0x0;
+}
+
+void func_44()
+{
+    sys_3(0x1, 0x0, 0x0, func_48);
+    sys_3(0x1, 0x1, 0x0, func_49);
+    sys_3(0x1, 0x2, 0x0, func_51);
+    sys_3(0x1, 0x0, 0x1, func_52);
+    sys_3(0x1, 0x1, 0x1, func_53);
+    sys_3(0x1, 0x2, 0x1, func_55);
+    sys_3(0x1, 0x0, 0x2, func_56);
+    sys_3(0x1, 0x1, 0x2, func_57);
+    sys_3(0x1, 0x2, 0x2, func_59);
+    sys_3(0x1, 0x0, 0x3, func_60);
+    sys_3(0x1, 0x1, 0x3, func_61);
+    sys_3(0x1, 0x2, 0x3, func_63);
+    sys_3(0x1, 0x0, 0x4, func_64);
+    sys_3(0x1, 0x1, 0x4, func_65);
+    sys_3(0x1, 0x2, 0x4, func_67);
+    sys_3(0x1, 0x0, 0x5, func_68);
+    sys_3(0x1, 0x1, 0x5, func_69);
+    sys_3(0x1, 0x2, 0x5, func_71);
+    sys_3(0x1, 0x0, 0x6, func_76);
+    sys_3(0x1, 0x1, 0x6, func_77);
+    sys_3(0x1, 0x2, 0x6, func_80);
+    sys_3(0x1, 0x0, 0x7, func_83);
+    sys_3(0x1, 0x1, 0x7, func_84);
+    sys_3(0x1, 0x2, 0x7, func_87);
+    sys_3(0x1, 0x0, 0x8, func_88);
+    sys_3(0x1, 0x1, 0x8, func_89);
+    sys_3(0x1, 0x2, 0x8, func_91);
+    sys_3(0x1, 0x0, 0x9, func_92);
+    sys_3(0x1, 0x1, 0x9, func_93);
+    sys_3(0x1, 0x2, 0x9, func_95);
+    sys_3(0x1, 0x0, 0xa, func_96);
+    sys_3(0x1, 0x1, 0xa, func_97);
+    sys_3(0x1, 0x2, 0xa, func_99);
+    sys_3(0x1, 0x0, 0xb, func_102);
+    sys_3(0x1, 0x1, 0xb, func_103);
+    sys_3(0x1, 0x2, 0xb, func_105);
+    sys_3(0x1, 0x0, 0xc, func_106);
+    sys_3(0x1, 0x1, 0xc, func_107);
+    sys_3(0x1, 0x2, 0xc, func_109);
+    sys_3(0x1, 0x0, 0xd, func_110);
+    sys_3(0x1, 0x1, 0xd, func_111);
+    sys_3(0x1, 0x2, 0xd, func_113);
+    sys_3(0x1, 0x0, 0xe, func_114);
+    sys_3(0x1, 0x1, 0xe, func_115);
+    sys_3(0x1, 0x2, 0xe, func_117);
+    sys_3(0x1, 0x0, 0xf, func_134);
+    sys_3(0x1, 0x1, 0xf, func_135);
+    sys_3(0x1, 0x2, 0xf, func_137);
+    sys_3(0x1, 0x0, 0x10, func_139);
+    sys_3(0x1, 0x1, 0x10, func_140);
+    sys_3(0x1, 0x2, 0x10, func_142);
+    sys_3(0x1, 0x0, 0x11, func_144);
+    sys_3(0x1, 0x1, 0x11, func_145);
+    sys_3(0x1, 0x2, 0x11, func_147);
+    sys_3(0x1, 0x0, 0x12, func_148);
+    sys_3(0x1, 0x1, 0x12, func_149);
+    sys_3(0x1, 0x2, 0x12, func_151);
+    sys_3(0x1, 0x0, 0x13, func_152);
+    sys_3(0x1, 0x1, 0x13, func_153);
+    sys_3(0x1, 0x2, 0x13, func_155);
+    sys_3(0x1, 0x0, 0x14, func_156);
+    sys_3(0x1, 0x1, 0x14, func_157);
+    sys_3(0x1, 0x2, 0x14, func_159);
+    sys_3(0x1, 0x0, 0x15, func_160);
+    sys_3(0x1, 0x1, 0x15, func_161);
+    sys_3(0x1, 0x2, 0x15, func_163);
+    sys_3(0x1, 0x0, 0x16, func_167);
+    sys_3(0x1, 0x1, 0x16, func_168);
+    sys_3(0x1, 0x2, 0x16, func_170);
+    sys_3(0x1, 0x0, 0x17, func_171);
+    sys_3(0x1, 0x1, 0x17, func_172);
+    sys_3(0x1, 0x2, 0x17, func_174);
+    sys_3(0x1, 0x0, 0x18, func_175);
+    sys_3(0x1, 0x1, 0x18, func_176);
+    sys_3(0x1, 0x2, 0x18, func_178);
+    sys_3(0x1, 0x0, 0x19, func_179);
+    sys_3(0x1, 0x1, 0x19, func_180);
+    sys_3(0x1, 0x2, 0x19, func_182);
+    sys_3(0x1, 0x0, 0x1a, func_183);
+    sys_3(0x1, 0x1, 0x1a, func_184);
+    sys_3(0x1, 0x2, 0x1a, func_186);
+    sys_3(0x1, 0x0, 0x1b, func_187);
+    sys_3(0x1, 0x1, 0x1b, func_188);
+    sys_3(0x1, 0x2, 0x1b, func_190);
+    sys_3(0x1, 0x0, 0x1c, func_195);
+    sys_3(0x1, 0x1, 0x1c, func_196);
+    sys_3(0x1, 0x2, 0x1c, func_199);
+    sys_3(0x1, 0x0, 0x1d, func_200);
+    sys_3(0x1, 0x1, 0x1d, func_201);
+    sys_3(0x1, 0x2, 0x1d, func_203);
+    sys_3(0x1, 0x0, 0x1e, func_210);
+    sys_3(0x1, 0x1, 0x1e, func_211);
+    sys_3(0x1, 0x2, 0x1e, func_214);
+    sys_3(0x1, 0x0, 0x1f, func_219);
+    sys_3(0x1, 0x1, 0x1f, func_220);
+    sys_3(0x1, 0x2, 0x1f, func_222);
+    sys_3(0x1, 0x0, 0x20, func_215);
+    sys_3(0x1, 0x1, 0x20, func_216);
+    sys_3(0x1, 0x2, 0x20, func_218);
+    sys_3(0x1, 0x0, 0x21, func_223);
+    sys_3(0x1, 0x1, 0x21, func_224);
+    sys_3(0x1, 0x2, 0x21, func_226);
+    sys_3(0x1, 0x0, 0x22, func_227);
+    sys_3(0x1, 0x1, 0x22, func_228);
+    sys_3(0x1, 0x2, 0x22, func_230);
+    sys_3(0x1, 0x0, 0x23, func_206);
+    sys_3(0x1, 0x1, 0x23, func_207);
+    sys_3(0x1, 0x2, 0x23, func_209);
+    sys_3(0x1, 0x0, 0x24, func_231);
+    sys_3(0x1, 0x1, 0x24, func_232);
+    sys_3(0x1, 0x2, 0x24, func_234);
+    sys_3(0x1, 0x0, 0x25, func_235);
+    sys_3(0x1, 0x1, 0x25, func_236);
+    sys_3(0x1, 0x2, 0x25, func_238);
+    sys_3(0x1, 0x0, 0x26, func_239);
+    sys_3(0x1, 0x1, 0x26, func_240);
+    sys_3(0x1, 0x2, 0x26, func_242);
+    sys_3(0x1, 0x0, 0x27, func_243);
+    sys_3(0x1, 0x1, 0x27, func_244);
+    sys_3(0x1, 0x2, 0x27, func_246);
+    sys_3(0x1, 0x0, 0x28, func_247);
+    sys_3(0x1, 0x1, 0x28, func_248);
+    sys_3(0x1, 0x2, 0x28, func_250);
+    sys_3(0x1, 0x0, 0x29, func_251);
+    sys_3(0x1, 0x1, 0x29, func_252);
+    sys_3(0x1, 0x2, 0x29, func_254);
+    sys_3(0x1, 0x0, 0x2a, func_255);
+    sys_3(0x1, 0x1, 0x2a, func_256);
+    sys_3(0x1, 0x2, 0x2a, func_259);
+    sys_3(0x1, 0x0, 0x2b, func_261);
+    sys_3(0x1, 0x1, 0x2b, func_262);
+    sys_3(0x1, 0x2, 0x2b, func_264);
+    sys_3(0x1, 0x0, 0x2c, func_265);
+    sys_3(0x1, 0x1, 0x2c, func_266);
+    sys_3(0x1, 0x2, 0x2c, func_268);
+    sys_3(0x1, 0x0, 0x2d, func_269);
+    sys_3(0x1, 0x1, 0x2d, func_270);
+    sys_3(0x1, 0x2, 0x2d, func_272);
+    sys_3(0x1, 0x0, 0x2e, func_273);
+    sys_3(0x1, 0x1, 0x2e, func_274);
+    sys_3(0x1, 0x2, 0x2e, func_276);
+    sys_3(0x1, 0x0, 0x2f, func_277);
+    sys_3(0x1, 0x1, 0x2f, func_278);
+    sys_3(0x1, 0x2, 0x2f, func_280);
+    sys_3(0x1, 0x0, 0x30, func_281);
+    sys_3(0x1, 0x1, 0x30, func_282);
+    sys_3(0x1, 0x2, 0x30, func_284);
+    sys_3(0x1, 0x0, 0x31, func_285);
+    sys_3(0x1, 0x1, 0x31, func_286);
+    sys_3(0x1, 0x2, 0x31, func_288);
+    sys_3(0x1, 0x3, 0xf, func_128);
+    sys_3(0x1, 0x3, 0x10, func_128);
+    sys_3(0x1, 0x3, 0x11, func_128);
+    sys_3(0x1, 0x3, 0x12, func_131);
+    sys_3(0x1, 0x3, 0x13, func_132);
+    sys_3(0x1, 0x4, 0xf, func_129);
+    sys_3(0x1, 0x4, 0x10, func_129);
+    sys_3(0x1, 0x4, 0x11, func_129);
+    sys_3(0x1, 0x4, 0x12, func_133);
+    sys_3(0x1, 0x4, 0x13, func_133);
+    sys_3(0x1, 0x6, 0xf, func_130);
+    sys_3(0x1, 0x6, 0x10, func_130);
+    sys_3(0x1, 0x6, 0x11, func_130);
+    sys_3(0x1, 0x6, 0x12, func_130);
+    sys_3(0x1, 0x6, 0x13, func_130);
+    sys_3(0x1, 0x6, 0x14, func_130);
+}
+
+void func_45()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004))
+    {
+        if (global18 == 0x2)
+        {
+            var0 = 0x21;
+        }
+        else
+        {
+            var0 = 0x1c;
+        }
+        sys_16(0x2710, 0x2000000b);
+    }
+    else
+    {
+        var0 = 0x16;
+    }
+    func_18(var0, 0x0);
+}
+
+void func_46()
+{
+    sys_14(0x1);
+    sys_14(0x2);
+}
+
+int func_47(int arg0)
+{
+    if (sys_15(0x0) != sys_17(0x0, arg0))
+    {
+        sys_14(0x1);
+        sys_14(0x2);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_48()
+{
+    sys_18(0x5, 0x2, 0x23, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_49()
+{
+    float var0;
+    var0 = sys_15(0x0);
+    if (-1.0 == var0)
+    {
+        func_24(0x77, 0x0, 1.0);
+    }
+    else
+    {
+        func_24(0x78, 0x0, 1.0);
+    }
+    callFunc3(func_50);
+}
+
+void func_50()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_51()
+{
+    
+}
+
+int func_52()
+{
+    sys_18(0x5, 0x5, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_53()
+{
+    int var0;
+    sys_29(0x2710, 0x0);
+    sys_39(0x2710, 0x0);
+    sys_2D(0x2710, 0x3);
+    if (sys_16(0x10, 0x20000014) == 0x0)
+    {
+        var0 = 0x0;
+        if (global5 == 0x3)
+        {
+            var0 = sys_16(0x6, 0x14000007);
+        }
+        sys_16(0x7, var0, 0x11000003);
+    }
+    callFunc3(func_54);
+}
+
+void func_54()
+{
+    if (sys_16(0x10, 0x20000014))
+    {
+        sys_16(0x7, 0x0, 0x11000003);
+    }
+    else
+    {
+        sys_16(0xa, 0x11000003);
+        if (sys_16(0x6, 0x11000003) < 0x0)
+        {
+            func_18(0x2, 0x0);
+            return 0x1;
+        }
+    }
+    if (sys_16(0x10, 0x20000018))
+    {
+        sys_D(0x2717, 0x0);
+        sys_16(0x2711, 0x20000018);
+    }
+}
+
+void func_55()
+{
+    sys_21(0x3e8);
+}
+
+int func_56()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_57()
+{
+    sys_21(0x3ef);
+    sys_29(0x2710, 0x1);
+    sys_D(0x2717, 0x1);
+    sys_39(0x2710, 0x1);
+    if (sys_16(0x10, 0x20000019))
+    {
+        sys_2D(0x2710, 0x3);
+    }
+    sys_16(0x2710, 0x2000000c);
+    func_24(0x1, 0x0, 1.0);
+    callFunc3(func_58);
+}
+
+void func_58()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_59()
+{
+    
+}
+
+int func_60()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_61()
+{
+    float var0;
+    float var1;
+    float var2;
+    float var3;
+    int var4;
+    float var5;
+    float var6;
+    sys_16(0x2711, 0x20000004);
+    sys_16(0x2711, 0x20000005);
+    sys_29(0x2710, 0x0);
+    sys_39(0x2710, 0x0);
+    sys_2D(0x2710, 0x3);
+    if (sys_16(0x10, 0x20000015))
+    {
+        var0 = sys_15(0x1);
+        var1 = sys_15(0x2);
+        var2 = sys_15(0x3);
+        var3 = 0.20000000298023224;
+        var4 = sys_1C(0x1d, var0, var1, var2, var3);
+        var5 = sys_1D(0x0, var0, var1, var2, var3);
+        var6 = 1.0;
+        if (var4 == 0x1)
+        {
+            var6 = 1.2000000476837158;
+        }
+        sys_1E(0x2710, 0x4a40055);
+        if (!sys_16(0x10, 0x20000013))
+        {
+            sys_1E(0x2710, 0x4a50066);
+        }
+        sys_1C(0x2, 0x3270012, var0, var1, var2, 0x0, 0x0, 3.1415927410125732 * var5, var6 * 1.0, 0x0, 0xffffffff);
+        sys_12(0x4, 0x0);
+        sys_16(0x2710, 0x20000018);
+    }
+    else if (sys_16(0x10, 0x20000017))
+    {
+        sys_12(0x4, 0x0);
+        sys_16(0x2710, 0x20000018);
+    }
+    else
+    {
+        func_24(0x2, 0x0, 1.0);
+        sys_16(0x2711, 0x20000018);
+    }
+    callFunc3(func_62);
+}
+
+void func_62()
+{
+    if (sys_18(0x6) == 0x0)
+    {
+        func_18(0x1, 0x0);
+        return 0x1;
+    }
+}
+
+void func_63()
+{
+    sys_21(0x3ed);
+}
+
+int func_64()
+{
+    sys_18(0x5, 0x5, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_65()
+{
+    sys_21(0x3e9);
+    sys_39(0x2710, 0x0);
+    sys_2D(0x2710, 0x3);
+    func_24(0x0, 0x0, 1.0);
+    callFunc3(func_66);
+}
+
+void func_66()
+{
+    float var0;
+    var0 = sys_17(0x0, 0x1000001) + sys_17(0x0, 0x400000b);
+    if (var0 >= sys_17(0x0, 0x7))
+    {
+        sys_14(0x2714, sys_17(0x0, 0x4), sys_17(0x0, 0x5), sys_15(0x3));
+        func_45();
+        return 0x1;
+    }
+    sys_16(0x0, var0 + 0x0, 0x1000001);
+    sys_21(0x3ea);
+}
+
+void func_67()
+{
+    if (global6 != 0xffffffff)
+    {
+        if (global6 != 0x5)
+        {
+            sys_21(0x3eb);
+        }
+        sys_39(0x2710, 0x1);
+        sys_2D(0x2710, 0x0);
+    }
+}
+
+int func_68()
+{
+    sys_18(0x5, 0x2, 0x20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_69()
+{
+    sys_29(0x2710, 0x0);
+    sys_39(0x2710, 0x0);
+    sys_2D(0x2710, 0x3);
+    callFunc3(func_70);
+}
+
+void func_70()
+{
+    int var0;
+    int var1;
+    float var2;
+    if (sys_16(0x10, 0x21000002) == 0x0)
+    {
+        var0 = sys_16(0x6, 0x1000000f);
+        var1 = 0xffffffff;
+        if (sys_16(0x10, 0x2000001d))
+        {
+            var1 = 0x24;
+        }
+        else if ((var0 == 0x1ad) || (var0 == 0x1ae))
+        {
+            var1 = 0x1e;
+        }
+        else if ((var0 == 0x1af) || (var0 == 0x1b0))
+        {
+            var1 = 0x20;
+        }
+        else if (var0 == 0x1b1)
+        {
+            var1 = 0x22;
+        }
+        else if (var0 == 0x1b2)
+        {
+            var1 = 0x23;
+        }
+        else if (var0 == 0x1b3)
+        {
+            sys_1C(0x9, 0x0, 0x1, 0x1);
+            if (sys_1E(0x271e, 0x4a40053))
+            {
+                sys_1E(0x2714, 0x4a40053);
+            }
+        }
+        if (var1 != 0xffffffff)
+        {
+            func_24(var1, 0x0, 1.0);
+            sys_39(0x2710, 0x1);
+            sys_16(0x2710, 0x21000002);
+        }
+    }
+    else
+    {
+        if (sys_16(0x10, 0x2000001d))
+        {
+            var2 = 0.5;
+        }
+        else
+        {
+            var2 = 1.0;
+        }
+        sys_14(0x2715, sys_17(0x0, 0x4) * var2, sys_17(0x0, 0x5) * var2, sys_17(0x0, 0x6) * var2);
+        sys_14(0x2717, sys_17(0x0, 0xc), sys_17(0x0, 0xd), sys_17(0x0, 0xe));
+        sys_14(0x0, sys_17(0x0, 0x1));
+        sys_14(0x2);
+        if (sys_12(0x2712))
+        {
+            var1 = sys_12(0x7);
+            if (!sys_16(0x10, 0x2000001d))
+            {
+                var1 = var1 + 0x1;
+            }
+            func_24(var1, 0x0, 1.0);
+        }
+    }
+}
+
+void func_71()
+{
+    
+}
+
+int func_72(int arg0)
+{
+    float var1;
+    if (sys_16(0x10, 0x20000005))
+    {
+        if (sys_16(0x10, 0x20000004))
+        {
+            if (func_194())
+            {
+                return 0x1;
+            }
+        }
+        else
+        {
+            var1 = 0.5;
+            if (((arg0 == 0x0) || sys_16(0x10, 0x2000000a)) || (sys_16(0x6, 0x11000003) == sys_16(0x6, 0x1000000f)))
+            {
+                var1 = 500.0;
+            }
+            if (func_165(var1))
+            {
+                return 0x1;
+            }
+        }
+    }
+    return 0x0;
+}
+
+void func_73(int arg0, int arg1)
+{
+    if ((sys_16(0x10, 0x20000004) == 0x0) && (sys_17(0x0, 0x4000015) <= sys_17(0x0, 0x7)))
+    {
+        arg0 = 0x23;
+    }
+    if ((arg1 == 0x1) || (arg0 != sys_10(0x18)))
+    {
+        sys_10(0x0, arg0);
+    }
+}
+
+int func_74()
+{
+    int var0;
+    int var1;
+    int var2;
+    var0 = 0x0;
+    var1 = sys_16(0x6, 0x1000000d);
+    var2 = sys_16(0x6, 0x11000004);
+    if (var2 == 0x0)
+    {
+        if (((var1 != 0x2b) && (var1 != 0x2c)) && (var1 != 0x2d))
+        {
+            var0 = 0x1;
+        }
+    }
+    else if (var2 == 0x1)
+    {
+        if (((var1 != 0x31) && (var1 != 0x32)) && (var1 != 0x33))
+        {
+            var0 = 0x1;
+        }
+    }
+    else if (((var1 != 0x2e) && (var1 != 0x2f)) && (var1 != 0x30))
+    {
+        var0 = 0x1;
+    }
+    if (var0)
+    {
+        func_45();
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_75()
+{
+    int var0;
+    int var1;
+    int var2;
+    if (sys_16(0x10, 0x20000009) == 0x0)
+    {
+        return 0x0;
+    }
+    var0 = sys_16(0x6, 0x11000001);
+    if (sys_16(0x10, 0x20000004))
+    {
+        var1 = global18;
+    }
+    else
+    {
+        var1 = sys_16(0x6, 0x1000000e);
+    }
+    var2 = 0xffffffff;
+    if (var1 == 0x0)
+    {
+        if (var0 & 0x4)
+        {
+            sys_16(0x7, 0x1, 0x11000002);
+            var2 = 0xb;
+        }
+        else if (var0 & 0x8)
+        {
+            sys_16(0x7, 0x2, 0x11000002);
+            var2 = 0xb;
+        }
+        else if (var0 & 0x2)
+        {
+            sys_16(0x7, 0x0, 0x11000002);
+            var2 = 0xb;
+        }
+        else if (var0 & 0x1)
+        {
+            var2 = 0x6;
+        }
+    }
+    else if (var0 & 0x1)
+    {
+        var2 = 0xa;
+    }
+    if (var2 != 0xffffffff)
+    {
+        sys_16(0x2710, 0x2000000a);
+        func_18(var2, 0x1);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_76()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_77()
+{
+    int var0;
+    int var1;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+        func_47(0xb);
+    }
+    var1 = func_81();
+    func_24(var1, 0x0, 1.0);
+    func_73(0x21, 0x1);
+    func_82(var1);
+    if (sys_16(0x10, 0x2000000a))
+    {
+        if (!sys_30(0x1))
+        {
+            func_79();
+        }
+        global16 = func_79;
+    }
+    callFunc3(func_78);
+}
+
+void func_78()
+{
+    int var0;
+    int var1;
+    int var2;
+    if (sys_16(0x10, 0x2000000a))
+    {
+        if (sys_16(0x10, 0x21000003) && (sys_16(0x6, 0x11000004) >= sys_16(0x6, 0x13000056)))
+        {
+            func_18(0x7, 0x0);
+            return 0x1;
+        }
+        if (sys_16(0x10, 0x21000004))
+        {
+            var0 = sys_12(0x7);
+            if (var0 == 0x8)
+            {
+                var1 = 0x9;
+            }
+            else if (var0 == 0x9)
+            {
+                var1 = 0xa;
+            }
+            else
+            {
+                var1 = 0x8;
+            }
+            func_24(var1, 0x0, 1.0);
+            func_73(0x21, 0x0);
+            func_82(var1);
+            sys_16(0x2711, 0x21000002);
+            sys_16(0x2711, 0x21000003);
+            sys_16(0x2711, 0x21000004);
+            return 0x0;
+        }
+    }
+    else
+    {
+        var2 = sys_16(0x6, 0x10000010);
+        if (var2 != 0xffffffff)
+        {
+            var0 = sys_12(0x7);
+            var1 = 0xffffffff;
+            if (var0 == 0x8)
+            {
+                if (var2 == 0x51)
+                {
+                    var1 = 0x9;
+                }
+            }
+            else if (var0 == 0x9)
+            {
+                if (var2 == 0x52)
+                {
+                    var1 = 0xa;
+                }
+                else if ((var2 == 0x53) || (var2 == 0x54))
+                {
+                    sys_16(0x7, 0xffffffff, 0x10000010);
+                    func_18(0x7, 0x0);
+                    return 0x1;
+                }
+            }
+            else if (var0 == 0xa)
+            {
+                if (var2 == 0x50)
+                {
+                    var1 = 0x8;
+                }
+            }
+            if (var1 != 0xffffffff)
+            {
+                func_24(var1, 0x0, 1.0);
+                func_73(0x21, 0x0);
+                func_82(var1);
+                sys_16(0x7, 0xffffffff, 0x10000010);
+                sys_16(0x7, var2, 0x11000003);
+                return 0x0;
+            }
+        }
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+    if (func_72(0x1))
+    {
+        return 0x1;
+    }
+}
+
+void func_79()
+{
+    int var0;
+    var0 = sys_16(0x6, 0x11000000);
+    if (sys_E(0x2710, 0x0) || sys_E(0x2711, 0x0))
+    {
+        sys_16(0x9, 0x11000004);
+    }
+    if ((var0 & 0x1) && (sys_16(0x10, 0x21000002) == 0x1))
+    {
+        sys_16(0x2710, 0x21000004);
+    }
+}
+
+void func_80()
+{
+    
+}
+
+int func_81()
+{
+    int var0;
+    var0 = sys_16(0x6, 0x10000010);
+    if (var0 == 0x51)
+    {
+        return 0x9;
+    }
+    else if (var0 == 0x52)
+    {
+        return 0xa;
+    }
+    sys_16(0x7, var0, 0x11000003);
+    return 0x8;
+}
+
+void func_82(int arg0)
+{
+    int var1;
+    if (arg0 == 0x8)
+    {
+        var1 = 0x1;
+    }
+    else if (arg0 == 0x9)
+    {
+        var1 = 0x2;
+    }
+    else
+    {
+        var1 = 0x3;
+    }
+    if ((sys_16(0x6, 0x1000000d) != 0x56) && (sys_16(0x6, 0x1000000d) != 0x87))
+    {
+        sys_21(0x3f0, var1, sys_16(0x10, 0x2000000a));
+    }
+}
+
+int func_83()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_84()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+        func_47(0xb);
+    }
+    func_24(0xb, 0x0, 1.0);
+    sys_21(0x3f0, 0x4, sys_16(0x10, 0x2000000a));
+    if (sys_16(0x10, 0x2000000a))
+    {
+        if (!sys_30(0x1))
+        {
+            func_86();
+        }
+        global16 = func_86;
+    }
+    callFunc3(func_85);
+}
+
+void func_85()
+{
+    int var0;
+    if (sys_16(0x10, 0x2000000a))
+    {
+        if (sys_16(0x10, 0x21000002))
+        {
+            func_18(0x8, 0x0);
+            return 0x1;
+        }
+        if (sys_12(0xb))
+        {
+            sys_16(0x2710, 0x21000005);
+        }
+    }
+    else if (sys_16(0x6, 0x11000004) > 0x0)
+    {
+        var0 = sys_16(0x6, 0x1000000f);
+        if ((var0 != 0x53) && (var0 != 0x54))
+        {
+            func_18(0x8, 0x0);
+            return 0x1;
+        }
+    }
+    else if (sys_12(0xb))
+    {
+        sys_16(0x9, 0x11000004);
+    }
+}
+
+void func_86()
+{
+    int var0;
+    var0 = sys_16(0x6, 0x11000000);
+    if ((var0 & 0x1) || (var0 & 0x2))
+    {
+        sys_16(0x2710, 0x21000004);
+    }
+    if (sys_16(0x10, 0x21000005))
+    {
+        if (sys_16(0x10, 0x21000003))
+        {
+            sys_16(0x2711, 0x21000003);
+            if (sys_16(0x10, 0x21000004))
+            {
+                sys_16(0x2711, 0x21000004);
+            }
+            else if (sys_E(0x2713, 0x0))
+            {
+                sys_16(0x2710, 0x21000002);
+            }
+        }
+    }
+}
+
+void func_87()
+{
+    
+}
+
+int func_88()
+{
+    sys_18(0x5, 0xffffffff, 0xffffffff, 0x7, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_89()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    func_24(0xc, 0x0, 1.0);
+    sys_16(0x7, 0x55, 0x11000003);
+    callFunc3(func_90);
+}
+
+void func_90()
+{
+    if (func_72(0x1))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_91()
+{
+    
+}
+
+int func_92()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_93()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    func_47(0xb);
+    func_24(0xd, 0x0, 1.0);
+    func_73(0x21, 0x1);
+    sys_21(0x3f0, 0x5, 0x0);
+    sys_16(0x7, 0x56, 0x11000003);
+    callFunc3(func_94);
+}
+
+void func_94()
+{
+    if (func_72(0x1))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_95()
+{
+    
+}
+
+int func_96()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_97()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    var0 = sys_16(0x10, 0x20000004);
+    if (sys_16(0x10, 0x2000000a))
+    {
+        var1 = func_101();
+    }
+    else
+    {
+        var1 = func_100();
+        if (var0)
+        {
+            if ((var1 == 0xf) || (var1 == 0x10))
+            {
+                func_47(0xb);
+            }
+        }
+        else
+        {
+            func_47(0xb);
+        }
+    }
+    func_24(var1, 0x0, 1.0);
+    if (var0)
+    {
+        if (((var1 == 0xe) || (var1 == 0xf)) || (var1 == 0x10))
+        {
+            var2 = 0x2;
+        }
+        else
+        {
+            var2 = 0x21;
+        }
+        func_73(var2, 0x1);
+    }
+    else
+    {
+        var3 = 0x0;
+        var3 = !var3;
+        sys_1A(0x2713, var3);
+        func_73(0x22, 0x1);
+    }
+    if (var1 == 0xe)
+    {
+        var4 = 0xe;
+    }
+    else if (var1 == 0xf)
+    {
+        var4 = 0xf;
+    }
+    else if (var1 == 0x10)
+    {
+        var4 = 0x10;
+    }
+    else if (var1 == 0x11)
+    {
+        var4 = 0x11;
+    }
+    else if (var1 == 0x12)
+    {
+        var4 = 0x12;
+    }
+    sys_21(0x3f0, var4, sys_16(0x10, 0x2000000a));
+    callFunc3(func_98);
+}
+
+void func_98()
+{
+    if (func_72(0x0))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_99()
+{
+    
+}
+
+int func_100()
+{
+    int var0;
+    int var1;
+    var0 = sys_16(0x6, 0x1000000f);
+    if (var0 == 0x68)
+    {
+        var1 = 0xe;
+    }
+    else if (var0 == 0x69)
+    {
+        var1 = 0xf;
+    }
+    else if (var0 == 0x6a)
+    {
+        var1 = 0x10;
+    }
+    else if (var0 == 0x6b)
+    {
+        var1 = 0x11;
+    }
+    else
+    {
+        var1 = 0x12;
+    }
+    return var1;
+}
+
+int func_101()
+{
+    float var0;
+    float var1;
+    float var2;
+    float var3;
+    int var4;
+    float var5;
+    float var6;
+    var0 = sys_F(0x0);
+    var1 = sys_F(0x1);
+    var2 = func_15(var0);
+    var3 = func_15(var1);
+    if ((var2 < sys_17(0x0, 0x2000040)) && (var3 < sys_17(0x0, 0x2000041)))
+    {
+        var4 = 0xe;
+    }
+    else if (sys_E(0x271d) == 0x1)
+    {
+        var5 = sys_15(0x0);
+        if (var6 >= 0x0)
+        {
+            var4 = 0xf;
+        }
+        else
+        {
+            var4 = 0x10;
+        }
+    }
+    else if (var1 >= 0x0)
+    {
+        var4 = 0x11;
+    }
+    else
+    {
+        var4 = 0x12;
+    }
+    return var4;
+}
+
+int func_102()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x4, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_103()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    if (sys_16(0x10, 0x2000000a))
+    {
+        var0 = sys_16(0x6, 0x11000002);
+        func_35();
+    }
+    else
+    {
+        var1 = sys_16(0x6, 0x1000000f);
+        if (var1 == 0x58)
+        {
+            var0 = 0x0;
+        }
+        else if (var1 == 0x5c)
+        {
+            var0 = 0x1;
+        }
+        else if (var1 == 0x5d)
+        {
+            var0 = 0x2;
+        }
+        sys_16(0x7, var1, 0x11000003);
+        if (sys_16(0x10, 0x20000004))
+        {
+            func_47(0xb);
+        }
+        else
+        {
+            func_35();
+        }
+    }
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var2 = 0x0;
+        var2 = !var2;
+        sys_1A(0x2713, var2);
+    }
+    if (var0 == 0x0)
+    {
+        var3 = 0x13;
+        if (sys_16(0x10, 0x20000004))
+        {
+            var4 = 0x2;
+        }
+        else
+        {
+            var4 = 0x21;
+        }
+        var5 = 0x6;
+    }
+    else if (var0 == 0x1)
+    {
+        var3 = 0x14;
+        var4 = 0x2;
+        var5 = 0x9;
+    }
+    else if (var0 == 0x2)
+    {
+        var3 = 0x15;
+        var4 = 0x21;
+        var5 = 0xa;
+    }
+    func_24(var3, 0x0, 1.0);
+    func_73(var4, 0x1);
+    sys_21(0x3f0, var5, sys_16(0x10, 0x2000000a));
+    callFunc3(func_104);
+}
+
+void func_104()
+{
+    if (func_72(0x1))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_105()
+{
+    
+}
+
+int func_106()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_107()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    int var6;
+    var0 = sys_16(0x10, 0x20000004);
+    var1 = sys_16(0x6, 0x1000000d);
+    if ((var1 == 0x2b) || (var1 == 0x2c))
+    {
+        var2 = 0x17;
+        var3 = 0x0;
+        var4 = 0xb;
+    }
+    else if ((var1 == 0x31) || (var1 == 0x32))
+    {
+        var2 = 0x1a;
+        var3 = 0x1;
+        var4 = 0xc;
+    }
+    else
+    {
+        var2 = 0x1c;
+        var3 = 0x2;
+        var4 = 0xd;
+    }
+    sys_16(0x7, var3, 0x11000004);
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var5 = 0x0;
+        var5 = !var5;
+        sys_1A(0x2713, var5);
+    }
+    if ((var0 == 0x0) || (var3 == 0x0))
+    {
+        func_47(0x1);
+    }
+    if ((var0 == 0x1) && ((var3 == 0x0) || (var3 == 0x2)))
+    {
+        var6 = 0x2;
+    }
+    else
+    {
+        var6 = 0x21;
+    }
+    func_24(var2, 0x0, 1.0);
+    sys_10(0x0, var6);
+    sys_21(0x3f0, var4, 0x0);
+    callFunc3(func_108);
+}
+
+void func_108()
+{
+    if (sys_16(0x6, 0x11000004) == 0x0)
+    {
+        func_47(0x1);
+    }
+    if (sys_16(0x10, 0x21000002))
+    {
+        func_18(0xd, 0x0);
+        return 0x1;
+    }
+    if (func_74())
+    {
+        return 0x1;
+    }
+}
+
+void func_109()
+{
+    if ((global6 == 0xd) || (global6 == 0xe))
+    {
+        sys_16(0x0, sys_13(0x1) + 0x0, 0x1000001);
+    }
+}
+
+int func_110()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x10, 0xe, 0x0);
+    return 0x0;
+}
+
+void func_111()
+{
+    int var0;
+    int var1;
+    int var2;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    var1 = sys_16(0x6, 0x11000004);
+    if (var1 == 0x0)
+    {
+        var2 = 0x19;
+    }
+    else if (var1 == 0x1)
+    {
+        var2 = 0x1b;
+    }
+    else
+    {
+        var2 = 0x1d;
+    }
+    func_24(var2, 0x0, 1.0);
+    callFunc3(func_112);
+}
+
+void func_112()
+{
+    if (sys_16(0x6, 0x11000004) == 0x0)
+    {
+        func_47(0x1);
+    }
+    if (func_74())
+    {
+        return 0x1;
+    }
+}
+
+void func_113()
+{
+    
+}
+
+int func_114()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x10, 0xe, 0x0);
+    return 0x0;
+}
+
+void func_115()
+{
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    var0 = sys_16(0x10, 0x20000004);
+    if (var0 == 0x0)
+    {
+        var1 = 0x0;
+        var1 = !var1;
+        sys_1A(0x2713, var1);
+    }
+    sys_2E(0x2728, sys_17(0x0, 0x1000002));
+    sys_2E(0x272e, sys_17(0x0, 0x1000003));
+    var2 = sys_16(0x6, 0x1000000f);
+    if (var2 == 0x5e)
+    {
+        var3 = 0x16;
+    }
+    else if (var2 == 0x61)
+    {
+        var3 = 0x18;
+    }
+    else if (var2 == 0x5f)
+    {
+        var3 = 0x17;
+    }
+    else if (var2 == 0x63)
+    {
+        var3 = 0x1a;
+    }
+    else
+    {
+        var3 = 0x1c;
+    }
+    var4 = sys_16(0x6, 0x11000004);
+    if (var0 && ((var4 == 0x0) || (var4 == 0x2)))
+    {
+        var5 = 0x2;
+    }
+    else
+    {
+        var5 = 0x21;
+    }
+    func_28(var3, sys_17(0x0, 0x1000001), 1.0);
+    sys_10(0x0, var5);
+    sys_16(0x7, var2, 0x11000003);
+    callFunc3(func_116);
+}
+
+void func_116()
+{
+    if (func_72(0x1))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_117()
+{
+    sys_2E(0x272e, 1.0);
+}
+
+int func_118()
+{
+    if (sys_16(0x10, 0x20000016))
+    {
+        func_18(0x3, 0x0);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_119()
+{
+    if ((sys_30(0x0) == 0x1) || (sys_16(0x6, 0x11000004) > 0x0))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+void func_120(int arg0, int arg1)
+{
+    float var2;
+    float var3;
+    float var4;
+    var2 = 1.0;
+    if (arg1 == 0x1)
+    {
+        var3 = sys_25(0x1);
+        if (var3 > 0x0)
+        {
+            var4 = (float)sys_12(0x0, arg0);
+            var2 = var4 / var3;
+        }
+    }
+    func_24(arg0, 0x0, var2);
+}
+
+int func_121()
+{
+    if (!func_119() && (global18 == 0x0))
+    {
+        if (func_118() == 0x1)
+        {
+            return 0x1;
+        }
+        func_18(0x15, 0x0);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+void func_122()
+{
+    int var0;
+    float var1;
+    float var2;
+    int var3;
+    var0 = (int)sys_25(0x1);
+    var1 = sys_25(0x2);
+    var2 = sys_25(0x3);
+    var3 = sys_18(0x0);
+    if ((var3 != 0x12) && (var3 != 0x13))
+    {
+        if (var0 > 0x0)
+        {
+            sys_16(0x2711, 0x21000002);
+            sys_16(0x7, var0, 0x10000011);
+        }
+        else
+        {
+            sys_16(0x2710, 0x21000002);
+            sys_16(0x7, 0x0, 0x10000011);
+        }
+    }
+}
+
+int func_123()
+{
+    int var0;
+    float var1;
+    float var2;
+    var0 = sys_30(0x1) || sys_49(0x2);
+    if (var0 == 0x0)
+    {
+        if (func_119() == 0x0)
+        {
+            if (sys_16(0x10, 0x21000006) == 0x0)
+            {
+                var1 = sys_11(0xb, 0x0);
+                var2 = (float)sys_16(0x6, 0x11000003);
+                if ((var1 < -1.0) || (var2 >= (float)0x3))
+                {
+                    if (func_121())
+                    {
+                        return 0x1;
+                    }
+                    sys_16(0x2710, 0x21000006);
+                }
+            }
+            else if (func_121())
+            {
+                return 0x1;
+            }
+        }
+    }
+    return 0x0;
+}
+
+int func_124()
+{
+    float var0;
+    float var1;
+    float var2;
+    if ((((global18 == 0x2) || (global4 == 0xf)) && (sys_16(0x6, 0x10000012) <= 0xf)) && (sys_16(0x6, 0x11000006) <= 0x0))
+    {
+        var0 = sys_11(0xa, 0x0);
+        var1 = sys_11(0xb, 0x0);
+        var2 = 1.0;
+        if (((sys_1A(0x1e, 0x2) == 0x1) && (-var0 > var2)) && (sys_16(0x6, 0x11000005) != 0x2))
+        {
+            sys_16(0x7, 0x2, 0x11000005);
+            func_18(0x12, 0x0);
+            return 0x1;
+        }
+        if (((sys_1A(0x1e, 0x4) == 0x1) && (var0 > var2)) && (sys_16(0x6, 0x11000005) != 0x1))
+        {
+            sys_16(0x7, 0x1, 0x11000005);
+            func_18(0x12, 0x0);
+            return 0x1;
+        }
+        if ((global4 != 0xf) && (global4 != 0x13))
+        {
+            if (((sys_1A(0x1e, 0x1) == 0x1) && (var1 > var2)) && (sys_16(0x6, 0x11000005) != 0x1))
+            {
+                sys_16(0x7, 0x3, 0x11000005);
+                func_18(0x13, 0x0);
+                return 0x1;
+            }
+        }
+    }
+    return 0x0;
+}
+
+void func_125()
+{
+    int var0;
+    float var1;
+    float var2;
+    float var3;
+    float var4;
+    float var5;
+    var0 = sys_1A(0xa);
+    if (var0 != 0x0)
+    {
+        if (var0 & 0x8)
+        {
+            var1 = sys_1B(0x3, 0x8);
+            var2 = sys_1B(0x4, 0x8);
+            var3 = sys_1B(0x5, 0x8);
+            var4 = sys_1B(0x6, 0x8);
+        }
+        else if (var0 & 0x1)
+        {
+            var1 = sys_1B(0x3, 0x1);
+            var2 = sys_1B(0x4, 0x1);
+            var3 = sys_1B(0x5, 0x1);
+            var4 = sys_1B(0x6, 0x1);
+        }
+        else if (var0 & 0x2)
+        {
+            var1 = sys_1B(0x3, 0x2);
+            var2 = sys_1B(0x4, 0x2);
+            var3 = sys_1B(0x5, 0x2);
+            var4 = sys_1B(0x6, 0x2);
+        }
+        else if (var0 & 0x4)
+        {
+            var1 = sys_1B(0x3, 0x4);
+            var2 = sys_1B(0x4, 0x4);
+            var3 = sys_1B(0x5, 0x4);
+            var4 = sys_1B(0x6, 0x4);
+        }
+        var5 = sys_A(0x1, -var3, var4);
+        sys_1C(0x2, 0x1000008, var1, var2, 0x0, 0x0, 0x0, var5, 1.0, 0x0, 0xffffffff);
+    }
+}
+
+void func_126()
+{
+    sys_16(0x0, sys_15(0x1) + 0x0, 0x1000001);
+    sys_16(0x0, sys_15(0x2) + 0x0, 0x1000002);
+}
+
+void func_127()
+{
+    float var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    float var6;
+    int var7;
+    float var8;
+    float var9;
+    float var10;
+    var0 = sys_11(0x3, 0x0);
+    var1 = sys_16(0x6, 0x10000014);
+    var2 = 0x0;
+    if (var1 != sys_16(0x6, 0x11000008))
+    {
+        var2 = 0x1;
+    }
+    var3 = sys_30(0x1) || sys_49(0x2);
+    var4 = 0x0;
+    if ((var3 == 0x0) && (var0 >= sys_17(0x0, 0x2000107)))
+    {
+        if (sys_16(0x10, 0x21000007) == 0x0)
+        {
+            var5 = sys_16(0x6, 0x11000007);
+            var6 = sys_A(0x3, sys_15(0x1) - sys_17(0x0, 0x1000001), sys_15(0x2) - sys_17(0x0, 0x1000002), 0x0);
+            if ((var5 >= sys_16(0x6, 0x12000108)) && (var6 >= sys_17(0x0, 0x2000109)))
+            {
+                var4 = 0x1;
+                sys_16(0x2710, 0x21000007);
+            }
+        }
+        else
+        {
+            var4 = 0x1;
+        }
+        if ((var4 == 0x1) && (sys_16(0x10, 0x20000016) == 0x0))
+        {
+            var4 = 0x0;
+        }
+        sys_16(0x9, 0x11000007);
+    }
+    else
+    {
+        sys_16(0x7, 0x0, 0x11000007);
+    }
+    var7 = sys_16(0x6, 0x11000009);
+    if (var4 == 0x0)
+    {
+        if (var7 != 0x0)
+        {
+            sys_1C(0x5, var7, 0x12);
+            var7 = 0x0;
+        }
+    }
+    else
+    {
+        if ((var7 != 0x0) && (var2 == 0x1))
+        {
+            sys_1C(0x5, var7, 0x0);
+            var7 = 0x0;
+        }
+        if (var7 == 0x0)
+        {
+            var7 = sys_1C(0xa, 0x3270013, 0x7d0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 1.0, 0x1, 0x4000, 0x0, var1);
+        }
+    }
+    sys_16(0x7, var7, 0x11000009);
+    if (var7 != 0x0)
+    {
+        var8 = sys_11(0x0, 0xffffffff);
+        var9 = sys_11(0x1, 0xffffffff);
+        var10 = (sys_A(0x1, var9, var8) * (float)0xb4) / 3.1415927410125732;
+        if (var7 != 0x0)
+        {
+            sys_1C(0x17, var7, 0x0, 90.0, var10);
+        }
+        sys_16(0x7, var1, 0x11000008);
+    }
+    else
+    {
+        sys_16(0x7, 0xffffffff, 0x11000008);
+    }
+}
+
+void func_128()
+{
+    int var0;
+    int var1;
+    int var2;
+    if ((global4 == 0xf) || (global4 == 0x10))
+    {
+        var0 = 0x3;
+        var1 = 0x1;
+    }
+    else
+    {
+        var0 = 0x4;
+        var1 = 0x0;
+    }
+    var2 = sys_24(0x7);
+    if ((var2 != 0x3) && (var2 != 0x14))
+    {
+        func_120(var0, var1);
+        func_122();
+    }
+    else
+    {
+        sys_16(0x2710, 0x21000004);
+        sys_16(0x7, sys_24(0x8), 0x11000004);
+        func_120(var0, 0x1);
+        if (sys_10(0x4, 0x1))
+        {
+            sys_16(0x2710, 0x21000005);
+        }
+        else
+        {
+            sys_16(0x2711, 0x21000005);
+        }
+        sys_10(0xc, 0x1);
+        sys_10(0xc, 0x0);
+        sys_18(0x2712, 0x1);
+    }
+    func_126();
+}
+
+void func_129()
+{
+    int var0;
+    if (sys_16(0x10, 0x21000004))
+    {
+        var0 = sys_16(0x6, 0x11000004);
+        if (var0 > 0x0)
+        {
+            var0--;
+            sys_16(0x7, var0, 0x11000004);
+        }
+        if (var0 <= 0x0)
+        {
+            sys_16(0x2711, 0x21000004);
+            sys_10(0xb, 0x0);
+            if (sys_16(0x10, 0x21000005))
+            {
+                sys_10(0xb, 0x1);
+            }
+            sys_18(0x2712, 0x0);
+            func_122();
+        }
+    }
+    else
+    {
+        if (sys_16(0x10, 0x21000002) == 0x0)
+        {
+            if (sys_16(0x6, 0x10000011) <= 0x0)
+            {
+                sys_16(0x2710, 0x21000002);
+            }
+        }
+        sys_16(0x9, 0x11000003);
+        if (((global4 == 0x11) || (global4 == 0x12)) || (global4 == 0x13))
+        {
+            func_127();
+        }
+    }
+}
+
+void func_130()
+{
+    
+}
+
+void func_131()
+{
+    float var0;
+    float var1;
+    float var2;
+    func_122();
+    var0 = sys_11(0xa, 0x0);
+    var1 = sys_11(0xb, 0x0);
+    var2 = 0x0;
+    if (sys_16(0x6, 0x11000005) == 0x2)
+    {
+        var2 = -1.0;
+    }
+    else
+    {
+        var2 = 1.0;
+    }
+    if ((sys_15(0x0) * var2) > 0x0)
+    {
+        func_120(0x4, 0x0);
+        sys_14(0x0, var2);
+        sys_14(0x2);
+    }
+    else
+    {
+        func_120(0x4, 0x0);
+    }
+    sys_16(0x7, 0x3, 0x11000006);
+    sys_2D(0x2, 0xf);
+    func_125();
+}
+
+void func_132()
+{
+    float var0;
+    func_122();
+    var0 = sys_11(0xa, 0x0);
+    func_120(0x4, 0x0);
+    sys_16(0x7, 0x3, 0x11000006);
+    sys_16(0x7, 0x0, 0x10000012);
+    sys_2D(0x2, 0xf);
+    func_125();
+}
+
+void func_133()
+{
+    int var0;
+    func_129();
+    var0 = sys_16(0x6, 0x11000006);
+    if (var0 > 0x0)
+    {
+        var0 -= 0x1;
+        sys_16(0x7, var0, 0x11000006);
+    }
+}
+
+int func_134()
+{
+    sys_18(0x5, 0x0, 0x29, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_135()
+{
+    if (!sys_30(0x1))
+    {
+        func_138();
+    }
+    global16 = func_138;
+    callFunc3(func_136);
+}
+
+void func_136()
+{
+    if ((sys_16(0x10, 0x21000002) == 0x1) && sys_12(0x2712))
+    {
+        if ((sys_16(0x10, 0x20000004) == 0x1) && (global18 == 0x2))
+        {
+            func_18(0x21, 0x0);
+            return;
+        }
+        if (global18 == 0x0)
+        {
+            func_45();
+            return 0x1;
+        }
+    }
+    if (func_124())
+    {
+        return 0x1;
+    }
+    if (global18 == 0x2)
+    {
+        func_18(0x14, 0x0);
+        return;
+    }
+}
+
+void func_137()
+{
+    
+}
+
+void func_138()
+{
+    if ((sys_16(0x10, 0x21000002) == 0x1) && (sys_16(0x10, 0x21000003) == 0x0))
+    {
+        sys_16(0x2710, 0x21000003);
+    }
+}
+
+int func_139()
+{
+    sys_18(0x5, 0x2, 0x2a, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_140()
+{
+    if (!sys_30(0x1))
+    {
+        func_143();
+    }
+    global16 = func_143;
+    callFunc3(func_141);
+}
+
+void func_141()
+{
+    int var0;
+    if ((sys_16(0x10, 0x21000002) == 0x1) && (sys_12(0x2712) == 0x1))
+    {
+        if (sys_16(0x10, 0x20000004))
+        {
+            var0 = 0x21;
+        }
+        else
+        {
+            var0 = 0x16;
+        }
+        func_18(var0, 0x0);
+        return 0x1;
+    }
+    if ((((global18 == 0x0) && (sys_11(0x3, 0x0) >= 5.0)) && !func_119()) && (sys_16(0x10, 0x21000002) == 0x1))
+    {
+        func_18(0x15, 0x0);
+        return 0x1;
+    }
+    if (((global18 == 0x0) && !func_119()) && (sys_16(0x10, 0x21000002) == 0x1))
+    {
+        if (sys_16(0x10, 0x20000004))
+        {
+            var0 = 0x22;
+        }
+        else
+        {
+            var0 = 0x16;
+        }
+        func_18(var0, 0x0);
+        return 0x1;
+    }
+}
+
+void func_142()
+{
+    
+}
+
+void func_143()
+{
+    if (!((sys_30(0x0) == 0x1) || (sys_16(0x6, 0x11000004) > 0x0)))
+    {
+        if ((sys_16(0x10, 0x21000002) == 0x1) && (sys_16(0x10, 0x21000003) == 0x0))
+        {
+            sys_16(0x2710, 0x21000003);
+        }
+    }
+}
+
+int func_144()
+{
+    sys_18(0x5, 0x2, 0x2b, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_145()
+{
+    callFunc3(func_146);
+}
+
+void func_146()
+{
+    if (sys_12(0x2712) && sys_16(0x10, 0x21000002))
+    {
+        if (func_118() == 0x1)
+        {
+            return 0x1;
+        }
+        func_18(0x14, 0x0);
+        return 0x1;
+    }
+    if (func_123())
+    {
+        return 0x1;
+    }
+    if (func_124())
+    {
+        return 0x1;
+    }
+}
+
+void func_147()
+{
+    
+}
+
+int func_148()
+{
+    sys_18(0x5, 0x2, 0x2c, 0x5, 0x0, 0x1, 0x4, 0x28, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_149()
+{
+    sys_16(0x9, 0x10000012);
+    callFunc3(func_150);
+}
+
+void func_150()
+{
+    func_146();
+}
+
+void func_151()
+{
+    
+}
+
+int func_152()
+{
+    sys_18(0x5, 0x2, 0x2d, 0x5, 0x0, 0x1, 0x4, 0x28, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_153()
+{
+    sys_16(0x9, 0x10000012);
+    callFunc3(func_154);
+}
+
+void func_154()
+{
+    func_146();
+}
+
+void func_155()
+{
+    
+}
+
+int func_156()
+{
+    sys_18(0x5, 0x2, 0x28, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x100);
+    return 0x0;
+}
+
+void func_157()
+{
+    func_120(0x11, 0x0);
+    callFunc3(func_158);
+}
+
+void func_158()
+{
+    if (global18 == 0x0)
+    {
+        func_18(0x15, 0x0);
+        return 0x1;
+    }
+}
+
+void func_159()
+{
+    
+}
+
+int func_160()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_161()
+{
+    func_24(0x5, 0x0, 1.0);
+    callFunc3(func_162);
+}
+
+void func_162()
+{
+    int var0;
+    if (!sys_1A(0x1e, 0x8))
+    {
+        if (sys_16(0x10, 0x20000004))
+        {
+            var0 = 0x21;
+        }
+        else
+        {
+            var0 = 0x16;
+        }
+        func_18(var0, 0x0);
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_163()
+{
+    
+}
+
+int func_164()
+{
+    if (sys_16(0x10, 0x2000001a))
+    {
+        func_18(0x1b, 0x0);
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x20000006))
+    {
+        func_18(0x19, 0x0);
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x20000007) && sys_16(0x10, 0x20000010))
+    {
+        func_18(0x1a, 0x0);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_165(float arg0)
+{
+    if (func_164())
+    {
+        return 0x1;
+    }
+    if (sys_17(0x0, 0x7) >= arg0)
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_166()
+{
+    int var0;
+    var0 = sys_16(0x6, 0x1000000d);
+    if (((((var0 == 0x1) || (var0 == 0x99)) || (var0 == 0x9b)) || (var0 == 0x13)) || (var0 == 0x14))
+    {
+        return 0x26;
+    }
+    else if (var0 == 0x3)
+    {
+        return 0x28;
+    }
+    else if (var0 == 0x4)
+    {
+        return 0x29;
+    }
+    else if (var0 == 0x2)
+    {
+        return 0x27;
+    }
+    else if (var0 == 0x5)
+    {
+        return 0x2a;
+    }
+    else if (var0 == 0xa)
+    {
+        return 0x30;
+    }
+    else if ((var0 == 0xb) || (var0 == 0xc))
+    {
+        return 0x2f;
+    }
+    else if (var0 == 0x16)
+    {
+        return 0x31;
+    }
+    else if ((((var0 == 0x17) || (var0 == 0x18)) || (var0 == 0xa2)) || (var0 == 0xd9))
+    {
+        return 0x32;
+    }
+    else if (((var0 == 0x35) || (var0 == 0x37)) || (var0 == 0x39))
+    {
+        return 0x34;
+    }
+    else if ((var0 == 0x10) || (var0 == 0x151))
+    {
+        return 0x6;
+    }
+    else if (var0 == 0x19)
+    {
+        return 0x7;
+    }
+    return 0xffffffff;
+}
+
+int func_167()
+{
+    sys_18(0x5, 0x2, 0x23, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_168()
+{
+    int var0;
+    var0 = 0x0;
+    var0 = !var0;
+    sys_1A(0x2713, var0);
+    callFunc3(func_169);
+}
+
+void func_169()
+{
+    int var0;
+    int var1;
+    int var2;
+    float var3;
+    float var4;
+    float var5;
+    int var6;
+    float var7;
+    float var8;
+    float var9;
+    int var10;
+    float var11;
+    float var12;
+    int var13;
+    float var14;
+    float var15;
+    if (func_164())
+    {
+        return 0x1;
+    }
+    if (func_75())
+    {
+        return 0x1;
+    }
+    var0 = sys_12(0x7);
+    if ((var0 != 0x30) || sys_12(0x2712))
+    {
+        var2 = sys_16(0x10, 0x20000010);
+        if (var2)
+        {
+            if (sys_16(0x10, 0x20000012))
+            {
+                sys_1E(0x2710, 0x4a40054);
+                sys_16(0x2711, 0x20000012);
+            }
+            var1 = func_166();
+        }
+        else
+        {
+            var1 = 0xffffffff;
+        }
+        if (((var0 != var1) && (((var1 == 0x31) || (var1 == 0x32)) || (var1 == 0x7))) && (sys_16(0x10, 0x20000008) == 0x0))
+        {
+            var1 = 0xffffffff;
+        }
+        if ((((var1 != 0x30) && (var1 != 0x31)) && (var1 != 0x32)) && (var1 != 0x7))
+        {
+            var3 = sys_15(0x0);
+            var4 = sys_17(0x0, 0x1);
+            var5 = var3 * var4;
+            if ((var2 == 0x1) && (var5 < 0x0))
+            {
+                var6 = sys_16(0x6, 0x1000000f);
+                if (var6 == 0x10)
+                {
+                    sys_16(0x7, 0x2b, 0x11000002);
+                    func_18(0x17, 0x0);
+                    return 0x1;
+                }
+                if (var6 == 0x16)
+                {
+                    sys_16(0x7, 0x2c, 0x11000002);
+                    func_18(0x17, 0x0);
+                    return 0x1;
+                }
+            }
+            var7 = sys_17(0x0, 0x4);
+            if (((var3 < 0x0) && (var7 > 0x0)) || ((var3 > 0x0) && (var7 < 0x0)))
+            {
+                var8 = sys_17(0x0, 0x2);
+                if ((((var4 * var8) > 0x0) && (var5 < 0x0)) && ((var8 < -0.20000000298023224) || (0.20000000298023224 < var8)))
+                {
+                    var9 = 1.0;
+                }
+                else
+                {
+                    var9 = sys_17(0x0, 0x4000014);
+                }
+                if (sys_17(0x0, 0x7) > var9)
+                {
+                    sys_16(0x7, 0x2d, 0x11000002);
+                    func_18(0x17, 0x0);
+                    return 0x1;
+                }
+            }
+        }
+        var10 = 0x0;
+        if (((var1 != 0xffffffff) || (sys_17(0x0, 0x2) != 0x0)) || (sys_17(0x0, 0x3) != 0x0))
+        {
+            var10 = 0x1;
+        }
+        else
+        {
+            if (sys_16(0x10, 0x21000002))
+            {
+                var11 = 1.5;
+            }
+            else
+            {
+                var11 = 5.0;
+            }
+            var12 = sys_17(0x0, 0x7);
+            if (var12 > var11)
+            {
+                var10 = 0x1;
+            }
+        }
+        if (var10 == 0x1)
+        {
+            var13 = 0x0;
+            if ((var1 == 0xffffffff) || (var1 == 0x2f))
+            {
+                if ((var0 == 0x2f) || (var0 == 0x2e))
+                {
+                    var9 = 0.10000000149011612;
+                }
+                else
+                {
+                    var9 = 0.5;
+                }
+                var14 = sys_17(0x0, 0x5);
+                if (var14 < -var9)
+                {
+                    var1 = 0x2e;
+                }
+                else if ((var14 > var9) && (var1 == 0x2f))
+                {
+                    
+                }
+                else
+                {
+                    var7 = sys_17(0x0, 0x4);
+                    if (((var9 != 0.5) && (-var9 < var7)) && (var7 < var9))
+                    {
+                        var1 = var0;
+                    }
+                    else
+                    {
+                        var15 = sys_11(0x3, 0x0);
+                        if (var15 <= sys_17(0x0, 0x4000013))
+                        {
+                            var1 = 0x26;
+                        }
+                        else
+                        {
+                            var1 = 0x29;
+                        }
+                    }
+                }
+            }
+            else if (((var0 == var1) && sys_16(0x10, 0x20000008)) && (sys_12(0x24) == 0x0))
+            {
+                var13 = 0x1;
+            }
+            if ((var0 != var1) || (var13 == 0x1))
+            {
+                if (((var0 == 0x26) && (var1 == 0x29)) || ((var0 == 0x29) && (var1 == 0x26)))
+                {
+                    func_25(var1);
+                }
+                else
+                {
+                    func_24(var1, 0x0, 1.0);
+                }
+            }
+            sys_16(0x2710, 0x21000002);
+        }
+        else
+        {
+            if (sys_15(0x0) != sys_17(0x0, 0x1))
+            {
+                sys_16(0x7, 0x2d, 0x11000002);
+                func_18(0x17, 0x0);
+                return 0x1;
+            }
+            if (sys_16(0x6, 0x1000000d) == 0x1c)
+            {
+                func_18(0x18, 0x0);
+                return 0x1;
+            }
+            if (sys_16(0x10, 0x21000002) || sys_18(0x6))
+            {
+                if (((var0 == 0x2b) || (var0 == 0x2c)) || (var0 == 0x2d))
+                {
+                    var0 = 0x25;
+                }
+                else
+                {
+                    var0 = 0x24;
+                }
+                func_24(var0, 0x0, 1.0);
+                sys_16(0x2711, 0x21000002);
+            }
+            else if (sys_12(0x2712))
+            {
+                func_24(0x24, 0x0, 1.0);
+            }
+        }
+    }
+}
+
+void func_170()
+{
+    
+}
+
+int func_171()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x4, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_172()
+{
+    int var0;
+    int var1;
+    int var2;
+    var0 = 0x0;
+    var0 = !var0;
+    sys_1A(0x2713, var0);
+    if (sys_16(0x10, 0x2000000c))
+    {
+        var1 = 0x2d;
+    }
+    else
+    {
+        var1 = sys_16(0x6, 0x11000002);
+    }
+    if (var1 != 0x2d)
+    {
+        var2 = 0x22;
+    }
+    else
+    {
+        var2 = 0x23;
+    }
+    func_24(var1, 0x0, 1.0);
+    sys_10(0x0, var2);
+    callFunc3(func_173);
+}
+
+void func_173()
+{
+    if (func_164())
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_174()
+{
+    func_46();
+}
+
+int func_175()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_176()
+{
+    func_24(0x33, 0x0, 1.0);
+    callFunc3(func_177);
+}
+
+void func_177()
+{
+    if (sys_16(0x6, 0x1000000d) != 0x1c)
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_178()
+{
+    
+}
+
+int func_179()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_180()
+{
+    func_24(0x3b, 0x0, 1.0);
+    callFunc3(func_181);
+}
+
+void func_181()
+{
+    if (func_75())
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_182()
+{
+    
+}
+
+int func_183()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_184()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000007))
+    {
+        var0 = 0x23;
+        if (sys_16(0x10, 0x20000007) && sys_16(0x10, 0x20000010))
+        {
+            sys_16(0x2710, 0x21000000);
+        }
+    }
+    else
+    {
+        var0 = 0x2;
+    }
+    sys_10(0x0, var0);
+    func_24(0x3c, 0x0, 1.0);
+    callFunc3(func_185);
+}
+
+void func_185()
+{
+    if (func_75())
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_186()
+{
+    
+}
+
+int func_187()
+{
+    sys_18(0x5, 0x2, 0x2, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_188()
+{
+    int var0;
+    int var1;
+    var1 = sys_16(0x6, 0x1000000f);
+    if (var1 == 0x1a7)
+    {
+        var0 = 0x35;
+    }
+    else if (var1 == 0x1a8)
+    {
+        var0 = 0x36;
+    }
+    else if (var1 == 0x1a9)
+    {
+        var0 = 0x37;
+    }
+    else if (var1 == 0x1aa)
+    {
+        var0 = 0x38;
+    }
+    else if (var1 == 0x1ab)
+    {
+        var0 = 0x39;
+    }
+    else
+    {
+        var0 = 0x3a;
+    }
+    func_24(var0, 0x0, 1.0);
+    callFunc3(func_189);
+}
+
+void func_189()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+}
+
+void func_190()
+{
+    
+}
+
+int func_191(int arg0, int arg1, int arg2, int arg3)
+{
+    int var4;
+    if (!sys_16(0x10, 0x20000004))
+    {
+        func_18(0x16, 0x0);
+        return 0x1;
+    }
+    if (func_75())
+    {
+        return 0x1;
+    }
+    if (global18 == 0x0)
+    {
+        if (arg0 == 0x1)
+        {
+            var4 = sys_16(0x6, 0x1000000d);
+            if (var4 == 0x1c)
+            {
+                if ((global4 != 0x24) && (global6 != 0x24))
+                {
+                    func_18(0x24, 0x0);
+                    return 0x1;
+                }
+            }
+            else if (sys_16(0x10, 0x2000001a))
+            {
+                func_18(0x27, 0x0);
+                return 0x1;
+            }
+            else if (sys_16(0x10, 0x20000006))
+            {
+                if ((global4 != 0x25) && (global6 != 0x25))
+                {
+                    func_18(0x25, 0x0);
+                    return 0x1;
+                }
+            }
+        }
+    }
+    else if (global18 == 0x2)
+    {
+        if (arg1 == 0x1)
+        {
+            func_18(0x21, 0x0);
+            return 0x1;
+        }
+    }
+    if (arg2 || arg3)
+    {
+        return func_193(arg2);
+    }
+    return 0x0;
+}
+
+int func_192(int arg0)
+{
+    float var1;
+    int var2;
+    float var3;
+    float var4;
+    if (!sys_16(0x10, 0x2000000d))
+    {
+        var1 = sys_17(0x0, 0x4000019);
+        if ((sys_16(0x10, 0x2000000f) == 0x0) && (sys_16(0x6, 0x10000013) < sys_16(0x6, 0x14000026)))
+        {
+            if (sys_17(0x0, 0x5) >= var1)
+            {
+                return 0x20;
+            }
+            else
+            {
+                var2 = sys_16(0x6, 0x1000000c);
+                if ((0x0 < var2) && (var2 <= sys_16(0x6, 0x1400001d)))
+                {
+                    return 0x20;
+                }
+            }
+        }
+        if (global18 == 0x0)
+        {
+            if ((sys_1A(0x16) && (sys_17(0x0, 0x5) <= -var1)) && (sys_17(0x0, 0x3) <= 0x0))
+            {
+                return 0x21;
+            }
+        }
+    }
+    if ((global18 == 0x0) && arg0)
+    {
+        var3 = sys_17(0x0, 0x4);
+        if ((-2.0 < var3) && (var3 < 2.0))
+        {
+            if (global4 != 0x1c)
+            {
+                return 0x1c;
+            }
+        }
+        else
+        {
+            var4 = sys_15(0x0);
+            if (((var3 > 0x0) && (var4 < 0x0)) || ((var3 < 0x0) && (var4 > 0x0)))
+            {
+                return 0x23;
+            }
+            if (global4 != 0x1d)
+            {
+                return 0x1d;
+            }
+        }
+    }
+    return 0xffffffff;
+}
+
+int func_193(int arg0)
+{
+    int var1;
+    var1 = func_192(arg0);
+    if (var1 != 0xffffffff)
+    {
+        func_18(var1, 0x0);
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_194()
+{
+    if (func_191(0x1, 0x0, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_195()
+{
+    int var0;
+    if (global18 == 0x2)
+    {
+        sys_18(0x2711, 0x21);
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x2000000b))
+    {
+        var0 = func_192(!sys_16(0x10, 0x21000001));
+        if ((global5 != var0) && ((var0 != 0xffffffff) && (var0 != 0x1c)))
+        {
+            sys_18(0x2711, var0);
+            return 0x1;
+        }
+    }
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x2, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_196()
+{
+    int var0;
+    int var1;
+    var0 = 0x1;
+    var0 = !var0;
+    sys_1A(0x2713, var0);
+    sys_16(0x7, 0x0, 0x10000013);
+    sys_16(0x2711, 0x2000000e);
+    var1 = sys_12(0x7);
+    if ((var1 == 0x43) || (var1 == 0x44))
+    {
+        var1 = 0x3e;
+    }
+    else
+    {
+        var1 = 0x3d;
+    }
+    func_24(var1, 0x0, 1.0);
+    if (sys_16(0x10, 0x21000001))
+    {
+        sys_16(0x7, sys_16(0x6, 0x14000033), 0x11000003);
+        sys_16(0x0, sys_17(0x0, 0x7) + 0x0, 0x1000001);
+    }
+    if (!sys_30(0x1))
+    {
+        func_198();
+    }
+    global16 = func_198;
+    callFunc3(func_197);
+}
+
+void func_197()
+{
+    int var0;
+    int var1;
+    int var2;
+    float var3;
+    if (sys_16(0x10, 0x2000000b) || sys_16(0x10, 0x2000000e))
+    {
+        var0 = 0x1;
+    }
+    else
+    {
+        var0 = 0x0;
+    }
+    var1 = var0;
+    if (sys_16(0x10, 0x21000001))
+    {
+        var2 = sys_16(0x6, 0x11000003);
+        var3 = func_15(sys_17(0x0, 0x1000001) - sys_17(0x0, 0x7));
+        if ((var2 <= 0x0) || (var3 > sys_17(0x0, 0x1000001)))
+        {
+            sys_16(0x2711, 0x21000001);
+        }
+        else if ((sys_15(0x0) * sys_17(0x0, 0x4)) > 0x0)
+        {
+            var0 = 0x0;
+        }
+    }
+    if (func_191(0x1, 0x1, var0, var1))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        if (sys_21(0x3ee))
+        {
+            return 0x0;
+        }
+        else
+        {
+            func_24(0x3d, 0x0, 1.0);
+        }
+    }
+}
+
+void func_198()
+{
+    sys_16(0xa, 0x11000003);
+}
+
+void func_199()
+{
+    
+}
+
+int func_200()
+{
+    sys_18(0x5, 0x0, 0xffffffff, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_201()
+{
+    sys_16(0x7, 0x0, 0x10000013);
+    sys_10(0x0, 0x26);
+    sys_10(0x8, 0x1, 1.0, 0x0, 1.0);
+    sys_10(0xc, 0x1);
+    callFunc3(func_202);
+}
+
+void func_202()
+{
+    int var0;
+    int var1;
+    int var2;
+    float var3;
+    float var4;
+    float var5;
+    float var6;
+    if (((global19 == 0x0) && (global18 == 0x2)) || ((global19 != 0x0) && (global18 == 0x0)))
+    {
+        if (global18 == 0x2)
+        {
+            sys_1A(0x2710, 0x5);
+            sys_10(0xb, 0x1);
+            sys_16(0x7, sys_16(0x6, 0x1400002f), 0x11000003);
+        }
+        else
+        {
+            sys_1A(0x2710, 0x1);
+            sys_10(0x8, 0x1, 1.0, 0x0, 1.0);
+            sys_10(0xc, 0x1);
+        }
+    }
+    var0 = 0x1;
+    if (global18 == 0x2)
+    {
+        var1 = sys_16(0x6, 0x11000003);
+        if (var1 > 0x0)
+        {
+            var1 = var1 - 0x1;
+            sys_16(0x7, var1, 0x11000003);
+            var0 = 0x0;
+        }
+    }
+    if (func_191(0x1, var0, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (func_193(0x1))
+    {
+        return 0x1;
+    }
+    var2 = sys_12(0x7);
+    var3 = sys_11(0xa, 0x0);
+    var4 = func_15(var3);
+    var5 = sys_11(0x6, 0x0);
+    if ((var4 / var5) > 0.5)
+    {
+        var6 = sys_11(0xa, 0x3);
+        if ((var6 < -0.0010000000474974513) || (0.0010000000474974513 < var6))
+        {
+            if (((var3 * var6) < 0x0) && (var4 < func_15(var6)))
+            {
+                sys_16(0x2710, 0x21000001);
+                func_18(0x1c, 0x0);
+                return 0x1;
+            }
+        }
+    }
+    if (func_204(var2, var4))
+    {
+        return 0x1;
+    }
+    func_205(var4, var2);
+}
+
+void func_203()
+{
+    
+}
+
+int func_204(int arg0, float arg1)
+{
+    int var2;
+    float var3;
+    int var4;
+    float var5;
+    float var6;
+    if ((arg0 == 0x3f) || (arg0 == 0x41))
+    {
+        var2 = 0xffffffff;
+        if (arg1 >= sys_17(0x0, 0x4000024))
+        {
+            if (arg0 == 0x41)
+            {
+                var2 = 0x42;
+            }
+            else
+            {
+                var2 = 0x40;
+            }
+        }
+        var3 = sys_17(0x0, 0x4000025);
+        var4 = (int)(arg1 / var3);
+        var5 = (float)var4;
+        var6 = (var5 * ((arg1 - var3) + (arg1 - (var3 * var5)))) * 0.5;
+        if (func_15(sys_17(0x0, 0x4)) <= var6)
+        {
+            sys_16(0x7, var4 + 0x1, 0x11000004);
+            sys_16(0x7, var2, 0x11000005);
+            func_18(0x1e, 0x0);
+            return 0x1;
+        }
+    }
+    return 0x0;
+}
+
+void func_205(float arg0, int arg1)
+{
+    int var2;
+    if (arg0 >= sys_17(0x0, 0x400001e))
+    {
+        var2 = 0x41;
+    }
+    else
+    {
+        var2 = 0x3f;
+    }
+    if (arg1 != var2)
+    {
+        if (((arg1 == 0x3f) && (var2 == 0x41)) || ((arg1 == 0x41) && (var2 == 0x3f)))
+        {
+            func_25(var2);
+        }
+        else
+        {
+            func_24(var2, 0x0, 1.0);
+        }
+    }
+}
+
+int func_206()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_207()
+{
+    int var0;
+    sys_16(0x7, 0x0, 0x10000013);
+    if (sys_12(0x7) == 0x41)
+    {
+        var0 = 0x44;
+    }
+    else
+    {
+        var0 = 0x43;
+    }
+    func_24(var0, 0x0, 1.0);
+    callFunc3(func_208);
+}
+
+void func_208()
+{
+    int var0;
+    if (func_191(0x0, 0x1, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        if (sys_16(0x10, 0x2000000e))
+        {
+            var0 = 0x1d;
+        }
+        else
+        {
+            var0 = 0x1c;
+        }
+        func_18(var0, 0x0);
+        return 0x1;
+    }
+}
+
+void func_209()
+{
+    func_46();
+}
+
+int func_210()
+{
+    sys_18(0x5, 0x0, 0x25, 0x2, 0x0, 0x1, 0x0, 0x70, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_211()
+{
+    int var0;
+    float var1;
+    float var2;
+    float var3;
+    var0 = sys_16(0x6, 0x11000005);
+    if (var0 != 0xffffffff)
+    {
+        var1 = (float)sys_16(0x6, 0x11000004);
+        var2 = (float)sys_12(0x0, var0);
+        var3 = var2 / var1;
+        func_24(var0, 0x0, var3);
+    }
+    if (!sys_30(0x1))
+    {
+        func_213();
+    }
+    global16 = func_213;
+    callFunc3(func_212);
+}
+
+void func_212()
+{
+    float var0;
+    var0 = sys_11(0xa, 0x3);
+    if ((var0 < -0.0010000000474974513) || (0.0010000000474974513 < var0))
+    {
+        sys_16(0x2710, 0x21000001);
+    }
+    if (sys_16(0x6, 0x11000004) <= 0x0)
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_213()
+{
+    if (sys_18(0x6) == 0x0)
+    {
+        sys_16(0xa, 0x11000004);
+    }
+}
+
+void func_214()
+{
+    
+}
+
+int func_215()
+{
+    sys_18(0x5, 0xffffffff, 0x25, 0x7, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_216()
+{
+    float var0;
+    float var1;
+    var0 = sys_17(0x0, 0x4);
+    if ((-5.0 > var0) || (var0 > 5.0))
+    {
+        if (var0 < 0x0)
+        {
+            var1 = -1.0;
+        }
+        else
+        {
+            var1 = 1.0;
+        }
+        sys_16(0x0, var1 + 0x0, 0x1000001);
+        func_47(0x1000001);
+    }
+    func_24(0x47, 0x0, 1.0);
+    callFunc3(func_217);
+}
+
+void func_217()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x1f, 0x0);
+        return 0x1;
+    }
+}
+
+void func_218()
+{
+    
+}
+
+int func_219()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_220()
+{
+    sys_10(0x0, 0x27);
+    func_24(0x46, 0x0, 1.0);
+    callFunc3(func_221);
+}
+
+void func_221()
+{
+    if (func_191(0x1, 0x0, 0x1, 0x1))
+    {
+        return 0x1;
+    }
+    if (global18 == 0x0)
+    {
+        func_18(0x22, 0x0);
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x21, 0x0);
+        return 0x1;
+    }
+}
+
+void func_222()
+{
+    
+}
+
+int func_223()
+{
+    sys_18(0x5, 0x2, 0x28, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_224()
+{
+    int var0;
+    if (global5 == 0x2f)
+    {
+        var0 = 0x6;
+    }
+    else
+    {
+        var0 = 0x45;
+    }
+    func_24(var0, 0x0, 1.0);
+    callFunc3(func_225);
+}
+
+void func_225()
+{
+    if (func_191(0x1, 0x0, 0x1, 0x1))
+    {
+        return 0x1;
+    }
+    if ((sys_18(0x6) == 0x0) && (global18 == 0x0))
+    {
+        func_18(0x22, 0x0);
+        return 0x1;
+    }
+}
+
+void func_226()
+{
+    
+}
+
+int func_227()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_228()
+{
+    int var0;
+    if (sys_12(0x7) == 0x6)
+    {
+        var0 = 0x7;
+    }
+    else
+    {
+        var0 = 0x48;
+    }
+    func_24(var0, 0x0, 1.0);
+    callFunc3(func_229);
+}
+
+void func_229()
+{
+    if (global18 == 0x2)
+    {
+        func_18(0x21, 0x0);
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_230()
+{
+    
+}
+
+int func_231()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_232()
+{
+    func_24(0x49, 0x0, 1.0);
+    callFunc3(func_233);
+}
+
+void func_233()
+{
+    if (func_191(0x0, 0x1, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (sys_16(0x6, 0x1000000d) != 0x1c)
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_234()
+{
+    
+}
+
+int func_235()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_236()
+{
+    func_24(0x50, 0x0, 1.0);
+    callFunc3(func_237);
+}
+
+void func_237()
+{
+    if (func_191(0x0, 0x1, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_238()
+{
+    
+}
+
+int func_239()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_240()
+{
+    func_24(0x51, 0x0, 1.0);
+    callFunc3(func_241);
+}
+
+void func_241()
+{
+    if (func_191(0x0, 0x1, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_242()
+{
+    
+}
+
+int func_243()
+{
+    sys_18(0x5, 0x0, 0x2, 0x1, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_244()
+{
+    int var0;
+    int var1;
+    var1 = sys_16(0x6, 0x1000000f);
+    if (var1 == 0x1a7)
+    {
+        var0 = 0x4a;
+    }
+    else if (var1 == 0x1a8)
+    {
+        var0 = 0x4b;
+    }
+    else if (var1 == 0x1a9)
+    {
+        var0 = 0x4c;
+    }
+    else if (var1 == 0x1aa)
+    {
+        var0 = 0x4d;
+    }
+    else if (var1 == 0x1ab)
+    {
+        var0 = 0x4e;
+    }
+    else
+    {
+        var0 = 0x4f;
+    }
+    func_24(var0, 0x0, 1.0);
+    callFunc3(func_245);
+}
+
+void func_245()
+{
+    if (func_191(0x0, 0x1, 0x0, 0x0))
+    {
+        return 0x1;
+    }
+    if (sys_12(0x2712))
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_246()
+{
+    
+}
+
+int func_247()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_248()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x23;
+    }
+    else
+    {
+        var0 = 0x2;
+    }
+    sys_10(0x0, var0);
+    func_24(0x52 + sys_16(0x6, 0x10000007), 0x0, 1.0);
+    callFunc3(func_249);
+}
+
+void func_249()
+{
+    func_47(0x1);
+}
+
+void func_250()
+{
+    
+}
+
+int func_251()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x1, 0x0, 0x0, 0x6, 0x0);
+    return 0x0;
+}
+
+void func_252()
+{
+    func_24(0x56 + sys_16(0x6, 0x10000007), 0x0, sys_17(0x0, 0x1000002));
+    callFunc3(func_253);
+}
+
+void func_253()
+{
+    func_47(0x1);
+}
+
+void func_254()
+{
+    
+}
+
+int func_255()
+{
+    sys_18(0x5, 0x2, 0x2f, 0x5, 0x0, 0x0, 0x0, 0x0, 0x6, 0x0);
+    return 0x0;
+}
+
+void func_256()
+{
+    float var0;
+    float var1;
+    float var2;
+    float var3;
+    float var4;
+    float var5;
+    float var6;
+    int var7;
+    var0 = sys_17(0x0, 0x1000001);
+    var1 = sys_17(0x0, 0x500000b);
+    var2 = sys_17(0x0, 0x500000c);
+    sys_2E(0x2728, var1 + ((var2 - var1) * var0));
+    var3 = sys_17(0x0, 0x500000d);
+    var4 = sys_17(0x0, 0x500000e);
+    sys_2E(0x272e, var3 + ((var4 - var3) * var0));
+    var5 = sys_17(0x0, 0x5000005);
+    var6 = sys_17(0x0, 0x5000006);
+    var7 = (int)(var5 + ((var6 - var5) * var0));
+    sys_16(0x7, var7, 0x10000004);
+    sys_16(0x7, var7, 0x10000003);
+    sys_14(0x0, sys_17(0x0, 0x8));
+    sys_14(0x2);
+    if (var0 >= 1.0)
+    {
+        sys_2D(0x2710, 0x1);
+    }
+    sys_21(0x3f0, 0x17, 0x0);
+    func_24(0x5a + sys_16(0x6, 0x10000007), 0x0, 1.0);
+    if (!sys_30(0x1))
+    {
+        func_258();
+    }
+    global16 = func_258;
+    sys_16(0x2710, 0x20000004);
+    sys_16(0x2710, 0x2000000b);
+    sys_16(0x7, 0x0, 0x10000013);
+    sys_16(0x2711, 0x2000000f);
+    sys_16(0x2711, 0x2000000d);
+    callFunc3(func_257);
+}
+
+void func_257()
+{
+    int var0;
+    int var1;
+    int var2;
+    float var3;
+    float var4;
+    float var5;
+    float var6;
+    var0 = 0x0;
+    var1 = sys_16(0x6, 0x10000004);
+    if (var1 <= 0x0)
+    {
+        var0 = 0x1;
+    }
+    if ((sys_16(0x6, 0x10000003) - var1) >= sys_16(0x6, 0x1500000f))
+    {
+        var2 = sys_1A(0xa);
+        if (var2 != 0x0)
+        {
+            var3 = sys_17(0x0, 0x5000010);
+            var4 = sys_15(0x0);
+            if (((((((((var2 & 0x2) && func_260(0x2, var3, var4)) || ((var2 & 0x4) && func_260(0x4, var3, var4))) || ((var2 & 0x8) && func_260(0x8, var3, var4))) || ((var2 & 0x1) && func_260(0x1, var3, var4))) || ((var2 & 0x10) && func_260(0x10, var3, var4))) || ((var2 & 0x20) && func_260(0x20, var3, var4))) || ((var2 & 0x40) && func_260(0x40, var3, var4))) || ((var2 & 0x80) && func_260(0x80, var3, var4)))
+            {
+                sys_16(0x2710, 0x21000002);
+                var0 = 0x1;
+            }
+        }
+    }
+    if (sys_16(0x10, 0x21000002))
+    {
+        sys_21(0x3ec);
+        sys_16(0x2711, 0x21000002);
+    }
+    if (var0)
+    {
+        func_18(0x2b, 0x0);
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x21000003))
+    {
+        sys_16(0x2711, 0x21000003);
+        var5 = sys_17(0x0, 0x5000011);
+        sys_10(0x1, var5, var5, var5);
+        var6 = sys_17(0x0, 0x5000012);
+        sys_2E(0x2728, sys_2F(0x2) * var6);
+    }
+}
+
+void func_258()
+{
+    sys_16(0xa, 0x10000004);
+}
+
+void func_259()
+{
+    sys_2E(0x272e, 1.0);
+}
+
+int func_260(int arg0, float arg1, float arg2)
+{
+    float var3;
+    float var4;
+    float var5;
+    var3 = sys_1B(0x5, arg0);
+    var4 = sys_1B(0x6, arg0);
+    var5 = (((sys_A(0x1, var3, var4) * (float)0xb4) / 3.1415927410125732) * arg2) * -1.0;
+    if (var5 <= (arg1 + 0.5))
+    {
+        return 0x0;
+    }
+    return 0x1;
+}
+
+int func_261()
+{
+    sys_18(0x5, 0x2, 0xffffffff, 0x5, 0x0, 0x0, 0x0, 0x0, 0x6, 0x0);
+    return 0x0;
+}
+
+void func_262()
+{
+    func_24(0x5e + sys_16(0x6, 0x10000007), 0x0, 1.0);
+    callFunc3(func_263);
+}
+
+void func_263()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x1c, 0x0);
+        return 0x1;
+    }
+}
+
+void func_264()
+{
+    
+}
+
+int func_265()
+{
+    sys_18(0x5, 0xffffffff, 0x2, 0x7, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_266()
+{
+    float var0;
+    func_24(0x62 + sys_16(0x6, 0x10000008), 0x0, 1.0);
+    var0 = sys_17(0x0, 0x8);
+    if (var0 != 0x0)
+    {
+        if (var0 < 0x0)
+        {
+            var0 = -1.0;
+        }
+        else if (var0 > 0x0)
+        {
+            var0 = 1.0;
+        }
+        sys_14(0x0, var0);
+        sys_14(0x2);
+    }
+    sys_16(0x7, sys_9(0x0, 0x2), 0x11000003);
+    sys_16(0x7, 0x0, 0x11000005);
+    if (sys_20(0x1, 0x0) >= sys_16(0x6, 0x16000002))
+    {
+        sys_16(0x2710, 0x21000004);
+    }
+    sys_21(0x3f0, 0x3f, 0x0);
+    callFunc3(func_267);
+}
+
+void func_267()
+{
+    int var0;
+    if ((sys_16(0x6, 0x1000000d) == 0x149) && !sys_16(0x10, 0x21000005))
+    {
+        func_47(0x1);
+    }
+    var0 = sys_12(0x2712);
+    if (sys_16(0x6, 0x10000008) != 0x0)
+    {
+        if ((sys_16(0x10, 0x21000002) == 0x1) && (sys_16(0x10, 0x21000004) == 0x0))
+        {
+            if (sys_16(0x6, 0x11000004) < 0x3)
+            {
+                sys_16(0xa, 0x11000005);
+                if (sys_16(0x6, 0x11000005) <= 0x0)
+                {
+                    sys_20(0x2718, 0x0);
+                    sys_16(0x9, 0x11000004);
+                    sys_16(0x7, sys_16(0x6, 0x16000000), 0x11000005);
+                }
+            }
+        }
+        if (sys_16(0x10, 0x21000003))
+        {
+            var0 = 0x1;
+        }
+    }
+    if (var0)
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_268()
+{
+    
+}
+
+int func_269()
+{
+    sys_18(0x5, 0x2, 0x21, 0x5, 0x0, 0x1, 0x0, 0x74, 0x1e, 0x0);
+    return 0x0;
+}
+
+void func_270()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    func_47(0x8);
+    func_24(0x66 + sys_16(0x6, 0x10000009), 0x0, 1.0);
+    sys_16(0x7, 0xffffffff, 0x11000004);
+    sys_21(0x3f0, 0x40, 0x0);
+    callFunc3(func_271);
+}
+
+void func_271()
+{
+    if (sys_12(0x2712))
+    {
+        func_18(0x2e, 0x0);
+        return 0x1;
+    }
+}
+
+void func_272()
+{
+    
+}
+
+int func_273()
+{
+    sys_18(0x5, 0x2, 0x30, 0x5, 0x0, 0x1, 0x0, 0x74, 0x1e, 0x0);
+    return 0x0;
+}
+
+void func_274()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    func_24(0x6a + sys_16(0x6, 0x10000009), 0x0, 1.0);
+    callFunc3(func_275);
+}
+
+void func_275()
+{
+    int var0;
+    if (sys_12(0x2712))
+    {
+        func_18(0x2f, 0x0);
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        if (sys_16(0x6, 0x11000005) == 0x150)
+        {
+            var0 = sys_16(0x6, 0x11000004);
+            if (var0 <= sys_16(0x6, 0x11000003))
+            {
+                func_18(0x16, 0x0);
+                return 0x1;
+            }
+        }
+        sys_16(0x9, 0x11000003);
+    }
+}
+
+void func_276()
+{
+    sys_14(0x4, 0x0, 0x0, 0x0);
+}
+
+int func_277()
+{
+    sys_18(0x5, 0x2, 0x31, 0x5, 0x0, 0x1, 0x0, 0x74, 0x1e, 0x0);
+    return 0x0;
+}
+
+void func_278()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x0;
+        var0 = !var0;
+        sys_1A(0x2713, var0);
+    }
+    func_24(0x6e + sys_16(0x6, 0x10000009), 0x0, 1.0);
+    callFunc3(func_279);
+}
+
+void func_279()
+{
+    int var0;
+    int var1;
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        if (sys_16(0x6, 0x11000005) == 0x151)
+        {
+            var0 = sys_16(0x6, 0x11000004);
+            if (var0 <= sys_16(0x6, 0x11000003))
+            {
+                var1 = sys_16(0x6, 0x11000006);
+                if ((var1 == 0x72) || (var1 == 0x19))
+                {
+                    func_18(0x16, 0x0);
+                    return 0x1;
+                }
+            }
+        }
+        sys_16(0x9, 0x11000003);
+    }
+}
+
+void func_280()
+{
+    
+}
+
+int func_281()
+{
+    sys_18(0x5, 0xffffffff, 0xffffffff, 0x7, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_282()
+{
+    int var0;
+    if (sys_16(0x10, 0x20000004) == 0x0)
+    {
+        var0 = 0x23;
+    }
+    else
+    {
+        var0 = 0x2;
+    }
+    sys_10(0x0, var0);
+    func_24(0x72 + sys_16(0x6, 0x1000000a), 0x0, 1.0);
+    sys_21(0x3f0, 0x41, 0x0);
+    callFunc3(func_283);
+}
+
+void func_283()
+{
+    if (sys_16(0x10, 0x20000005))
+    {
+        if (sys_16(0x10, 0x20000004))
+        {
+            if (func_194())
+            {
+                return 0x1;
+            }
+        }
+        else if (sys_16(0x6, 0x1000000d) != 0x14b)
+        {
+            if (func_165(0x0))
+            {
+                return 0x1;
+            }
+        }
+    }
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+}
+
+void func_284()
+{
+    
+}
+
+int func_285()
+{
+    sys_18(0x5, 0xffffffff, 0x2, 0x7, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_286()
+{
+    func_24(0x76, 0x0, 1.0);
+    sys_21(0x3f0, 0x42, 0x0);
+    callFunc3(func_287);
+}
+
+void func_287()
+{
+    if (sys_12(0x2712))
+    {
+        func_45();
+        return 0x1;
+    }
+    if (sys_16(0x10, 0x20000004) && (((global19 == 0x0) && (global18 == 0x2)) || ((global19 != 0x0) && (global18 == 0x0))))
+    {
+        if (global18 == 0x0)
+        {
+            sys_1A(0x2710, 0x1);
+        }
+        else
+        {
+            sys_1A(0x2710, 0x5);
+        }
+    }
+}
+
+void func_288()
+{
+    
+}
+

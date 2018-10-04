@@ -1,0 +1,937 @@
+int global0;
+int global1;
+int global2;
+int global3;
+int global4;
+int global5;
+int global6;
+int global7;
+int global8;
+float global9;
+float global10;
+int global11;
+int global12;
+int global13;
+int global14;
+int global15;
+int global16;
+int global17;
+int global18;
+int global19;
+float global20;
+int global21;
+
+void func_0()
+{
+    global0 = 0x0;
+    global1 = 0x0;
+    global2 = 0x0;
+    global3 = 0x0;
+    global4 = 0xffffffff;
+    global5 = 0xffffffff;
+    global6 = 0xffffffff;
+    global7 = 0x100;
+    global8 = 0x0;
+    global9 = global10 = 0x0;
+    global11 = 0x0;
+    global12 = 0x0;
+    global13 = 0x0;
+    global14 = 0x0;
+    global15 = 0x0;
+    global16 = 0x0;
+    global17 = 0x0;
+    global18 = 0x0;
+    global19 = 0x0;
+    global20 = 0x0;
+    global21 = 0x0;
+}
+
+void func_1()
+{
+    printf("sys_line_system_init");
+    callFunc3(func_2);
+}
+
+void func_2()
+{
+    int var0;
+    int var1;
+    global19 = global18;
+    global18 = sys_18(0x1);
+    var0 = sys_18(0x0);
+    if (var0 != 0xffffffff)
+    {
+        if (!(sys_30(0x1) || sys_49(0x3)))
+        {
+            var1 = sys_2(0x1, 0x4, var0);
+            if (var1 != 0x0)
+            {
+                (*var1)();
+            }
+        }
+        else
+        {
+            var1 = sys_2(0x1, 0x5, var0);
+            if (var1 != 0x0)
+            {
+                (*var1)();
+            }
+        }
+    }
+}
+
+void func_3()
+{
+    printf("sys_line_status_end_init");
+    callFunc3(func_4);
+}
+
+void func_4()
+{
+    printf("sys_line_status_end_control");
+    global6 = sys_18(0x9);
+    if (global6 >= global7)
+    {
+        printf("Warning : @g_status_kind_next_(%d) >= @g_status_kind_max_(%d)", global6, global7);
+        return;
+    }
+    func_20();
+    func_5(global4);
+}
+
+void func_5(int arg0)
+{
+    int var1;
+    if (sys_5(0x5))
+    {
+        sys_1(0x5);
+    }
+    func_6();
+    if (arg0 >= 0x0)
+    {
+        var1 = sys_2(0x1, 0x2, arg0);
+        if (var1 != 0x0)
+        {
+            (*var1)();
+        }
+        var1 = sys_2(0x1, 0x6, arg0);
+        if (var1 != 0x0)
+        {
+            (*var1)();
+        }
+    }
+}
+
+void func_6()
+{
+    if (sys_5(0x1))
+    {
+        sys_1(0x1);
+    }
+    if (sys_5(0x6))
+    {
+        sys_1(0x6);
+    }
+}
+
+void func_7()
+{
+    printf("sys_line_status_shift_init");
+    callFunc3(func_8);
+}
+
+void func_8()
+{
+    int var0;
+    printf("sys_line_status_shift_control");
+    if (((global6 != global4) && (global6 != 0xffffffff)) || sys_18(0x6))
+    {
+        if (global6 >= global7)
+        {
+            printf("Warning : @g_status_kind_next_(%d) >= @g_status_kind_max_(%d)", global6, global7);
+            return;
+        }
+        global8 = 0x1;
+        global5 = global4;
+        global4 = global6;
+        if (func_9(global4))
+        {
+            global4 = sys_18(0x7);
+            func_9(global4);
+        }
+        func_10(global4);
+        var0 = sys_2(0x1, 0x3, global4);
+        if (var0 != 0x0)
+        {
+            global2 = var0;
+        }
+        global9 = global10 = 0x0;
+        global16 = 0x0;
+        if (global12 != 0x0)
+        {
+            (*global12)();
+        }
+    }
+}
+
+int func_9(int arg0)
+{
+    int var1;
+    int var2;
+    printf("sub_pre_status_msc: LINE_STATUS_SHIFT status_now:%d", arg0);
+    if (arg0 < 0x0)
+    {
+        printf("[Error]sub_pre_status_msc undefined status_now");
+        return 0x0;
+    }
+    var1 = 0x0;
+    var2 = sys_2(0x1, 0x0, arg0);
+    if (var2 != 0x0)
+    {
+        var1 = (*var2)();
+    }
+    else
+    {
+        var1 = 0x0;
+    }
+    return var1;
+}
+
+void func_10(int arg0)
+{
+    int var1;
+    printf("sub_set_status_msc: LINE_STATUS_SHIFT status_now:%d", arg0);
+    if (arg0 < 0x0)
+    {
+        printf("[Error]sub_set_status_msc undefined status_now");
+        return;
+    }
+    var1 = sys_2(0x1, 0x1, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x5, var1);
+    }
+    func_11(arg0);
+}
+
+void func_11(int arg0)
+{
+    int var1;
+    if (arg0 < 0x0)
+    {
+        return;
+    }
+    var1 = sys_2(0x1, 0x7, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x1, var1);
+    }
+    var1 = sys_2(0x1, 0x8, arg0);
+    if (var1 != 0x0)
+    {
+        sys_0(0x6, var1);
+    }
+}
+
+void func_12()
+{
+    printf("sys_line_status_system_init");
+    printf("PLATFORM CAFE");
+    callFunc3(func_13);
+}
+
+void func_13()
+{
+    if (sys_30(0x1) == 0x0)
+    {
+        if ((global8 == 0x0) && (global9 < 1000000.0))
+        {
+            if (sys_49(0x2) == 0x1)
+            {
+                global9 += sys_4C(0x0);
+                global3 = 0x1;
+            }
+            else
+            {
+                global9 = global10 + 1.0;
+                global10 = global9;
+                global3 = 0x0;
+            }
+        }
+        else
+        {
+            global3 = sys_49(0x2);
+        }
+    }
+    else
+    {
+        global3 = 0x1;
+    }
+    if (global14 != 0x0)
+    {
+        (*global14)();
+    }
+    global18 = sys_18(0x1);
+    global20 = sys_13(0x1);
+    if (global2 != 0x0)
+    {
+        (*global2)();
+        global2 = 0x0;
+    }
+    if (!global3)
+    {
+        if (global15 != 0x0)
+        {
+            (*global15)();
+        }
+        if (global16 != 0x0)
+        {
+            (*global16)();
+        }
+    }
+    global8 = 0x0;
+}
+
+int func_14(int arg0)
+{
+    if (arg0 < 0x0)
+    {
+        return -arg0;
+    }
+    return arg0;
+}
+
+float func_15(float arg0)
+{
+    if (arg0 < (float)0x0)
+    {
+        return -arg0;
+    }
+    return arg0;
+}
+
+void func_16(float arg0)
+{
+    if (arg0 < 0x0)
+    {
+        return -1.0;
+    }
+    else
+    {
+        return 1.0;
+    }
+}
+
+float func_17(float arg0, float arg1, float arg2)
+{
+    if (arg0 < arg1)
+    {
+        return arg1;
+    }
+    else if (arg0 > arg2)
+    {
+        return arg2;
+    }
+    return arg0;
+}
+
+void func_18(int arg0, int arg1)
+{
+    if (global11)
+    {
+        (*global11)(arg0, arg1);
+    }
+}
+
+void func_19(int arg0, int arg1)
+{
+    sys_18(0x3, arg0, arg1);
+}
+
+void func_20()
+{
+    int var0;
+    int var1;
+    if (global13)
+    {
+        (*global13)(var0, var1);
+    }
+}
+
+int func_21(int arg0, int arg1)
+{
+    sys_21(0x19, arg0, arg1);
+    return 0x1;
+}
+
+void func_22(int arg0)
+{
+    sys_18(0x2, arg0);
+    global19 = global18;
+    global18 = arg0;
+}
+
+void func_23(int arg0, int arg1)
+{
+    sys_18(0x2, arg0, arg1);
+    global19 = global18;
+    global18 = arg0;
+}
+
+void func_24(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x1, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_25(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x3, var1);
+    global20 = sys_13(0x1);
+}
+
+void func_26(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x25, var1);
+}
+
+void func_27(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x26, var1);
+}
+
+void func_28(int arg0, int arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x26, var3, arg1, arg2);
+}
+
+void func_29(int arg0)
+{
+    int var1;
+    var1 = arg0;
+    if (global21)
+    {
+        var1 = (*global21)(arg0);
+    }
+    sys_12(0x3, var1, sys_13(0x1));
+}
+
+void func_30(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x2b, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_31(int arg0, float arg1, int arg2, int arg3)
+{
+    int var4;
+    var4 = arg0;
+    if (global21)
+    {
+        var4 = (*global21)(arg0);
+    }
+    sys_12(0x1, var4, arg1, arg2, arg3);
+    global20 = arg1;
+}
+
+int func_32(int arg0)
+{
+    if (sys_9(0x0, arg0) == 0x0)
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_33(int arg0)
+{
+    int var1;
+    var1 = sys_12(0x7);
+    if ((((var1 == arg0) || (var1 == (arg0 + 0x1))) || (var1 == (arg0 + 0x2))) || (var1 == (arg0 + 0x3)))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+int func_34(int arg0, int arg1)
+{
+    if ((((arg0 == arg1) || (arg0 == (arg1 + 0x1))) || (arg0 == (arg1 + 0x2))) || (arg0 == (arg1 + 0x3)))
+    {
+        return 0x1;
+    }
+    return 0x0;
+}
+
+void func_35()
+{
+    sys_14(0x271c);
+    sys_14(0x2);
+}
+
+int func_36()
+{
+    if (global18 == 0x0)
+    {
+        if (sys_1A(0xc))
+        {
+            return 0x1;
+        }
+    }
+    return 0x0;
+}
+
+void func_37(int arg0, float arg1, int arg2)
+{
+    int var3;
+    var3 = arg0;
+    if (global21)
+    {
+        var3 = (*global21)(arg0);
+    }
+    sys_12(0x38, var3, arg1, arg2);
+    global20 = arg1;
+}
+
+void func_38()
+{
+    
+}
+
+float func_39()
+{
+    float var0;
+    var0 = sys_11(0x2, 0x1);
+    return var0;
+}
+
+int func_40(int arg0)
+{
+    return arg0 + sys_16(0x6, 0x10000005);
+}
+
+void main()
+{
+    printf("ENTRY This Fighter is driven by msc.");
+    func_0();
+    global0 = sys_7(0x0);
+    global1 = sys_7(0x1);
+    func_43();
+    sys_0(0x2, func_3);
+    sys_0(0x3, func_7);
+    sys_0(0x4, func_12);
+    set_main(func_1);
+}
+
+void func_42()
+{
+    global11 = func_19;
+    global21 = func_40;
+}
+
+void func_43()
+{
+    global7 = 0x4;
+    func_44();
+    func_42();
+}
+
+void func_44()
+{
+    sys_3(0x1, 0x0, 0x0, func_45);
+    sys_3(0x1, 0x1, 0x0, func_46);
+    sys_3(0x1, 0x2, 0x0, func_48);
+    sys_3(0x1, 0x0, 0x1, func_50);
+    sys_3(0x1, 0x1, 0x1, func_51);
+    sys_3(0x1, 0x2, 0x1, func_53);
+    sys_3(0x1, 0x0, 0x2, func_56);
+    sys_3(0x1, 0x1, 0x2, func_57);
+    sys_3(0x1, 0x2, 0x2, func_60);
+    sys_3(0x1, 0x0, 0x3, func_61);
+    sys_3(0x1, 0x1, 0x3, func_62);
+    sys_3(0x1, 0x2, 0x3, func_64);
+}
+
+int func_45()
+{
+    sys_18(0x5, 0x2, 0x0, 0x5, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_46()
+{
+    int var0;
+    float var1;
+    float var2;
+    var0 = 0x0;
+    sys_16(0x7, var0, 0x10000004);
+    func_24(0x0, 0x0, 1.0);
+    var1 = sys_15(0x1);
+    var2 = sys_15(0x2);
+    sys_16(0x0, var1 + 0x0, 0x1);
+    sys_16(0x0, var2 + 0x0, 0x2);
+    if (!sys_30(0x1))
+    {
+        func_49();
+    }
+    global16 = func_49;
+    callFunc3(func_47);
+}
+
+void func_47()
+{
+    int var0;
+    var0 = sys_18(0x6);
+    if (var0 == 0x0)
+    {
+        sys_21(0x3ec);
+    }
+    sys_21(0x3eb);
+}
+
+void func_48()
+{
+    
+}
+
+void func_49()
+{
+    
+}
+
+int func_50()
+{
+    sys_18(0x5, 0x2, 0x0, 0x5, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_51()
+{
+    int var0;
+    float var1;
+    float var2;
+    var0 = 0x0;
+    sys_16(0x7, var0, 0x10000004);
+    func_24(0x4, 0x0, 1.0);
+    var1 = sys_15(0x1);
+    var2 = sys_15(0x2);
+    sys_16(0x0, var1 + 0x0, 0x1);
+    sys_16(0x0, var2 + 0x0, 0x2);
+    if (!sys_30(0x1))
+    {
+        func_54();
+    }
+    global16 = func_54;
+    callFunc3(func_52);
+}
+
+void func_52()
+{
+    int var0;
+    var0 = sys_18(0x6);
+    if (var0 == 0x0)
+    {
+        sys_21(0x3ec);
+    }
+    if (sys_16(0x10, 0x21000000))
+    {
+        sys_21(0x3ed);
+        sys_16(0x2711, 0x21000000);
+    }
+    sys_21(0x3eb);
+}
+
+void func_53()
+{
+    
+}
+
+void func_54()
+{
+    float var0;
+    float var1;
+    float var2;
+    float var3;
+    float var4;
+    float var5;
+    float var6;
+    float var7;
+    float var8;
+    float var9;
+    float var10;
+    float var11;
+    float var12;
+    float var13;
+    float var14;
+    float var15;
+    float var16;
+    float var17;
+    float var18;
+    float var19;
+    float var20;
+    float var21;
+    float var22;
+    float var23;
+    float var24;
+    float var25;
+    func_55();
+    var0 = sys_17(0x0, 0x2000003);
+    var0 *= 10.0 * sys_15(0x7);
+    var1 = sys_15(0x1);
+    var2 = sys_15(0x2);
+    var3 = sys_17(0x0, 0x1);
+    var4 = sys_17(0x0, 0x2);
+    var5 = var1 - var3;
+    var6 = var2 - var4;
+    var7 = sys_A(0x3, var5, var6, 0x0);
+    if (var7 >= var0)
+    {
+        if (sys_16(0x10, 0x20000004) == 0x1)
+        {
+            func_18(0x2, 0x0);
+            return 0x1;
+        }
+        sys_16(0x2710, 0x21000000);
+        sys_16(0x0, var1 + 0x0, 0x1);
+        sys_16(0x0, var2 + 0x0, 0x2);
+    }
+    var8 = sys_15(0x0);
+    var9 = sys_11(0x0, 0x1);
+    var10 = sys_11(0x1, 0x1);
+    var11 = sys_A(0x0, (var9 * var9) + (var10 * var10));
+    var12 = sys_17(0x0, 0x2000001);
+    var13 = 0.8999999761581421;
+    if ((sys_1A(0x272b, 0x1) == 0x1) && (var10 >= var13))
+    {
+        sys_10(0x11, 0x0, var11 * var8, 0x0);
+        sys_10(0xf, 0x0, var12 * var8, 0x0);
+        if (var8 == 1.0)
+        {
+            sys_16(0x0, 0x0 + 0x0, 0x3);
+        }
+        else
+        {
+            sys_16(0x0, 180.0 + 0x0, 0x3);
+        }
+    }
+    else if ((sys_1A(0x272b, 0x8) == 0x1) && (var10 <= -var13))
+    {
+        sys_10(0x11, 0x0, var11 * var8, 0x0);
+        sys_10(0xf, 0x0, var12 * var8, 0x0);
+        if (var8 == 1.0)
+        {
+            sys_16(0x0, 0x0 + 0x0, 0x3);
+        }
+        else
+        {
+            sys_16(0x0, 180.0 + 0x0, 0x3);
+        }
+    }
+    else if ((sys_1A(0x272b, 0x4) == 0x1) && (var9 >= var13))
+    {
+        sys_10(0x11, 0x0, 0x0, var11);
+        sys_10(0xf, 0x0, 0x0, var12);
+        sys_16(0x0, 90.0 + 0x0, 0x3);
+    }
+    else if ((sys_1A(0x272b, 0x2) == 0x1) && (var9 <= -var13))
+    {
+        sys_10(0x11, 0x0, 0x0, var11);
+        sys_10(0xf, 0x0, 0x0, var12);
+        sys_16(0x0, 90.0 + 0x0, 0x3);
+    }
+    var14 = sys_17(0x0, 0x3);
+    var9 = sys_11(0x0, 0x1);
+    var10 = sys_11(0x1, 0x1);
+    var11 = sys_A(0x0, (var9 * var9) + (var10 * var10));
+    if (var11 < 9.999999747378752e-06)
+    {
+        var9 = sys_15(0x0);
+        var11 = 1.0;
+    }
+    var12 = sys_17(0x0, 0x2000001);
+    var15 = 0x0;
+    var16 = sys_F(0x0);
+    var17 = sys_F(0x1);
+    if ((func_15(var16) > 0x0) || (func_15(var17) > 0x0))
+    {
+        var18 = sys_17(0x0, 0x2000004);
+        var16 = sys_A(0xa, var16, var17);
+        var17 = sys_A(0x8);
+        var9 = sys_A(0xa, var9, var10);
+        var10 = sys_A(0x8);
+        var19 = (var9 * var16) + (var10 * var17);
+        var20 = 0x0;
+        if (var19 >= 1.0)
+        {
+            var20 = 0x0;
+        }
+        else if (var19 <= -1.0)
+        {
+            var20 = 180.0;
+        }
+        else
+        {
+            var20 = 0x0;
+            var21 = (sys_A(0x1, var17, var16) * (float)0xb4) / 3.1415927410125732;
+            var22 = (sys_A(0x1, var10, var9) * (float)0xb4) / 3.1415927410125732;
+            var20 = func_15(var21 - var22);
+        }
+        var23 = (var9 * var17) - (var10 * var16);
+        if (var20 >= 45.0)
+        {
+            if (var23 > 0x0)
+            {
+                var14 += var18;
+            }
+            else
+            {
+                var14 -= var18;
+            }
+        }
+        else if (var23 > 0x0)
+        {
+            var14 += var20 / (45.0 / var18);
+        }
+        else
+        {
+            var14 -= var20 / (45.0 / var18);
+        }
+    }
+    if (var14 < -360.0)
+    {
+        var14 += 360.0;
+    }
+    if (var14 > 360.0)
+    {
+        var14 -= 360.0;
+    }
+    var9 = var11 * sys_A(0x4, (var14 * 3.1415927410125732) / (float)0xb4);
+    var10 = var11 * sys_A(0x5, (var14 * 3.1415927410125732) / (float)0xb4);
+    var24 = var12 * sys_A(0x4, (var14 * 3.1415927410125732) / (float)0xb4);
+    var25 = var12 * sys_A(0x5, (var14 * 3.1415927410125732) / (float)0xb4);
+    sys_10(0x11, 0x0, var9, var10);
+    sys_10(0xf, 0x0, var24, var25);
+    sys_16(0x0, var14 + 0x0, 0x3);
+}
+
+void func_55()
+{
+    float var0;
+    float var1;
+    float var2;
+    float var3;
+    var0 = sys_11(0xa, 0x0);
+    var1 = sys_11(0xb, 0x0);
+    var2 = sys_15(0x0);
+    var3 = sys_A(0x1, var1, var0 * var2) * var2;
+    sys_14(0x4, 0x0, 0x0, (var3 * (float)0xb4) / 3.1415927410125732);
+}
+
+int func_56()
+{
+    sys_18(0x5, 0xffffffff, 0x2, 0x7, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_57()
+{
+    sys_10(0x11, 0x0, 0x0, 0x0);
+    sys_10(0xf, 0x0, 0x0, 0x0);
+    if (global18 == 0x0)
+    {
+        sys_1A(0x2710, 0x1);
+    }
+    else
+    {
+        sys_1A(0x2710, 0x5);
+    }
+    if (!sys_30(0x1))
+    {
+        func_59();
+    }
+    global16 = func_59;
+    callFunc3(func_58);
+}
+
+void func_58()
+{
+    int var0;
+    var0 = sys_18(0x6);
+    if (var0 == 0x0)
+    {
+        sys_21(0x3ec);
+    }
+    sys_21(0x3eb);
+}
+
+void func_59()
+{
+    
+}
+
+void func_60()
+{
+    
+}
+
+int func_61()
+{
+    sys_18(0x5, 0xffffffff, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
+    return 0x0;
+}
+
+void func_62()
+{
+    func_24(0xc, 0x0, 1.0);
+    callFunc3(func_63);
+}
+
+void func_63()
+{
+    if (global9 == 5.0)
+    {
+        sys_21(0x9);
+    }
+}
+
+void func_64()
+{
+    
+}
+
