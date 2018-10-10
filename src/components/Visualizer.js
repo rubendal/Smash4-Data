@@ -602,13 +602,15 @@ class Visualizer extends Component {
 	
 			//Events
 	
-			this.canvas.onmousewheel = function (event) {
+			this.canvas.onwheel = function (event) {
 				event.preventDefault();
 	
 				var x = visualizer.canvas.width / 2;
 				var y = visualizer.canvas.height / 2;
+
+				var s = /firefox/i.test(navigator.userAgent) ? 5 : 120;
 	
-				var wheel = event.wheelDelta / 120;
+				var wheel = -event.deltaY / s;
 	
 				var zoom = 1 + wheel / 20;
 	

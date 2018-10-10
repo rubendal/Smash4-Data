@@ -32,7 +32,8 @@ function FormatScript(script){
                 .replace(/{<\/span><br\/><span>/g, "{</span><div class='script-tab'><span>")
                 .replace(/}<\/span><br\/><span>/g, "</span></div>}<br/><span>")
                 .replace(/(=)(-?[0-9A-F]+x?\.?[0-9A-F]*)(,|\))/g, "$1<span class='script-param-value'>$2</span>$3")
-                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='script-cmd'>$1</span>$2");
+                .replace(/([a-zA-Z_0-9/]+)(\()/g, "<span class='script-cmd'>$1</span>$2")
+                .replace(/<span><\/span>/g,"");
 }
 
 export function BuildScript(script){
