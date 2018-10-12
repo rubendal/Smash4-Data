@@ -219,7 +219,7 @@ class ScriptList extends Component{
                             return (
                             <option value={index} key={`script-${script.Id}`}>
                                 {script.Article === "body" ? (script.AnimationName === ToHex(script.Hash) ? script.AnimationName : `${script.AnimationName} - ${ToHex(script.Hash)}`) 
-                                : `weapon/${script.Article}/${script.AnimationName}`}
+                                : `${script.Article}/${script.AnimationName}`}
                             </option>
                             );
                         }

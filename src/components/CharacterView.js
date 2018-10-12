@@ -71,8 +71,6 @@ class CharacterView extends Component {
       }
     );
   }
-  
-  
 
   render() {
     if(this.state.data !== undefined){
